@@ -1,0 +1,52 @@
+:root{
+    --teal: #2EC1AC;
+    --teal_hover: #279E8C;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.h-font{
+    font-family: 'Merienda', cursive;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.custom-bg{
+    background-color: var(--teal);
+    border: 1px solid var(--teal)
+}
+.custom-bg:hover{
+    background-color: var(--teal_hover);
+    border-color: var(--teal_hover);
+}
+
+.h-line{
+    width: 150px;
+    margin: 0 auto;
+    height: 1.7px;
+}
+div.login-form{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+}
+.custom-alert {
+        background-color: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+}
