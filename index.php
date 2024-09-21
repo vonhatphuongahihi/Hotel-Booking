@@ -370,39 +370,7 @@
             <a href="#" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Know More >>></a>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php">HOTEL</a>
-        <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link active me-2" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link me-2" href="#">Rooms</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link me-2" href="#">Facilities</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link me-2" href="#">Contact us</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link me-2" href="#">About</a>
-            </li>
-        </ul>
-        <div class="d-flex">
-            <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Login</button>
-            <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#registerModal">
-            Register</button>
-        </div>
-        </div>
-    </div>
-    </nav>
+
     <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -512,29 +480,29 @@
             <div class="col-lg-4 col-md-4">
                 <div class="bg-white p-4 rounded mb-4">
                     <h5>Call us</h5>
-                    <a href="tel: +84777888999" class="d-inline-block mb-2 text-decoration-none text-dark">
-                        <i class="bi bi-telephone-fill"></i> +84777888999
+                    <a href="tel: +84 365 486 141" class="d-inline-block mb-2 text-decoration-none text-dark">
+                        <i class="bi bi-telephone-fill"></i> +84 365 486 141
                     </a>
                     <br>
-                    <a href="tel: +84777888999" class="d-inline-block text-decoration-none text-dark">
-                        <i class="bi bi-telephone-fill"></i> +84777888999
+                    <a href="tel: +84 365 486 141" class="d-inline-block text-decoration-none text-dark">
+                        <i class="bi bi-telephone-fill"></i> +84 365 486 141
                     </a>
                 </div>
                 <div class="bg-white p-4 rounded mb-4">
                     <h5>Follow us</h5>
-                    <a href="#" class="d-inline-block mb-3">
+                    <a href="https://x.com/i/flow/single_sign_on" class="d-inline-block mb-3">
                         <span class="badge bg-light text-dark fs-6 p-2">
                         <i class="bi bi-twitter-x me-1"></i> X (Twitter)
                         </span>
                     </a>
                     <br>
-                    <a href="#" class="d-inline-block mb-3">
+                    <a href="https://www.facebook.com/phuong.vonhat.tuhy/" class="d-inline-block mb-3">
                         <span class="badge bg-light text-dark fs-6 p-2">
                         <i class="bi bi-facebook me-1"></i> Facebook
                         </span>
                     </a>
                     <br>
-                    <a href="#" class="d-inline-block">
+                    <a href="https://www.instagram.com/tuhy.sapoche.99/" class="d-inline-block">
                         <span class="badge bg-light text-dark fs-6 p-2">
                         <i class="bi bi-instagram me-1"></i> Instagram
                         </span>
@@ -550,87 +518,6 @@
       <?php require('inc/footer.php'); ?>
    
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".swiper-container", {
-            spaceBetween: 30,
-            effect: "fade",
-            loop: true,
-            autoplay: {
-                delay: 3500,
-                disableOnInteraction: false,
-            },
-        });
-
-        var swiper = new Swiper(".swiper-testimonials", {
-            effect: "coverflow",
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: "auto",
-            slidesPerView: "3",
-            loop: true,
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-            },
-            breakpoints: {
-                320: {
-                    slidesPerView: 1,
-                },
-                640: {
-                    slidesPerView: 1,
-                },
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                },
-            }
-        });
-  </script>
-
-    <div class="container-fluid bg-white mt-5">
-        <div class="row">
-            <div class="col-lg-4 p-4">
-                <h3 class="h-font fw-bold fs-3 mb-2">TJ HOTEL</h3>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Quos voluptate vero sed tempore illo atque beatae asperiores,
-                    adipisci dicta quia nisi voluptates impedit perspiciatis, nobis
-                    libero culpa error officiis totam?
-                </p>
-            </div>
-            <div class="col-lg-4 p-4">
-                <h5 class="mb-3">Links</h5>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Home</a> <br>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Rooms</a> <br>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Facilities</a> <br>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Contact us</a> <br>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">About</a>
-            </div>
-            <div class="col-lg-4 p-4">
-                <h5 class="mb-3">Follow us</h5>
-                <a href="#" class="d-inline-block text-dark text-decoration-none mb-2">
-                    <i class="bi bi-twitter-x me-1"></i> X (Twitter)
-                </a><br>
-                <a href="#" class="d-inline-block text-dark text-decoration-none mb-2">
-                    <i class="bi bi-facebook me-1"></i> Facebook
-                </a><br>
-                <a href="#" class="d-inline-block text-dark text-decoration-none">
-                    <i class="bi bi-instagram me-1"></i> Instagram
-                </a><br>
-            </div>
-        </div>
-    </div>
-
-    <h6 class="text-center bg-dark text-white p-3 m-0">Designed and Developed by TJ WEBDEV</h6>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

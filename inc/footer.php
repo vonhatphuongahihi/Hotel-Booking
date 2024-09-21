@@ -11,21 +11,21 @@
             </div>
             <div class="col-lg-4 p-4">
                 <h5 class="mb-3">Links</h5>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Home</a> <br>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Rooms</a> <br>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Facilities</a> <br>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">Contact us</a> <br>
-                <a href="#" class="d-inline-block mb-2 text-dark text-decoration-none">About</a>
+                <a href="index.php" class="d-inline-block mb-2 text-dark text-decoration-none">Home</a> <br>
+                <a href="rooms.php" class="d-inline-block mb-2 text-dark text-decoration-none">Rooms</a> <br>
+                <a href="facilities.php" class="d-inline-block mb-2 text-dark text-decoration-none">Facilities</a> <br>
+                <a href="contact.php" class="d-inline-block mb-2 text-dark text-decoration-none">Contact us</a> <br>
+                <a href="about.php" class="d-inline-block mb-2 text-dark text-decoration-none">About</a>
             </div>
             <div class="col-lg-4 p-4">
                 <h5 class="mb-3">Follow us</h5>
-                <a href="#" class="d-inline-block text-dark text-decoration-none mb-2">
+                <a href="https://x.com/i/flow/single_sign_on" class="d-inline-block text-dark text-decoration-none mb-2">
                     <i class="bi bi-twitter-x me-1"></i> X (Twitter)
                 </a><br>
-                <a href="#" class="d-inline-block text-dark text-decoration-none mb-2">
+                <a href="https://www.facebook.com/phuong.vonhat.tuhy/" class="d-inline-block text-dark text-decoration-none mb-2">
                     <i class="bi bi-facebook me-1"></i> Facebook
                 </a><br>
-                <a href="#" class="d-inline-block text-dark text-decoration-none">
+                <a href="https://www.instagram.com/tuhy.sapoche.99/" class="d-inline-block text-dark text-decoration-none">
                     <i class="bi bi-instagram me-1"></i> Instagram
                 </a><br>
             </div>
