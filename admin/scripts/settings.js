@@ -201,7 +201,7 @@
                     member_picture_inp.value = '';
                     get_members();
                 }
-               }
+            }
 
             xhr.send(data);
         }
