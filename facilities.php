@@ -33,15 +33,16 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorem <br> eligendi nulla qui fugiat fuga neque provident. Voluptas, quod quia!
     </p>
     </div>
+    
     <div class="container">
         <div class="row">
             <?php
-                $res = selectAll('facilities')
+                $res = selectAll('facilities');
                 $path = FACILITIES_IMG_PATH;
 
                 while($row = mysqli_fetch_assoc($res))
                 {
-                    echo<<<data  
+                    echo<<<data
                     <div class="col-lg-4 col-md-6 mb-5 px-4">
                     <div class="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
                         <div class="d-flex align-items-center mb-2">

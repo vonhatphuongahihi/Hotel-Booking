@@ -44,7 +44,6 @@
                    while ($row = mysqli_fetch_assoc($res)) {
                     $path = CAROUSEL_IMG_PATH;
                     echo <<<data
-                    $path$row[image]
                          <div class="swiper-slide">
                            <img src="$path$row[image]" class="w-100 d-block" />
                          </div>

@@ -8,14 +8,14 @@
     {
         $frm_data = filteration($_POST);
 
-        $q = "INSERT INTO `features`(`id`, `name`) VALUES (?)";
+        $q = "INSERT INTO `features`(`name`) VALUES (?)";
         $values = [$frm_data['name']];
         $res = insert($q, $values,'s');
         echo $res;
         
     }
 
-    if (isset($_POST['get_feature'])) {
+    if (isset($_POST['get_features'])) {
         $res = selectAll('features');
         $i=1;
         while ($row = mysqli_fetch_assoc($res)) {
@@ -31,7 +31,7 @@
                 </tr>
             data;
             $i++;
-         }
+        }
     }
 
     if (isset($_POST['rem_feature'])) {
@@ -49,6 +49,7 @@
     {
         $frm_data = filteration($_POST);
         $img_r = uploadSVGImage($_FILES['icon'], FACILITIES_FOLDER);
+        
         if ($img_r == 'inv_img') {
             echo $img_r;
         }
@@ -67,7 +68,8 @@
         
     }
 
-    if (isset($_POST['get_facility'])) {
+    if (isset($_POST['get_facilities']))
+    {
         $res = selectAll('facilities');
         $i=1;
         $path = FACILITIES_IMG_PATH;
@@ -89,7 +91,8 @@
          }
     }
 
-    if (isset($_POST['rem_facility'])) {
+    if (isset($_POST['rem_facility']))
+    {
         $frm_data = filteration($_POST);
         $values = [$frm_data['rem_facility']];
 
@@ -99,13 +102,12 @@
 
         if (deleteImage($img['icon'], FACILITIES_FOLDER)) {
             $q = "DELETE FROM `facilities` WHERE `id` = ?";
-            $res = delete($q, $values, 'i');
+            $res = delete($q, $values,'i');
             echo $res;
         }
         else {
             echo 0;
         }
-
     }
 
 ?>
