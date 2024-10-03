@@ -8,14 +8,14 @@
     {
         $frm_data = filteration($_POST);
 
-        $q = "INSERT INTO `features`(`id`, `name`) VALUES (?)";
+        $q = "INSERT INTO `features`(`name`) VALUES (?)";
         $values = [$frm_data['name']];
         $res = insert($q, $values,'s');
         echo $res;
         
     }
 
-    if (isset($_POST['get_feature'])) {
+    if (isset($_POST['get_features'])) {
         $res = selectAll('features');
         $i=1;
         while ($row = mysqli_fetch_assoc($res)) {
@@ -31,17 +31,23 @@
                 </tr>
             data;
             $i++;
-         }
+        }
     }
 
     if (isset($_POST['rem_feature'])) {
         $frm_data = filteration($_POST);
         $values = [$frm_data['rem_feature']];
 
-        $q = "DELETE FROM `features` WHERE `id` = ?";
-        $res = delete($q, $values, 'i');
-        echo $res;
+        $check_q = select('SELECT * FROM `room_features` WHERE `features_id` = ?', [$frm_data['rem_feature']], 'i');
 
+        if (mysqli_num_rows($check_q) == 0) {
+            $q = "DELETE FROM `features` WHERE `id` = ?";
+            $res = delete($q, $values, 'i');
+            echo $res;
+        }
+        else {
+            echo 'room_added';
+        }
     }
 
     
@@ -49,6 +55,7 @@
     {
         $frm_data = filteration($_POST);
         $img_r = uploadSVGImage($_FILES['icon'], FACILITIES_FOLDER);
+        
         if ($img_r == 'inv_img') {
             echo $img_r;
         }
@@ -67,7 +74,8 @@
         
     }
 
-    if (isset($_POST['get_facility'])) {
+    if (isset($_POST['get_facilities']))
+    {
         $res = selectAll('facilities');
         $i=1;
         $path = FACILITIES_IMG_PATH;
@@ -89,23 +97,31 @@
          }
     }
 
-    if (isset($_POST['rem_facility'])) {
+    if (isset($_POST['rem_facility']))
+    {
         $frm_data = filteration($_POST);
         $values = [$frm_data['rem_facility']];
 
-        $pre_q = "SELECT * FROM `facilities` WHERE `id`= ?";
-        $res = select($pre_q, $values, 'i');
-        $img = mysqli_fetch_assoc($res);
+        $check_q = select('SELECT * FROM `room_facilities` WHERE `facilities_id` = ?', [$frm_data['rem_facility']], 'i');
 
-        if (deleteImage($img['icon'], FACILITIES_FOLDER)) {
-            $q = "DELETE FROM `facilities` WHERE `id` = ?";
-            $res = delete($q, $values, 'i');
-            echo $res;
+        if (mysqli_num_rows($check_q) == 0)
+        {
+            $pre_q = "SELECT * FROM `facilities` WHERE `id`= ?";
+            $res = select($pre_q, $values, 'i');
+            $img = mysqli_fetch_assoc($res);
+
+            if (deleteImage($img['icon'], FACILITIES_FOLDER)) {
+                $q = "DELETE FROM `facilities` WHERE `id` = ?";
+                $res = delete($q, $values,'i');
+                echo $res;
+            }
+            else {
+                echo 0;
+            }
         }
         else {
-            echo 0;
+            echo 'room_added';
         }
-
     }
 
 ?>

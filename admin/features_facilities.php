@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Panel - Feature & Facilities</title>
+    <title>Admin Panel - Features & Facilities</title>
     <?php require('inc/links.php'); ?>
 </head>
 
@@ -37,15 +37,16 @@
                             <table class="table table-hover border">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                    <th scope="col">#</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Action</th>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thread>   
-                                <tbody>
-                                </tbody id="features-data">
+                                <tbody id="features-data">
+                                </tbody>
                             </table>
                         </div>
+
                     </div>
                 </div> 
 
@@ -69,8 +70,8 @@
                                     <th scope="col">Action</th>
                                     </tr>
                                 </thread>   
-                                <tbody>
-                                </tbody id="facilities-data">
+                                <tbody id="facilities-data">
+                                </tbody>
                             </table>
                         </div>
                     </div>
@@ -119,7 +120,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Icon</label>
-                            <input type="file" name="facility_icon" id="member_picture_inp" accept=".svg" class="form-control shadow-none" required>
+                            <input type="file" name="facility_icon" accept=".svg" class="form-control shadow-none" required>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Description</label>
@@ -127,174 +128,16 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" onclick="member_name.value='', member_picture.value=''" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
+                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
                         <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
-    <?php require('inc/scripts.php'); ?>
-   <script>
-   let feature_s_form = document.getElementById('feature_s_form');
-   let facility_s_form = document.getElementById('facility_s_form');
+
+<?php require('inc/scripts.php'); ?>
+<script src="scripts/features_facilities.js"></script>
     
-   feature_s_form.addEventListener('submit', function(e){
-            e.preventDefault();
-            add_feature();
-        });
-
-    function add_feature()
-    {
-        let data = new FormData();
-        data.append('name', feature_s_form.elements['feature_name'].value);
-        data.append('add_feature', '');
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "ajax/features_facilities.php", true);
-
-        xhr.onload = function(){
-            console.log(this.responseText);
-            var myModal = document.getElementById('feature-s');
-            var modal = bootstrap.Modal.getInstance(myModal);
-            modal.hide();
-            if (this.responseText == 1)
-            {
-                alert('success', 'New feature added');
-                feature_s_form.elements['feature_name'].value = '';
-                get_features();
-            }
-            else{
-                alert('error','Server Down');
-
-            }
-        }
-
-        xhr.send(data);
-    }
-
-    function get_features(){
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "ajax/features_facilities.php", true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onload = function(){
-            document.getElementById('features-data').innerHTML = this.responseText;
-        }
-
-        xhr.send('get_features');
-    }
-
-    
-    function rem_feature(val){
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "ajax/features_facilities.php", true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onload = function(){
-            if(this.responseText == 1)
-            {
-                alert('success', 'Feature removed');
-                get_features();
-            }
-            else if(this.responseText == 'room_added')
-            {
-                alert('error', 'Feature is added in room');
-            }
-            else
-            {
-                alert('error', 'Server down');
-            }
-        }
-
-        xhr.send('rem_feature='+val);
-    }
-
-    facility_s_form.addEventListener('submit', function(e){
-        e.preventDefault();
-        add_facility();
-    });
-
-    function add_facility()
-    {
-        let data = new FormData();
-        data.append('name', facility_s_form.elements['facility_name'].value);
-        data.append('icon', facility_s_form.elements['facility_icon'].file[0]);
-        data.append('desc', facility_s_form.elements['facility_desc'].value);
-        data.append('add_facility', '');
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "ajax/features_facilities.php", true);
-
-        xhr.onload = function(){
-            console.log(this.responseText);
-            var myModal = document.getElementById('facility-s');
-            var modal = bootstrap.Modal.getInstance(myModal);
-            modal.hide();
-            if (this.responseText == 'inv_img')
-            {
-                alert('error', 'Chỉ tệp hình ảnh có đuôi .svg được chấp nhận!');
-            }
-            else if (this.responseText == 'inv_size')
-            {
-                alert('error', 'Ảnh phải có kích thước nhỏ hơn 1MB');
-            }
-            else if (this.responseText == 'upd_failed')
-            {
-                alert('error', 'Ảnh upload không thành công!. Máy chủ lỗi!');
-            }
-            else if (this.responseText == 1)
-            {
-                alert('success', 'Thêm thành công!');
-                facility_s_form.reset();
-                get_facilities();
-            }
-        }
-
-        xhr.send(data);
-    }
-
-    function get_facilities(){
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "ajax/features_facilities.php", true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onload = function(){
-            document.getElementById('facilities-data').innerHTML = this.responseText;
-        }
-
-        xhr.send('get_facilities');
-    }
-
-    function rem_facility(val){
-        let xhr = new XMLHttpRequest();
-        xhr.open("POST", "ajax/features_facilities.php", true);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-        xhr.onload = function(){
-            if(this.responseText == 1)
-            {
-                alert('success', 'Facility removed');
-                get_features();
-            }
-            else if(this.responseText == 'room_added')
-            {
-                alert('error', 'Facility is added in room');
-            }
-            else
-            {
-                alert('error', 'Server down');
-            }
-        }
-
-        xhr.send('rem_facility='+val);
-    }
-
-    window.onload = function()
-    {
-        get_features();
-        get_facilities();
-    }
-
-
-   </script>
 </body>
 </html>

@@ -46,7 +46,7 @@
                 redirect('dashboard.php');
             }
             else {
-                alert('Đăng nhập admin thất bại!');
+                alert('error','Đăng nhập admin thất bại!');
             }
         } 
     ?>
