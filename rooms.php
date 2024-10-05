@@ -211,7 +211,7 @@
     </div>
     </div>
     <!-- Check booking availability form -->
-    <div class="container">
+    <div class="container-fluid">
       <div class="row">
         <div class="col-lg-3 col-md- mb-lg-0 mb-4">
           <nav class="navbar navbar-expand-lg navbar-light bg-white border-2 shadow">
@@ -258,6 +258,7 @@
           </nav>
         </div>
         <div class="col-lg-9 col-md-12 px-4">
+
            <div class="card mb-4 border-0 shadow">
         <div class="row g-0 p-3 align-items-center">
             <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
@@ -379,5 +380,8 @@
         },
         });
   </script>
+  <?php 
+  require('inc/footer.php');
+  ?>
 </body>
 </html>
