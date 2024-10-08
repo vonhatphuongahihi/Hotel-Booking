@@ -11,6 +11,7 @@
         href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         />
         <?php require('inc/links.php'); ?>
+        <title><?php echo $settings_r['site_title'] ?> - ABOUT</title>
         <style>
             .h-line
             {

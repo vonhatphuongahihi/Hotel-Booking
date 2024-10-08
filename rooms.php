@@ -4,384 +4,181 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-        />
 
-    <style>
-        *{
-            font-family: 'Poppins', sans-serif;
-        }
-        .h-font{
-            font-family: 'Merienda', cursive;
-        }
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-        .custom-bg{
-            background-color: #2EC1AC;
-        }
-        .custom-bg:hover{
-            background-color: #279E8C;
-        }
-        .availability-form{
-            margin-top: -50px;
-            z-index: 2;
-            position: relative;
-        }
-        @media screen and (max-width: 575px){
-            .availability-form{
-                margin-top: 25px;
-                padding:0 35px;
+        <?php require('inc/links.php'); ?>
+        <title><?php echo $settings_r['site_title'] ?> - ROOMS</title>
+        <style>
+            .h-line
+            {
+                width: 150px;
+    margin: 0 auto;
+    height: 1.7px;
             }
-            
-        }
-    </style>
+        </style>
+   
 </head>
 <body class="bg-light">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
+   <?php require('inc/header.php');?>
+    <div class="my-5 px-4">
+    <h2 class="fw-bold h-font text-center">OUR ROOMS</h2> 
+    <div class="h-line bg-dark "></div>
+    </div>
+    
     <div class="container-fluid">
-        <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php">HOTEL</a>
-        <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-            <a class="nav-link active me-2" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link me-2" href="Rooms.php">Rooms</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link me-2" href="#">Facilities</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link me-2" href="#">Contact us</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link me-2" href="#">About</a>
-            </li>
-        </ul>
-        <div class="d-flex">
-            <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-            Login</button>
-            <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#registerModal">
-            Register</button>
-        </div>
-        </div>
-    </div>
-    </nav>
-    <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                    <h5 class="modal-title d-flex align-items-center">
-                        <i class="bi bi-person-circle fs-3 me-2"></i>
-                        User Login</h5>
-                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Email address</label>
-                        <input type="email" class="form-control
-                        shadow-none">
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-control
-                        shadow-none">
-                    </div>
-                    <div class="d-flex align-items-center justify-content-between">
-                        <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
-                        <a href="javascript: void(0)" class="text-secondary text-decoration-none">Forgot Password?</a>
-                    </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                    <h5 class="modal-title d-flex align-items-center">
-                    <i class="bi bi-person-lines-fill fs-3 me-2"></i>
-                        User Registration</h5>
-                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                    <span class="badge bg-light text-dark mb-3 text-wrap lh-base">Note: Your details must match with your ID(Passport,..) that will be required during check-in</span>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Name</label>
-                                <input type="text" class="form-control
-                        shadow-none">
+        <div class="row">
+            <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white border-2 shadow">
+                    <div class="container-fluid flex-lg-column align-items-stretch">
+                        <h4 class="mt-2">FILTERS</h4>
+                        <div class="collapse navbar-collapse flex-column mt-2" id="filterDropdown">
+                            <div class="border bg-light p-3 rounded mb-3">
+                            <h5 class="mb-3" style="font-size: 18px;">CHECK AVAILABILITY</h5>
+                            <label class="form-label">Check-in</label>
+                            <input type="date" class="form-control shadow-none mb-3">
+                            <label class="form-label">Check-out</label>
+                            <input type="date" class="form-control shadow-none">
                             </div>
-                            <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control
-                        shadow-none">
+                            <div class="border bg-light p-3 rounded mb-3">
+                            <h5 class="mb-3" style="font-size: 18px;">FACILITIES</h5>
+                            <div class="mb-2">
+                                <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
+                                <label class="form-check-label" for="f1">One</label>
                             </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Phone Number</label>
-                                <input type="number" class="form-control
-                        shadow-none">
+                            <div class="mb-2">
+                                <input type="checkbox" id="f2" class="form-check-input shadow-none me-1">
+                                <label class="form-check-label" for="f2">Two</label>
                             </div>
-                            <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Picture</label>
-                                <input type="file" class="form-control
-                        shadow-none">
+                            <div class="mb-2">
+                                <input type="checkbox" id="f3" class="form-check-input shadow-none me-1">
+                                <label class="form-check-label" for="f3">Three</label>
                             </div>
-                            <div class="col-md-12 p-0 mb-3">
-                                <label class="form-label">Address</label>
-                                <textarea class="form-control shadow-none" rows="1"></textarea>
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Pincode</label>
-                                <input type="number" class="form-control
-                        shadow-none">
-                            </div>
-                            <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Date of birth</label>
-                                <input type="date" class="form-control
-                        shadow-none">
-                            </div>
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Password</label>
-                                <input type="password" class="form-control
-                        shadow-none">
-                            </div>
-                            <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Confirm Password</label>
-                                <input type="password" class="form-control
-                        shadow-none">
+                        </div>
+                            <div class="border bg-light p-3 rounded mb-3">
+                            <h5 class="mb-3" style="font-size: 18px;">GUESTS</h5>
+                            <div class="d-flex">
+                                <div class="me-2">
+                                <label class="form-label">Adults</label>
+                                <input type="number" class="form-control shadow-none mb-3">
+                                </div>
+                                <div>
+                                <label class="form-label">Children</label>
+                                <input type="number" class="form-control shadow-none mb-3">
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-center my-1">
-                        <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
-                    </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Carousel -->
-    <div class="container-fluid px-lg-4 mt-4">
-        <div class="swiper swiper-container">
-        <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <img src="images/carousel/1.png" class="w-100 d-block" />
-        </div>
-        <div class="swiper-slide">
-            <img src="./images/carousel/2.png" class="w-100 d-block"/>
-        </div>
-        <div class="swiper-slide">
-            <img src="images/carousel/3.png" class="w-100 d-block"/>
-        </div>
-        <div class="swiper-slide">
-            <img src="images/carousel/4.png" class="w-100 d-block" />
-        </div>
-        <div class="swiper-slide">
-            <img src="images/carousel/5.png" class="w-100 d-block"/>
-        </div>
-        <div class="swiper-slide">
-            <img src="images/carousel/6.png" class="w-100 d-block"/>
-        </div>
-        </div>
-    </div>
-    </div>
-    <!-- Check booking availability form -->
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-3 col-md- mb-lg-0 mb-4">
-          <nav class="navbar navbar-expand-lg navbar-light bg-white border-2 shadow">
-            <div class="container-fluid flex-lg-column align-items-stretch">
-              <h4 class="mt-2">FILTERS</h4>
-              <div class="collapse navbar-collapse flex-column mt-2" id="filterDropdown">
-                <div class="border bg-light p-3 rounded mb-3">
-                  <h5 class="mb-3" style="font-size: 18px;">CHECK AVAILABILITY</h5>
-                   <label class="form-label">Check-in</label>
-                   <input type="date" class="form-control shadow-none mb-3">
-                   <label class="form-label">Check-out</label>
-                   <input type="date" class="form-control shadow-none">
                 </div>
-                <div class="border bg-light p-3 rounded mb-3">
-                  <h5 class="mb-3" style="font-size: 18px;">FACILITIES</h5>
-                  <div class="mb-2">
-                    <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
-                    <label class="form-check-label" for="f1">One</label>
-                  </div>
-                  <div class="mb-2">
-                    <input type="checkbox" id="f2" class="form-check-input shadow-none me-1">
-                    <label class="form-check-label" for="f2">Two</label>
-                  </div>
-                  <div class="mb-2">
-                    <input type="checkbox" id="f3" class="form-check-input shadow-none me-1">
-                    <label class="form-check-label" for="f3">Three</label>
-                  </div>
-              </div>
-                <div class="border bg-light p-3 rounded mb-3">
-                  <h5 class="mb-3" style="font-size: 18px;">GUESTS</h5>
-                  <div class="d-flex">
-                    <div class="me-2">
-                      <label class="form-label">Adults</label>
-                      <input type="number" class="form-control shadow-none mb-3">
-                    </div>
-                    <div>
-                      <label class="form-label">Children</label>
-                      <input type="number" class="form-control shadow-none mb-3">
-                    </div>
-                  </div>
-              </div>
-              </div>
+            </nav>
             </div>
-          </nav>
-        </div>
-        <div class="col-lg-9 col-md-12 px-4">
+            
+            <div class="col-lg-9 col-md-12 px-4">
 
-           <div class="card mb-4 border-0 shadow">
-        <div class="row g-0 p-3 align-items-center">
-            <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
-                <img src="images/rooms/1.jpg" class="img-fluid rounded">
-            </div>
-            <div class="col-md-5 px-lg-3 px-md-3 px-0">
-                <h5 class="mb-2">Room name</h5> 
-                <div class="features mb-3">
-                    <h6 class="mb-1">Features</h6>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        2 Rooms
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        1 Bathroom
-                    </span> 
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        2 Balcony
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        3 Sofa
-                    </span>
-                    <h6 class="mb-1">Facilities</h6>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        Wifi
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        TV
-                    </span> 
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        AC
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        Room Heater
-                    </span>
-                    <h6 class="mb-1">Guest</h6>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        5 Adults
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        4 Children
-                    </span> 
-                    </span>        
-                </div>
-            </div>
-            <div class="col-md-2 text-center">
-                <h6 class="mb-4">200 per night</h6>
-                <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
-                <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More Details</a>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-4 border-0 shadow">
-        <div class="row g-0 p-3 align-items-center">
-            <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
-                <img src="images/rooms/1.jpg" class="img-fluid rounded">
-            </div>
-            <div class="col-md-5 px-lg-3 px-md-3 px-0">
-                <h5 class="mb-2">Room name</h5> 
-                <div class="features mb-3">
-                    <h6 class="mb-1">Features</h6>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        2 Rooms
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        1 Bathroom
-                    </span> 
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        2 Balcony
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        3 Sofa
-                    </span>
-                    <h6 class="mb-1">Facilities</h6>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        Wifi
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        TV
-                    </span> 
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        AC
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        Room Heater
-                    </span>
-                    <h6 class="mb-1">Guest</h6>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        5 Adults
-                    </span>
-                    <span class="badge rounded-pill bg-light text-dark text-wrap">
-                        4 Children
-                    </span> 
-                    </span>        
-                </div>
-            </div>
-            <div class="col-md-2 text-center">
-                <h6 class="mb-4">200 per night</h6>
-                <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
-                <a href="#" class="btn btn-sm w-100 btn-outline-dark shadow-none">More Details</a>
-            </div>
-          </div>
-        </div>
-      </div>
+            <?php
+                $room_res = select("SELECT * FROM `rooms` WHERE `status`=? AND `removed`=? ORDER BY `i` DESC",[1,0],'ii');
+
+                while($room_data = mysqli_fetch_assoc($room_res))
+                {
+                    //get features of room
+                    $fea_q = mysqli_query("SELECT f.name FROM `features` f 
+                    INNER JOIN `room_features` rfea ON f.id = rfea.features_id 
+                    WHERE rfea.room_id = '$room_data[id]'");
+
+                    $features_data = "";
+                    while($fea_row = mysqli_fetch_assoc($fea_q))
+                    {
+                        $features_data .="<span class='badge rounded-pill bg-light text-dark text-wrap'>
+                            $fea_row[name]
+                        </span>";
+                    }
+
+                    // get facilities of room
+
+                    $fac_q = mysqli_query($con,"SELECT f.name FROM `facilities` f
+                        INNER JOIN `room_facilities` rfac ON f.id = rfac.facilities_id
+                        WHERE rfac.room_id = '$room_data[id]'");
+                    
+                    $facilities_data = "";
+                    while($fac_row = mysqli_fetch_assoc($fac_q))
+                    {
+                        $facilities_data .="<span class='badge rounded-pill bg-light text-dark text-wrap'>
+                            $fac_row[name]
+                        </span>";
+                    }
+
+                    // get thumnail image
+
+                    $room_thumb = ROOMS_IMG_PATH."thumbnail.jpg";
+                    $thumb_q = mysqli_query($con,"SELECT * FROM `room_images` 
+                        WHERE `room_id`='$room_data[id]' 
+                        AND `thumb`='1'");
+                    if(mysqlo_num_rows($thumb_q)>0)
+                    {
+                        $thumb_res = mysqli_fetch_assoc($thumb_q);
+                        $room_thumb = ROOMS_IMG_PATH.$thumb_res['image'];
+                    }
+
+                    // print room card
+
+                    echo <<<data
+                         <div class="card mb-4 border-0 shadow">
+                            <div class="row g-0 p-3 align-items-center">
+                                <div class="col-md-5 mb-lg-0 mb-md-0 mb-3">
+                                    <img src="$room_thumb" class="img-fluid rounded">
+                                </div>
+                                <div class="col-md-5 px-lg-3 px-md-3 px-0">
+                                    <h5 class="mb-2">$room_data[name]</h5> 
+                                    <div class="features mb-3">
+                                        <h6 class="mb-1">Features</h6>
+                                            $features_data
+                                        <h6 class="mb-1">Facilities</h6>
+                                            $facilities_data
+                                        <h6 class="mb-1">Guest</h6>
+                                        <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                            $room_data[adult] Adults
+                                        </span>
+                                        <span class="badge rounded-pill bg-light text-dark text-wrap">
+                                            $room_data[children] Children
+                                        </span> 
+                                        </span>        
+                                    </div>
+                            </div>
+                            <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
+                                <h6 class="mb-4">$room_data[price] VND per night</h6>
+                                <a href="#" class="btn btn-sm w-100 text-white custom-bg shadow-none mb-2">Book Now</a>
+                                <a href="room_details.php?id=$room_data[id]" class="btn btn-sm w-100 btn-outline-dark shadow-none">More Details</a>
+                            </div>
+                        </div>
+                    data;
+
+                }
+            ?>
+
     </div>
 
+        </div>
+    </div>
+   
 
-    <br><br><br>
-    <br><br><br>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".swiper-container", {
-        spaceBetween: 30,
-        effect: "fade",
-        loop: true,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-        },
-        });
-  </script>
-  <?php 
-  require('inc/footer.php');
-  ?>
+    <?php
+        if(isset($_POST['send']))
+        {
+            $frm_data = filteration($_POST);
+
+            $q = "INSERT INTO `user_queries`(`name`, `email`, `subject`, `message`) VALUES (?, ?, ?, ?)";
+            $values = [$frm_data['name'], $frm_data['email'], $frm_data['subject'], $frm_data['message']];
+
+            $res = insert($q, $values, 'ssss');
+            if($res==1){
+                alert('success','Mail sent!');
+            }
+            else{
+                alert('error','Server Down! Try again later');
+            }
+        }
+    ?>
+
+<?php require('inc/footer.php'); ?>
+    
+    
 </body>
 </html>
