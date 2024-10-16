@@ -49,15 +49,48 @@
             let a_tags = navbar.getElementsByTagName('a');
 
             for (i=0;i<a_tags.length;i++)
-        {
-            let file = a_tags[i].href.split('/').pop(); 
-            let file_name = file.split('.')[0]; 
-
-            if(document.location.href.index0f(file_name)>=0)
             {
-                a_tags[i].classList.add('active');
+                let file = a_tags[i].href.split('/').pop(); 
+                let file_name = file.split('.')[0]; 
+
+                if(document.location.href.index0f(file_name)>=0)
+                {
+                    a_tags[i].classList.add('active');
+                }
             }
         }
-        }   
+        
+        let register_form =  document.getElementById('register-form');
+
+        register_form.addEventListener('submit', (e)=>{
+            e.preventDefault();
+
+            let data = new FormData();
+
+            data.append('name',register_form.elements['name'].value);
+            data.append('email',register_form.elements['email'].value);
+            data.append('phonenum',register_form.elements['phonenum'].value);
+            data.append('address',register_form.elements['address'].value);
+            data.append('pincode',register_form.elements['pincode'].value);
+            data.append('dob',register_form.elements['dob'].value);
+            data.append('pass',register_form.elements['pass'].value);
+            data.append('cpass',register_form.elements['cpass'].value);
+            data.append('profile',register_form.elements['profile'].files[0]);
+            data.append('register','');
+
+            var myModal = document.getElementById('registerModal');
+            var modal = bootstrap.Modal.getInstance(myModal);
+            modal.hide();
+
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", "ajax/login_register.php", true);
+
+            xhr.onload = function(){
+
+            }
+
+            xhr.send(data);
+        });
+
         setActive();
     </script>
