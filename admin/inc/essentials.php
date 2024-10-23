@@ -1,6 +1,6 @@
 <?php
 //front end purpose data
-define('SITE_URL', 'http://127.0.0.1:8012/Hotel-Booking/');
+define('SITE_URL', 'http://127.0.0.1:80/Hotel-Booking/');
 define('ABOUT_IMG_PATH', SITE_URL.'images/about/');
 define('CAROUSEL_IMG_PATH', SITE_URL.'images/carousel/');
 define('FACILITIES_IMG_PATH', SITE_URL.'images/facilities/');
@@ -14,10 +14,6 @@ define('CAROUSEL_FOLDER', 'carousel/');
 define('FACILITIES_FOLDER', 'facilities/');
 define('ROOMS_FOLDER', 'rooms/');
 define('USERS_FOLDER', 'users/');
-
-// sendgrid api key
-
-define('SENDGRID_API_KEY',"");
 
 
 function adminLogin(){
@@ -103,17 +99,16 @@ function uploadSVGImage($image, $folder)
 
 function uploadUserImage($image)
 {
-    $valid_mime = ['image/webp', 'image/jpg', 'image/jpeg', 'image/png'];
+    $valid_mime = ['image/webp', 'image/jpeg', 'image/png'];
     $img_mime = $image['type'];
+
     if (!in_array($img_mime, $valid_mime)) {
         return 'inv_img';
     }
-    else if (($image['size']/(1024*1024))>2) {
-        return 'inv_size';
-    }
-    else {
+   else {
         $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
-        $rname = 'IMG_'.random_int(1000, 9999).".jpeg";
+        $rname = 'IMG_'.random_int(11111, 99999).".jpeg";
+
         $img_path = UPLOAD_IMAGE_PATH.USERS_FOLDER.$rname;
 
         if($ext == 'png' || $ext == 'PNG')
@@ -128,14 +123,12 @@ function uploadUserImage($image)
             $img = imagecreatefromjpeg($image['tmp_name']);
         }
 
-        if (imagejpeg($img,$img_path,70)) {
+        if (imagejpeg($img,$img_path,75)) {
             return $rname;
         }
         else {
             return 'upd_failed';
         }
-        
     }
 }
-
 ?>
