@@ -105,7 +105,7 @@ function uploadUserImage($image)
     if (!in_array($img_mime, $valid_mime)) {
         return 'inv_img';
     }
-    else {
+   else {
         $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
         $rname = 'IMG_'.random_int(11111, 99999).".jpeg";
 
