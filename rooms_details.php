@@ -78,14 +78,14 @@
             <div class="col-lg-9 col-md-12 px-4">
 
                 <?php
-                    $room_res = select("SELECT * FROM rooms WHERE status = ? AND removed = ?", [1,0],'ii');
+                    $room_res = select("SELECT * FROM `rooms` WHERE `status` = ? AND `removed` = ?", [1,0],'ii');
 
                     while($room_data = mysqli_fetch_assoc($room_res))
                     {
                         // get features of room
 
-                        $fea_q = mysqli_query($con, "SELECT f.name FROM features f 
-                            INNER JOIN room_features rfea ON f.id = rfea.features_id 
+                        $fea_q = mysqli_query($con, "SELECT f.name FROM `features` f 
+                            INNER JOIN `room_features` rfea ON f.id = rfea.features_id 
                             WHERE rfea.room_id = '$room_data[id]'");
 
                         $features_data = "";
@@ -99,8 +99,8 @@
 
                         // get facilities of room
 
-                        $fac_q = mysqli_query($con, "SELECT f.name FROM facilities f 
-                            INNER JOIN room_facilities rfac ON f.id = rfac.facilities_id 
+                        $fac_q = mysqli_query($con, "SELECT f.name FROM `facilities` f 
+                            INNER JOIN `room_facilities` rfac ON f.id = rfac.facilities_id 
                             WHERE rfac.room_id = '$room_data[id]'");
                         
                         $facilities_data = "";
@@ -115,9 +115,9 @@
                         // get thumbnail of image
 
                         $room_thumb = ROOMS_IMG_PATH."thumbnail.jpg";
-                        $thumb_q = mysqli_query($con, "SELECT * FROM room_images 
-                            WHERE room_id = '$room_data[id]' 
-                            AND thumb = '1'");
+                        $thumb_q = mysqli_query($con, "SELECT * FROM `room_images` 
+                            WHERE `room_id` = '$room_data[id]' 
+                            AND `thumb` = '1'");
                         
                         if(mysqli_num_rows($thumb_q) > 0){
                             $thumb_res = mysqli_fetch_assoc($thumb_q);
