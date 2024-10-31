@@ -1,8 +1,18 @@
 <?php
+    session_start();
     require('admin/inc/db_config.php');
     require('admin/inc/essentials.php');
-
-    $contact_q ="SELECT * FROM contact_details  WHERE `sr_no`=?";
+    if (isset($_SESSION['status']) && $_SESSION['status'] == 1) {
+        echo "
+        <script>
+            $(document).ready(function() {
+                $('#successModal').modal('show');
+            });
+        </script>
+        ";
+        unset($_SESSION['status']);
+    }
+    $contact_q ="SELECT * FROM `contact_details`  WHERE `sr_no`=?";
     $values = [1];
     $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
 ?>
@@ -39,7 +49,23 @@
         </div>
     </div>
 </nav>
-
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="successModalLabel">Success</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Your verification email has been sent successfully! Please check your email to complete the verification process.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -73,8 +99,18 @@
 
 <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
+    <?php
+            if (isset($_SESSION['status'])) {
+                // Hiển thị thông báo nếu có
+                echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Success!</strong> '.$_SESSION['status'].'
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+                unset($_SESSION['status']);
+            }
+        ?>
         <div class="modal-content">
-            <form id="register-form">
+            <form action="login-register.php" method="POST" id="register-form">
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center">
                         <i class="bi bi-person-lines-fill fs-3 me-2"></i>User Registration
@@ -134,3 +170,10 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+        <?php if (isset($_SESSION['status'])): ?>
+            $('#registerModal').modal('show');
+        <?php endif; ?>
+    });
+</script>
