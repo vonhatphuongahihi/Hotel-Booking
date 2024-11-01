@@ -1,3 +1,14 @@
+<?php
+ require_once('admin/inc/db_config.php');
+ require_once('admin/inc/essentials.php');
+
+     $contact_q ="SELECT * FROM `contact_details`  WHERE `sr_no`=?";
+     $settings_q ="SELECT * FROM `settings`  WHERE `sr_no`=?";
+
+     $values = [1];
+     $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
+     $settings_r = mysqli_fetch_assoc(select($settings_q,$values,'i'));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
