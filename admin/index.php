@@ -1,5 +1,5 @@
 <?php
-require_once('admin/inc/db_config.php');    
+require('inc/db_config.php');    
 require('inc/essentials.php');
     session_start();
     if ((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {

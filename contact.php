@@ -1,13 +1,23 @@
+<?php
+ require_once('admin/inc/db_config.php');
+ require_once('admin/inc/essentials.php');
+
+     $contact_q ="SELECT * FROM `contact_details`  WHERE `sr_no`=?";
+     $settings_q ="SELECT * FROM `settings`  WHERE `sr_no`=?";
+
+     $values = [1];
+     $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
+     $settings_r = mysqli_fetch_assoc(select($settings_q,$values,'i'));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel - CONTACT</title>
-
   
-        <?php require('inc/links.php'); ?>
+    <?php require('inc/links.php'); ?>
+    <title><?php echo $settings_r['site_title'] ?> - CONTACT</title>
         <style>
             .h-line
             {

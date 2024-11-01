@@ -1,10 +1,20 @@
+<?php
+ require_once('admin/inc/db_config.php');
+ require_once('admin/inc/essentials.php');
+
+     $contact_q ="SELECT * FROM `contact_details`  WHERE `sr_no`=?";
+     $settings_q ="SELECT * FROM `settings`  WHERE `sr_no`=?";
+
+     $values = [1];
+     $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
+     $settings_r = mysqli_fetch_assoc(select($settings_q,$values,'i'));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,6 +28,7 @@
         href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         />
     <link rel="stylesheet" href="css/common.css">
+    <title><?php echo $settings_r['site_title'] ?> - HOME</title>
     <?php require('inc/links.php'); ?>
     <style>
         .availability-form{
@@ -25,12 +36,20 @@
             z-index: 2;
             position: relative;
         }
+    
         @media screen and (max-width: 575px){
             .availability-form{
                 margin-top: 25px;
                 padding:0 35px;
             }
         }
+        .modal {
+        z-index: 1150 !important; /* Đảm bảo modal có mức độ ưu tiên cao */
+        }
+        .modal-backdrop {
+        z-index: 1140 !important; /* Đảm bảo modal-backdrop có mức độ ưu tiên cao hơn body */
+        }
+
     </style>
 </head>
 <body class="bg-light">
@@ -458,11 +477,63 @@
         </div>
     </div>
 
-    
-
+    <!-- Password reset modal -->
+    <div class="modal fade" id="recoveryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="recovery-form">
+                <div class="modal-header">
+                    <h5 class="modal-title d-flex align-items-center">
+                        <i class="bi bi-shield-lock fs-3 me-2"></i>
+                        Set up new password
+                    </h5>
+                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">New Password</label> 
+                        <input type="password" name="pass" class="form-control shadow-none" required>
+                        <input type="hidden" name="email">
+                        <input type="hidden" name="token">
+                    </div>
+                    <div class="mb-2 text-end">
+                        <button type="button" class="btn shadow-none me-2" data-bs-dismiss="modal">CANCEL</button>
+                        <button type="submit" class="btn btn-dark shadow-none">SUBMIT</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>                
     <!-- Footer -->
     <?php require('inc/footer.php'); ?>
-   
+    <?php
+        if(isset($_GET['account_recovery']))
+        {
+            $data = filteration($_GET);
+            $t_date = date('Y-m-d');
+            $query = select("SELECT * FROM `user_cred` WHERE `email` = ? AND `token` = ? AND `t_expire` = ? LIMIT 1",
+                [$data['email'],$data['token'],$t_date],'sss');
+            if(mysqli_num_rows($query) == 1)
+            {
+                echo <<< showModal
+                <script>
+                    var myModal = document.getElementById('recoveryModal');
+
+                    myModal.querySelector('input[name="email"]').value = '$data[email]';
+                    myModal.querySelector('input[name="token"]').value = '$data[token]';
+
+                    var modal = new bootstrap.Modal(myModal);
+                    modal.show();
+                </script>
+                showModal;
+            }
+            else{
+                alert('error','Invalid or Expired link!');
+            }
+
+        }
+    ?>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -511,6 +582,33 @@
                 },
             },
         });
+    // Recovery account
+    let recovery_form = document.getElementById('recovery-form');
+    document.getElementById('recovery-form').addEventListener('submit', (e) => {
+        e.preventDefault();
+        let data = new FormData();
+        data.append('email', recovery_form.elements['email'].value);
+        data.append('token', recovery_form.elements['token'].value);
+        data.append('pass', recovery_form.elements['pass'].value);
+        data.append('recover_user', '');
+
+        let modal = bootstrap.Modal.getInstance(document.getElementById('recoveryModal'));
+        modal.hide();
+
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", "ajax/login_register.php", true);
+        xhr.onload = function() {
+            switch (this.responseText) {
+                case 'failed':
+                    alert('error', 'Account reset failed!');
+                    break;
+                default:
+                    alert('success', 'Account reset successful!');
+                    e.target.reset();
+            }
+        };
+        xhr.send(data);
+    });
     </script>
 
 </body>
