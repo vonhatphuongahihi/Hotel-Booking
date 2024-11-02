@@ -9,4 +9,16 @@
     <link rel="stylesheet" href="css/common.css">
     <?php
         date_default_timezone_set('Asia/Ho_Chi_Minh');
+        $settings_q = "SELECT * FROM `settings` WHERE `sr_no` = ?";
+        $values = [1];
+        $settings_r = mysqli_fetch_assoc(select($settings_q, $values, "i"));
+        if ($settings_r['shutdown'])
+        {
+            echo <<<alertbar
+                <div class="bg-danger text-center p-2 fw-bold">
+                <i class="bi bi-exclamation-triangle-fill"></i>
+                    Bookings are temporarily closed!
+                </div>
+            alertbar;
+        }
     ?>

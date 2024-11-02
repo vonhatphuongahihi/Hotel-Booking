@@ -160,7 +160,7 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
         }
         ?>
         <div class="modal-content">
-            <form action="login-register.php" method="POST" id="register-form" enctype="multipart/form-data">
+        <form action="login-register.php" method="POST" id="register-form">
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center">
                         <i class="bi bi-person-lines-fill fs-3 me-2"></i>User Registration
@@ -169,7 +169,8 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
                 </div>
                 <div class="modal-body">
                     <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
-                        Note: Your details must match with your ID (Passport, etc.) that will be required during check-in.
+                        Note: Your details must match with your ID(Passport,..) 
+                        that will be required during check-in
                     </span>
                     <div class="container-fluid">
                         <div class="row">
@@ -177,46 +178,43 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
                                 <label class="form-label">Name</label>
                                 <input name="name" type="text" class="form-control shadow-none" required>
                             </div>
-                            <div class="col-md-6 pe-0 mb-3">
-                                <label class="form-label">Mobile</label>
-                                <input name="mobile" type="text" class="form-control shadow-none" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 ps-0 mb-3">
+                            <div class="col-md-6 p-0 mb-3">
                                 <label class="form-label">Email</label>
                                 <input name="email" type="email" class="form-control shadow-none" required>
                             </div>
-                            <div class="col-md-6 pe-0 mb-3">
+                            <div class="col-md-6 ps-0 mb-3">
+                                <label class="form-label">Phone Number</label>
+                                <input name="phonenum" type="number" class="form-control shadow-none" required>
+                            </div>
+                            <div class="col-md-6 p-0 mb-3">
+                                <label class="form-label">Picture</label>
+                                <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required>
+                            </div>
+                            <div class="col-md-12 p-0 mb-3">
+                                <label class="form-label">Address</label>
+                                <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
+                            </div>
+                            <div class="col-md-6 ps-0 mb-3">
+                                <label class="form-label">Pincode</label>
+                                <input name="pincode" type="number" class="form-control shadow-none" required>
+                            </div>
+                            <div class="col-md-6 p-0 mb-3">
+                                <label class="form-label">Date of birth</label>
+                                <input name="dob" type="date" class="form-control shadow-none" required>
+                            </div>
+                            <div class="col-md-6 ps-0 mb-3">
                                 <label class="form-label">Password</label>
-                                <input name="password" type="password" class="form-control shadow-none" required>
+                                <input name="pass" type="password" class="form-control shadow-none" required>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">ID Type</label>
-                                <select name="id_type" class="form-select shadow-none" required>
-                                    <option value="" disabled selected>Select your ID type</option>
-                                    <option value="Passport">Passport</option>
-                                    <option value="National ID">National ID</option>
-                                    <option value="Driver's License">Driver's License</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6 pe-0 mb-3">
-                                <label class="form-label">ID Number</label>
-                                <input name="id_number" type="text" class="form-control shadow-none" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Profile Picture</label>
-                                <input name="uPic" type="file" class="form-control shadow-none" accept=".png, .jpg, .jpeg" required>
+                            <div class="col-md-6 p-0 mb-3">
+                                <label class="form-label">Confirm Password</label>
+                                <input name="cpass" type="password" class="form-control shadow-none" required>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
+                    <div class="text-center my-1">
+                        <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
+                    </div>
                 </div>
             </form>
         </div>

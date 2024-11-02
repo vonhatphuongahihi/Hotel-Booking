@@ -267,6 +267,7 @@
     </div>
 
     <?php require('inc/scripts.php'); ?>
-    
+    <script src="scripts/rooms.js"></script>
+
 </body>
 </html>
