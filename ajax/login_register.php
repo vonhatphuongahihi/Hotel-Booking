@@ -41,7 +41,7 @@ function send_mail($email, $token, $type) {
         $mail->Body = "
             <h2>Hi $name,</h2>
             <p>Click the link below to $content: </p>
-            <a href='http://localhost:8012/Hotel-Booking/$page?$type&email=$email&token=$token'>Verify Account</a>
+            <a href='http://localhost:80/Hotel-Booking/$page?$type&email=$email&token=$token'>Verify Account</a>
         ";
 
         $mail->send();

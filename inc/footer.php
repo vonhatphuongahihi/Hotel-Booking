@@ -159,7 +159,14 @@
                     break;
                 default:
                     alert('success', 'Login successful!');
-                    window.location.reload();
+                    let fileurl = window.location.href.split('/').pop().split('?').shift();
+                    if (fileurl == 'room_details.php') {
+                        window.location = window.location.href;
+                    }
+                    else {
+                        window.location.reload();
+                    }
+                    
             }
         };
         xhr.send(data);
@@ -203,6 +210,16 @@
         };
         xhr.send(data);
     });
+
+    function checkLoginToBook(status,room_id){
+        if(status){
+            window.location.href = 'confirm_booking.php?id='+room_id;
+        }
+        else{
+            alert('error', 'Vui lòng đăng nhập để đặt phòng!');  
+        }
+    }
+
     setActive();
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5+5hb7Mr0x7BUQOOnceIcNHDx5P4x5N8Fwp5cjQ1" crossorigin="anonymous"></script>
