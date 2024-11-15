@@ -1,8 +1,8 @@
 <?php
-    require('inc/essentials.php');
-    require('inc/db_config.php');
-    require('inc/mpdf/vendor/autoload.php');
-    adminLogin();
+    require('admin/inc/essentials.php');
+    require('admin/inc/db_config.php');
+    require('admin/inc/mpdf/vendor/autoload.php');
+    session_start();
 
     if(isset($_GET['gen_pdf'])&&isset($_GET['id']))
     {
@@ -21,7 +21,7 @@
 
         if($total_rows==0)
         {
-            headr('location: dashboard.php');
+            headr('location: index.php');
             exit;
         }
         $data = mysqli_fetch_assoc($res);
@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                 <td>Room Name: $data[room_name]</td>
-                <td>Cost: $data[price] per night</td>
+                <td>Cost: ₹$data[price] per night</td>
                 </tr>
                 <tr>
                 <td>checkin: $checkin</td>
@@ -64,7 +64,7 @@
             $refund = ($data['refund']); ? "Amount Refunded" : "Not Yet Refunded";
             $table_data.="
                 <tr>
-                <td>Amount Paid: $data[trans_amt]</td>
+                <td>Amount Paid: ₹$data[trans_amt]</td>
                 <td>Refund: $refund</td>
                 </tr>
             ";
@@ -73,7 +73,7 @@
         {
             $table_data.="
                 <tr>
-                <td>Transaction Amount: $data[trans_amt]</td>
+                <td>Transaction Amount: ₹$data[trans_amt]</td>
                 <td>Failure Response: $data[trans_resp_msg]</td>
                 </tr>";
         }
@@ -83,7 +83,7 @@
             $table_data.="
                 <tr>
                 <td>Room Number: $data[room_no]</td>
-                <td>Amount Paid: $data[trans_amt]</td>
+                <td>Amount Paid: ₹$data[trans_amt]</td>
                 </tr>";
         }
         $table_data.="</table>";
@@ -94,6 +94,6 @@
         echo $table_data;
     }
     else{
-        header('location: dashboard.php');
+        header('location: index.php');
     }
 ?>
