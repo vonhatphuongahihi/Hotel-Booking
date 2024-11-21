@@ -113,6 +113,7 @@
 
                                         while($row = mysqli_fetch_assoc($data))
                                         {
+                                            $date = date('d-m-Y',strtotime($row['datentime']));
                                             $seen='';
                                             if($row['seen']!=1)
                                             {
@@ -126,7 +127,7 @@
                                                     <td>$row[email]</td>
                                                     <td>$row[subject]</td>
                                                     <td>$row[message]</td>
-                                                    <td>$row[date]</td>
+                                                    <td>$date</td>
                                                     <td>$seen</td>
                                                 </tr>
                                             query;

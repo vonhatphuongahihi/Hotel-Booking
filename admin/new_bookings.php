@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table table-hover border" style="min-width: 1300px;>
+                            <table class="table table-hover border" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
