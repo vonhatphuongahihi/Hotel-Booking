@@ -39,7 +39,7 @@
 <body class="bg-light">
    <?php require('inc/header.php');?>
     <div class="my-5 px-4">
-    <h2 class="fw-bold h-font text-center">ABOUT - US</h2> 
+    <h2 class="fw-bold h-font text-center">GIỚI THIỆU VỀ CHÚNG TÔI</h2> 
     <div class="h-line bg-dark "></div>
     <p class="text-center mt-3 ">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorem <br> eligendi nulla qui fugiat fuga neque provident. Voluptas, quod quia!
@@ -67,28 +67,28 @@
              <div class="col-lg-3 col-md-6 mb-4 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                     <img src="images/about/hotel.svg" width="70px">
-                    <h4 class="mt-3">100+ ROOMS</h4>
+                    <h4 class="mt-3">HƠN 100 PHÒNG</h4>
                 </div>
 
              </div>
              <div class="col-lg-3 col-md-6 mb-4 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                     <img src="images/about/customers.svg" width="70px">
-                    <h4 class="mt-3">200+ CUSTOMERS</h4>
+                    <h4 class="mt-3">HƠN 200 KHÁCH HÀNG</h4>
                 </div>
 
              </div>
              <div class="col-lg-3 col-md-6 mb-4 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                     <img src="images/about/rating.svg" width="70px">
-                    <h4 class="mt-3">150+ REVIEWS</h4>
+                    <h4 class="mt-3">HƠN 150 ĐÁNH GIÁ</h4>
                 </div>
 
              </div>
              <div class="col-lg-3 col-md-6 mb-4 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                     <img src="images/about/staff.svg" width="70px">
-                    <h4 class="mt-3">200+ STAFFS</h4>
+                    <h4 class="mt-3">HƠN 200 NHÂN VIÊN</h4>
                 </div>
 
              </div>
@@ -96,7 +96,7 @@
           
     </div>
     <h3 class="my-5 fw-bold h-font text-center">
-        MANAGEMENT TEAM
+        BAN QUẢN LÝ
     </h3>
     <div class="container px-4">
     <div class="swiper mySwiper">

@@ -2,12 +2,12 @@
  require_once('admin/inc/db_config.php');
  require_once('admin/inc/essentials.php');
 
-     $contact_q ="SELECT * FROM `contact_details`  WHERE `sr_no`=?";
-     $settings_q ="SELECT * FROM `settings`  WHERE `sr_no`=?";
+ $contact_q ="SELECT * FROM `contact_details`  WHERE `sr_no`=?";
+ $settings_q ="SELECT * FROM `settings`  WHERE `sr_no`=?";
 
-     $values = [1];
-     $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
-     $settings_r = mysqli_fetch_assoc(select($settings_q,$values,'i'));
+ $values = [1];
+ $contact_r = mysqli_fetch_assoc(select($contact_q,$values,'i'));
+ $settings_r = mysqli_fetch_assoc(select($settings_q,$values,'i'));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,21 +19,18 @@
     <?php require('inc/links.php'); ?>
     <title><?php echo $settings_r['site_title'] ?> - ROOM DETAILS</title>
     <style>
-        .h-line
-        {
+        .h-line {
             width: 150px;
             margin: 0 auto;
             height: 1.7px;
         }
     </style>
-   
 </head>
 <body class="bg-light">
     <?php require('inc/header.php');?>
 
     <?php
-        if(!isset($_GET['id']))
-        {
+        if (!isset($_GET['id'])) {
             redirect('rooms.php');
         }
 
@@ -41,25 +38,22 @@
 
         $room_res = select("SELECT * FROM `rooms` WHERE `id`=? AND `status` = ? AND `removed` = ?", [$data['id'],1,0],'iii');
 
-        if(mysqli_num_rows($room_res) == 0)
-        {
+        if (mysqli_num_rows($room_res) == 0) {
             redirect('rooms.php');
         }
 
         $room_data = mysqli_fetch_assoc($room_res);
     ?>
 
-    
-    
     <div class="container">
         <div class="row">
 
             <div class="col-12 my-5 mb-4 px-4">
                 <h2 class="fw-bold"><?php echo $room_data['name'] ?></h2>
                 <div style="font-size: 14px;">
-                    <a href="index.php" class="text-secondary text-decoration-none">HOME</a>
+                    <a href="index.php" class="text-secondary text-decoration-none">TRANG CHỦ</a>
                     <span class="text-secondary"> > </span>
-                    <a href="rooms.php" class="text-secondary text-decoration-none">ROOMS</a>
+                    <a href="rooms.php" class="text-secondary text-decoration-none">PHÒNG</a>
                 </div>
             </div>
 
@@ -67,17 +61,14 @@
                 <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <?php
-
                             $room_img = ROOMS_IMG_PATH."thumbnail.jpg";
                             $img_q = mysqli_query($con, "SELECT * FROM `room_images` 
                                 WHERE `room_id` = '$room_data[id]'");
-                            
-                            if(mysqli_num_rows($img_q) > 0)
-                            {
+
+                            if (mysqli_num_rows($img_q) > 0) {
                                 $active_class = 'active';
 
-                                while ($img_res = mysqli_fetch_assoc($img_q))
-                                {
+                                while ($img_res = mysqli_fetch_assoc($img_q)) {
                                     echo "
                                     <div class='carousel-item $active_class'>
                                         <img src='".ROOMS_IMG_PATH.$img_res['image']."' class='d-block w-100 rounded'>
@@ -86,22 +77,20 @@
                                     $active_class = '';
                                 }
 
-                            }
-                            else{
+                            } else {
                                 echo "<div class='carousel-item active'>
                                     <img src='$room_img' class='d-block w-100'>
                                 </div>";
                             }
-                        
                         ?>
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="visually-hidden">Trước</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                        <span class="visually-hidden">Tiếp theo</span>
                     </button>
                 </div>
             </div>
@@ -110,25 +99,21 @@
                 <div class="card mb-4 border-0 shadow-sm rounded-3">
                     <div class="card-body">
                         <?php
-
                             echo <<< price
-                                <h4>₹$room_data[price] per night</h4>
+                                <h4>₹$room_data[price] mỗi đêm</h4>
                             price;
+
                             $rating_q="SELECT AVG(rating) AS `avg_rating` FROM `rating_review`
                             WHERE `room_id`='$room_data[id]'
                             ORDER BY `sr_no` DESC LIMIT 20";
-                                $rating_res = mysqli_query($con,$rating_q);
-                                $rating_fetch = mysqli_fetch_assoc($rating_res);
-                                $rating_data="";
-                                if ($rating_fetch['avg_rating']!=NULL)
-                                {
-                                    
-                                    for ($i=0; $i<$rating_fetch['avg_rating'];$i++)
-                                    {
-                                        $rating_data .="<i class='bi bi-star-fill text-warning'></i>";
-                                    }
-                                    
+                            $rating_res = mysqli_query($con,$rating_q);
+                            $rating_fetch = mysqli_fetch_assoc($rating_res);
+                            $rating_data="";
+                            if ($rating_fetch['avg_rating']!=NULL) {
+                                for ($i=0; $i<$rating_fetch['avg_rating']; $i++) {
+                                    $rating_data .="<i class='bi bi-star-fill text-warning'></i>";
                                 }
+                            }
                             echo <<< rating
                                 <div class="mb-3">
                                  $rating_data
@@ -140,8 +125,7 @@
                                 WHERE rfea.room_id = '$room_data[id]'");
 
                             $features_data = "";
-                            while($fea_row = mysqli_fetch_assoc($fea_q))
-                            {
+                            while($fea_row = mysqli_fetch_assoc($fea_q)) {
                                 $features_data .= "<span class='badge rounded-pill bg-light text-dark text-wrap me-1 mb-1'>
                                     $fea_row[name]
                                 </span>";
@@ -149,7 +133,7 @@
 
                             echo <<< features
                                 <div class="mb-3">
-                                    <h6 class="mb-1">Features</h6>
+                                    <h6 class="mb-1">Tiện nghi</h6>
                                     $features_data
                                 </div>
                             features;
@@ -157,10 +141,9 @@
                             $fac_q = mysqli_query($con, "SELECT f.name FROM `facilities` f 
                                 INNER JOIN `room_facilities` rfac ON f.id = rfac.facilities_id 
                                 WHERE rfac.room_id = '$room_data[id]'");
-                            
+
                             $facilities_data = "";
-                            while($fac_row = mysqli_fetch_assoc($fac_q))
-                            {
+                            while($fac_row = mysqli_fetch_assoc($fac_q)) {
                                 $facilities_data .= "<span class='badge rounded-pill bg-light text-dark text-wrap me-1 mb-1'>
                                     $fac_row[name]
                                 </span>";
@@ -168,46 +151,42 @@
 
                             echo <<< facilities
                                 <div class="mb-3">
-                                    <h6 class="mb-1">Facilities</h6>
+                                    <h6 class="mb-1">Cơ sở vật chất</h6>
                                     $facilities_data
                                 </div>
                             facilities;
 
                             echo<<<guests
                                 <div class="mb-3">
-                                    <h6 class="mb-1">Guests</h6>
+                                    <h6 class="mb-1">Khách</h6>
                                     <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                        $room_data[adult] Adults
+                                        $room_data[adult] Người lớn
                                     </span>
                                     <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                        $room_data[children] Children
+                                        $room_data[children] Trẻ em
                                     </span>    
                                 </div>
                             guests;
 
                             echo<<<area
                                 <div class="mb-3">
-                                    <h6 class="mb-1">Area</h6>
+                                    <h6 class="mb-1">Diện tích</h6>
                                     <span class='badge rounded-pill bg-light text-dark text-wrap me-1 mb-1'>
-                                        $room_data[area] sq. ft.
+                                        $room_data[area] mét vuông
                                     </span>
                                 </div>
                             area;
 
-
-                            if (!$settings_r['shutdown'])
-                            {
+                            if (!$settings_r['shutdown']) {
                                 $login=0;
                                 if (isset($_SESSION['login']) && $_SESSION['login'] == true) {
                                     $login = 1;
                                 }
 
                                 echo<<<book
-                                <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 text-white custom-bg shadow-none mb-1">Book Now</button>
+                                <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 text-white custom-bg shadow-none mb-1">Đặt ngay</button>
                                 book;
                             }
-                            
-                            
                         ?>
                     </div>
                 </div>
@@ -215,14 +194,14 @@
 
             <div class="col-12 mt-4 px-4">
                 <div class="mb-5">
-                    <h5>Description</h5>
+                    <h5>Mô tả</h5>
                     <p>
                         <?php echo $room_data['description'] ?>
                     </p>
                 </div>
 
                 <div>
-                    <h5 class="mb-3">Reviews & Ratings</h5>
+                    <h5 class="mb-3">Đánh giá & Nhận xét</h5>
                     <?php
                         $review_q=  "SELECT  rr.*,uc.name AS uname,uc.profile, r.name AS rname FROM `rating_review` rr
                         INNER JOIN `user_cred` uc ON rr.user_id = uc.id 
@@ -231,17 +210,12 @@
                         ORDER BY `sr_no` DESC LIMIT 15";
                         $review_res = mysqli_query($con,$review_q);
                         $img_path = USERS_IMG_PATH;
-                        if (mysqli_num_rows($review_res)==0)
-                        {
-                            echo 'No reviews yet!';
-                        }
-                        else
-                        {
-                            while($row = mysqli_fetch_assoc($review_res))
-                            {
+                        if (mysqli_num_rows($review_res)==0) {
+                            echo 'Chưa có đánh giá!';
+                        } else {
+                            while($row = mysqli_fetch_assoc($review_res)) {
                                 $stars = "<i class='bi bi-star-fill text-warning'></i>";
-                               for ($i=1; $i<$row['rating']; $i++)
-                               {
+                               for ($i=1; $i<$row['rating']; $i++) {
                                 $stars .= "<i class='bi bi-star-fill text-warning'></i>";
                                }
                                 echo<<<reviews
@@ -258,12 +232,10 @@
                                             $stars
                                         </div>
                                     </div>
-
                                 reviews;
                             }
                         }
-                        ?>
-                
+                    ?>
                 </div>
             </div>
 
@@ -271,6 +243,5 @@
     </div>
 
     <?php require('inc/footer.php'); ?>
-    
 </body>
 </html>

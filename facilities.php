@@ -35,12 +35,12 @@
    
 </head>
 <body class="bg-light">
-   <?php require('inc/header.php');?>
+   <?php require('inc/header.php'); ?>
     <div class="my-5 px-4">
-    <h2 class="fw-bold h-font text-center">OUR FACILITIES</h2> 
+    <h2 class="fw-bold h-font text-center">CÁC DỊCH VỤ CỦA CHÚNG TÔI</h2> 
     <div class="h-line bg-dark "></div>
     <p class="text-center mt-3 ">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorem <br> eligendi nulla qui fugiat fuga neque provident. Voluptas, quod quia!
+        Chúng tôi cung cấp những dịch vụ tốt nhất để mang lại trải nghiệm tuyệt vời cho bạn. Hãy khám phá các dịch vụ của chúng tôi ngay hôm nay!
     </p>
     </div>
     

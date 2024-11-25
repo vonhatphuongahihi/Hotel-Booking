@@ -10,18 +10,18 @@
         if (mysqli_num_rows($query) == 1) {
             $fetch = mysqli_fetch_assoc($query);
             if ($fetch['is_verified'] == 1) {
-                echo "<script>alert('Email already verified!');</script>";
+                echo "<script>alert('Email đã được xác minh trước đó!');</script>";
             } else {
                 $update = update("UPDATE `user_cred` SET `is_verified` = 1 WHERE `id`=?", [$fetch['id']], 'i'); // sử dụng $fetch['id']
                 if ($update) {
-                    echo "<script>alert('Email verified successfully!');</script>";
+                    echo "<script>alert('Xác minh email thành công!');</script>";
                 } else {
-                    echo "<script>alert('Email verification failed!');</script>";
+                    echo "<script>alert('Xác minh email thất bại!');</script>";
                 }
             }
             redirect('index.php');
         } else {
-            echo "<script>alert('Invalid email or token!');</script>"; // thông báo chính xác hơn
+            echo "<script>alert('Email hoặc mã xác nhận không hợp lệ!');</script>"; // thông báo chính xác hơn
         }
     }
 ?>
