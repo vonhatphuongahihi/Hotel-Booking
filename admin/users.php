@@ -26,25 +26,25 @@
                     <div class="card-body">
                     
                         <div class="text-end mb-4">
-                            <input type="text" oninput="search_user(this.value)" class="form-control w-25 ms-auto" id="search" placeholder="Tìm kiếm">
+                            <input type="text" oninput="search_user(this.value)" class="form-control w-25 ms-auto" id="search" placeholder="Tìm kiếm người dùng">
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table table-hover border text-center" style="min-width: 1300px;>
+                            <table class="table table-hover border text-center" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Họ và tên</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col">Phone no.</th>
-                                        <th scope="col">Location</th>
-                                        <th scope="col">DOB</th>
-                                        <th scope="col">Verified</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Số điện thoại</th>
+                                        <th scope="col">Địa chỉ</th>
+                                        <th scope="col">Ngày sinh</th>
+                                        <th scope="col">Xác minh</th>
+                                        <th scope="col">Trạng thái</th>
+                                        <th scope="col">Ngày đăng ký</th>
+                                        <th scope="col">Hành động</th>
                                     </tr>
-                                </thread>   
+                                </thead>   
                                 <tbody id="users-data">
                                 </tbody>
                             </table>

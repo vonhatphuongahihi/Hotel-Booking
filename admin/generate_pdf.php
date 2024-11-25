@@ -21,7 +21,7 @@
 
         if($total_rows==0)
         {
-            headr('location: dashboard.php');
+            header('location: dashboard.php');
             exit;
         }
         $data = mysqli_fetch_assoc($res);
@@ -32,58 +32,58 @@
         echo $date;
 
         $table_data ="
-            <h2>BOOKING RECEIPT</h2>
+            <h2>HÓA ĐƠN ĐẶT PHÒNG</h2>
             <table border='1'>
                 <tr>
-                <td>Order ID: $data[order_id]</td>
-                <td>Booking Date: $date</td>
+                <td>Mã Đơn Hàng: $data[order_id]</td>
+                <td>Ngày Đặt: $date</td>
                 </tr>
                 <tr>
-                    <td colspan='2'>status: $data[booking_status]
+                    <td colspan='2'>Trạng Thái: $data[booking_status]</td>
                 </tr>
                 <tr>
-                <td>Name: $data[user_name]</td>
+                <td>Tên: $data[user_name]</td>
                 <td>Email: $data[email]</td>
                 </tr>
                 <tr>
-                <td>Phone Number: $data[phonenum]</td>
-                <td>Address: $data[address]</td>
+                <td>Số Điện Thoại: $data[phonenum]</td>
+                <td>Địa Chỉ: $data[address]</td>
                 </tr>
                 <tr>
-                <td>Room Name: $data[room_name]</td>
-                <td>Cost: $data[price] per night</td>
+                <td>Tên Phòng: $data[room_name]</td>
+                <td>Giá: $data[price] mỗi đêm</td>
                 </tr>
                 <tr>
-                <td>checkin: $checkin</td>
-                <td>Acheckout: $checkout</td>
+                <td>Ngày Nhận Phòng: $checkin</td>
+                <td>Ngày Trả Phòng: $checkout</td>
                 </tr>
         ";
 
         if($data['booking_status']=='cancelled')
         {
-            $refund = ($data['refund']); ? "Amount Refunded" : "Not Yet Refunded";
+            $refund = ($data['refund']) ? "Đã Hoàn Tiền" : "Chưa Hoàn Tiền";
             $table_data.="
                 <tr>
-                <td>Amount Paid: $data[trans_amt]</td>
-                <td>Refund: $refund</td>
+                <td>Số Tiền Đã Thanh Toán: $data[trans_amt]</td>
+                <td>Hoàn Tiền: $refund</td>
                 </tr>
             ";
         }
         else if($data['booking_status']=='payment failed')
         {
-            $table_data.="
+            $table_data.=" 
                 <tr>
-                <td>Transaction Amount: $data[trans_amt]</td>
-                <td>Failure Response: $data[trans_resp_msg]</td>
+                <td>Số Tiền Giao Dịch: $data[trans_amt]</td>
+                <td>Thông Báo Thất Bại: $data[trans_resp_msg]</td>
                 </tr>";
         }
 
         else
         {
-            $table_data.="
+            $table_data.=" 
                 <tr>
-                <td>Room Number: $data[room_no]</td>
-                <td>Amount Paid: $data[trans_amt]</td>
+                <td>Số Phòng: $data[room_no]</td>
+                <td>Số Tiền Đã Thanh Toán: $data[trans_amt]</td>
                 </tr>";
         }
         $table_data.="</table>";

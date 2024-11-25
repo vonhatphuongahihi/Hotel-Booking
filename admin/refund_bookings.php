@@ -4,7 +4,7 @@
     adminLogin();
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">REFUND BOOKINGS</h3>
+                <h3 class="mb-4">ĐẶT PHÒNG HOÀN TIỀN</h3>
   
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
@@ -30,15 +30,16 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table table-hover border" style="min-width: 1300px;>
+                            <table class="table table-hover border" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
-                                        <th scope="col">User Details</th>
-                                        <th scope="col">Room Details</th>
-                                        <th scope="col">Refund Details</th>
-                                        <th scope="col">Action</th>
-                                </thread>   
+                                        <th scope="col">Thông Tin Người Dùng</th>
+                                        <th scope="col">Thông Tin Phòng</th>
+                                        <th scope="col">Chi Tiết Hoàn Tiền</th>
+                                        <th scope="col">Hành Động</th>
+                                    </tr>
+                                </thead>   
                                 <tbody id="table-data">
                                 </tbody>
                             </table>
