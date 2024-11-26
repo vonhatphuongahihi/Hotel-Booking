@@ -22,19 +22,19 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="index.php">Home</a>
+                    <a class="nav-link me-2" href="index.php">Trang chủ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="rooms.php">Rooms</a>
+                    <a class="nav-link me-2" href="rooms.php">Phòng</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="facilities.php">Facilities</a>
+                    <a class="nav-link me-2" href="facilities.php">Tiện ích</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="contact.php">Contact us</a>
+                    <a class="nav-link me-2" href="contact.php">Liên hệ</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="about.php">About</a>
+                    <a class="nav-link me-2" href="about.php">Giới thiệu</a>
                 </li>
             </ul>
             <div class="d-flex">
@@ -48,16 +48,16 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
                             $_SESSION[uName]
                         </button>
                         <ul class="dropdown-menu dropdown-menu-lg-end">
-                            <li><a class="dropdown-item" href="profile.php">Profile</a></li>
-                            <li><a class="dropdown-item" href="bookings.php">Bookings</a></li>
-                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            <li><a class="dropdown-item" href="profile.php">Hồ sơ</a></li>
+                            <li><a class="dropdown-item" href="bookings.php">Đặt phòng</a></li>
+                            <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                         </ul>
                     </div>
                     data;
                 } else {
                     echo <<<data
-                    <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
-                    <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+                    <button type="button" class="btn btn-outline-dark shadow-none me-lg-3 me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Đăng nhập</button>
+                    <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal" data-bs-target="#registerModal">Đăng ký</button>
                     data;
                 }
                 ?>
@@ -66,16 +66,15 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
     </div>
 </nav>
 
-<!-- Success Modal -->
 <div class="modal fade" id="successModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="successModalLabel">Success</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h5 class="modal-title" id="successModalLabel">Thành công</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Đóng"></button>
             </div>
             <div class="modal-body">
-                Your verification email has been sent successfully! Please check your email to complete the verification process.
+                Email xác minh đã được gửi thành công! Vui lòng kiểm tra email để hoàn tất quá trình xác minh.
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
@@ -84,7 +83,6 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
     </div>
 </div>
 
-<!-- Login Modal -->
 <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -92,22 +90,22 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center">
                         <i class="bi bi-person-circle fs-3 me-2"></i>
-                        User Login
+                        Đăng nhập
                     </h5>
-                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Đóng"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Email / Mobile</label>
+                        <label class="form-label">Email / Số điện thoại</label>
                         <input type="text" name="email_mob" class="form-control shadow-none" required>
                     </div>
                     <div class="mb-4">
-                        <label class="form-label">Password</label>
+                        <label class="form-label">Mật khẩu</label>
                         <input type="password" name="pass" required class="form-control shadow-none">
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
-                        <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
-                        <button type="button" class="btn text-secondary text-decoration-none p-0" data-bs-toggle="modal" data-bs-target="#forgotModal" data-bs-dismiss="modal">Forgot Password?</button>
+                        <button type="submit" class="btn btn-dark shadow-none">ĐĂNG NHẬP</button>
+                        <button type="button" class="btn text-secondary text-decoration-none p-0" data-bs-toggle="modal" data-bs-target="#forgotModal" data-bs-dismiss="modal">Quên mật khẩu?</button>
                     </div>
                 </div>
             </form>
@@ -115,7 +113,6 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
     </div>
 </div>
 
-<!-- Forgot Password Modal -->
 <div class="modal fade" id="forgotModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -123,22 +120,22 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center">
                         <i class="bi bi-person-circle fs-3 me-2"></i>
-                        Forgot Password
+                        Quên mật khẩu
                     </h5>
-                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Đóng"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
                         <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
-                            Note: A link will be sent to your email to reset your password!
+                            Lưu ý: Một liên kết sẽ được gửi đến email của bạn để đặt lại mật khẩu!
                         </span>
                         <br>
                         <label class="form-label">Email</label>
                         <input type="email" name="email" class="form-control shadow-none" required>
                     </div>
                     <div class="mb-2 text-end">
-                        <button type="button" class="btn shadow-none p-0 me-2" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">CANCEL</button>
-                        <button type="submit" class="btn btn-dark shadow-none">SEND LINK</button>
+                        <button type="button" class="btn shadow-none p-0 me-2" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">HỦY</button>
+                        <button type="submit" class="btn btn-dark shadow-none">GỬI LIÊN KẾT</button>
                     </div>
                 </div>
             </form>
@@ -146,36 +143,33 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
     </div>
 </div>
 
-<!-- Register Modal -->
 <div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <?php
         if (isset($_SESSION['status'])) {
-            // Hiển thị thông báo nếu có
             echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <strong>Success!</strong> ' . $_SESSION['status'] . '
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    <strong>Thành công!</strong> ' . $_SESSION['status'] . '
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Đóng"></button>
                 </div>';
             unset($_SESSION['status']);
         }
         ?>
         <div class="modal-content">
-        <form action="login-register.php" method="POST" id="register-form">
+            <form action="login-register.php" method="POST" id="register-form">
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center">
-                        <i class="bi bi-person-lines-fill fs-3 me-2"></i>User Registration
+                        <i class="bi bi-person-lines-fill fs-3 me-2"></i>Đăng ký người dùng
                     </h5>
-                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Đóng"></button>
                 </div>
                 <div class="modal-body">
                     <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
-                        Note: Your details must match with your ID(Passport,..) 
-                        that will be required during check-in
+                        Lưu ý: Thông tin của bạn phải khớp với giấy tờ tùy thân (hộ chiếu,...) sẽ được yêu cầu khi check-in.
                     </span>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Name</label>
+                                <label class="form-label">Họ và tên</label>
                                 <input name="name" type="text" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 p-0 mb-3">
@@ -183,37 +177,37 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
                                 <input name="email" type="email" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Phone Number</label>
+                                <label class="form-label">Số điện thoại</label>
                                 <input name="phonenum" type="number" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Picture</label>
+                                <label class="form-label">Hình ảnh</label>
                                 <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-12 p-0 mb-3">
-                                <label class="form-label">Address</label>
+                                <label class="form-label">Địa chỉ</label>
                                 <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
                             </div>
                             <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Pincode</label>
+                                <label class="form-label">Mã vùng</label>
                                 <input name="pincode" type="number" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Date of birth</label>
+                                <label class="form-label">Ngày sinh</label>
                                 <input name="dob" type="date" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Password</label>
+                                <label class="form-label">Mật khẩu</label>
                                 <input name="pass" type="password" class="form-control shadow-none" required>
                             </div>
                             <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Confirm Password</label>
+                                <label class="form-label">Xác nhận mật khẩu</label>
                                 <input name="cpass" type="password" class="form-control shadow-none" required>
                             </div>
                         </div>
                     </div>
                     <div class="text-center my-1">
-                        <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
+                        <button type="submit" class="btn btn-dark shadow-none">ĐĂNG KÝ</button>
                     </div>
                 </div>
             </form>
@@ -228,22 +222,22 @@ $settings_r = mysqli_fetch_assoc(select($settings_q, $values, 'i'));
         const forgotForm = document.getElementById('forgot-form');
         const registerForm = document.getElementById('register-form');
 
-        // Handle login form submission
+        // Xử lý sự kiện gửi form đăng nhập
         loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            // Add your AJAX call here to handle login
+            // Xử lý AJAX để xử lý đăng nhập
         });
 
-        // Handle forgot password form submission
+        // Xử lý sự kiện gửi form quên mật khẩu
         forgotForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            // Add your AJAX call here to handle forgot password
+            // Xử lý AJAX để xử lý quên mật khẩu
         });
 
-        // Handle register form submission
+        // Xử lý sự kiện gửi form đăng ký
         registerForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            // Add your AJAX call here to handle registration
+            // Xử lý AJAX để xử lý đăng ký
         });
     });
 </script>

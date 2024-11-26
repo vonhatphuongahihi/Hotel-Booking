@@ -286,14 +286,14 @@
             ?>
 
             <div class="col-lg-12 text-center mt-5">
-                <a href="rooms.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Rooms >>></a>
+                <a href="rooms.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Phòng >>></a>
             </div>
         </div>
     </div>
 
     <!-- Our Facilities -->
 
-    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">OUR FACILITIES</h2>
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Tiện ích</h2>
 
     <div class="container">
         <div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
@@ -314,14 +314,14 @@
             ?>
 
             <div class="col-lg-12 text-center mt-5">
-                <a href="facilities.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">More Facilities >>></a>
+                <a href="facilities.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Thêm tiện ích >>></a>
             </div>
         </div>
     </div>
 
     <!-- Testimonials -->
 
-    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">TESTIMONIALS</h2>
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">Chứng thực</h2>
 
     <div class="container mt-5">
         <div class="swiper swiper-testimonials">
@@ -368,7 +368,7 @@
             <div class="swiper-pagination"></div>
         </div>
         <div class="col-lg-12 text-center mt-5">
-            <a href="about.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Know More >>></a>
+            <a href="about.php" class="btn btn-sm btn-outline-dark rounded-0 fw-bold shadow-none">Biết thêm >>></a>
         </div>
     </div>
 
@@ -385,7 +385,7 @@
                     </div>
                     <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Email address</label>
+                        <label class="form-label">Email</label>
                         <input type="email" class="form-control
                         shadow-none">
                     </div>
@@ -395,8 +395,8 @@
                         shadow-none">
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
-                        <button type="submit" class="btn btn-dark shadow-none">LOGIN</button>
-                        <a href="javascript: void(0)" class="text-secondary text-decoration-none">Forgot Password?</a>
+                        <button type="submit" class="btn btn-dark shadow-none">Đăng nhập</button>
+                        <a href="javascript: void(0)" class="text-secondary text-decoration-none">Quên mật khẩu</a>
                     </div>
                     </div>
                 </form>
@@ -414,11 +414,11 @@
                     <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                    <span class="badge bg-light text-dark mb-3 text-wrap lh-base">Note: Your details must match with your ID(Passport,..) that will be required during check-in</span>
+                    <span class="badge bg-light text-dark mb-3 text-wrap lh-base">Lưu ý: Thông tin chi tiết của bạn phải khớp với CMND (Hộ chiếu,..) sẽ được yêu cầu khi nhận phòng</span>
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Name</label>
+                                <label class="form-label">Tên</label>
                                 <input type="text" class="form-control
                         shadow-none">
                             </div>
@@ -428,26 +428,26 @@
                         shadow-none">
                             </div>
                             <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Phone Number</label>
+                                <label class="form-label">SDT</label>
                                 <input type="number" class="form-control
                         shadow-none">
                             </div>
                             <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Picture</label>
+                                <label class="form-label">Ảnh</label>
                                 <input type="file" class="form-control
                         shadow-none">
                             </div>
                             <div class="col-md-12 p-0 mb-3">
-                                <label class="form-label">Address</label>
+                                <label class="form-label">Địa chỉ</label>
                                 <textarea class="form-control shadow-none" rows="1"></textarea>
                             </div>
                             <div class="col-md-6 ps-0 mb-3">
-                                <label class="form-label">Pincode</label>
+                                <label class="form-label">Mã pin</label>
                                 <input type="number" class="form-control
                         shadow-none">
                             </div>
                             <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Date of birth</label>
+                                <label class="form-label">Ngày sinh</label>
                                 <input type="date" class="form-control
                         shadow-none">
                             </div>
@@ -457,14 +457,14 @@
                         shadow-none">
                             </div>
                             <div class="col-md-6 p-0 mb-3">
-                                <label class="form-label">Confirm Password</label>
+                                <label class="form-label">Xác nhận Password</label>
                                 <input type="password" class="form-control
                         shadow-none">
                             </div>
                         </div>
                     </div>
                     <div class="text-center my-1">
-                        <button type="submit" class="btn btn-dark shadow-none">REGISTER</button>
+                        <button type="submit" class="btn btn-dark shadow-none">Đăng kí</button>
                     </div>
                     </div>
                 </form>
@@ -474,7 +474,7 @@
     <!-- Reach us -->
     
     
-    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">REACH US</h2>
+    <h2 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">LIÊN HỆ VỚI CHÚNG TÔI</h2>
 
     <div class="container">
         <div class="row">

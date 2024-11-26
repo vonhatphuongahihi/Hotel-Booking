@@ -18,7 +18,7 @@
         $table_data = "";
 
         if (mysqli_num_rows($res) == 0) {
-            echo "<b>No Data Found!</b>";
+            echo "<b>Không tìm thấy dữ liệu!</b>";
             exit;
         }
 
@@ -33,34 +33,34 @@
                     <td>$i</td>
                     <td>
                         <span class='badge bg-primary'>
-                            Order ID: $data[order_id]
+                            Mã đơn: $data[order_id]
                         </span>
                         <br>
-                        <b>Name:</b> $data[user_name]
+                        <b>Tên khách hàng:</b> $data[user_name]
                         <br>
-                        <b>Phone No:</b> $data[phonenum]
+                        <b>Số điện thoại:</b> $data[phonenum]
                     </td>
                     <td>
-                        <b>Room:</b> $data[room_name]
+                        <b>Phòng:</b> $data[room_name]
                         <br>
-                        <b>Price:</b> $data[price]
+                        <b>Giá:</b> $data[price]
                     </td>
                     <td>
-                        <b>Check-in:</b> $checkin
+                        <b>Ngày nhận phòng:</b> $checkin
                         <br>
-                        <b>Check-out:</b> $checkout
+                        <b>Ngày trả phòng:</b> $checkout
                         <br>
-                        <b>Paid:</b> $trans_amt
+                        <b>Đã thanh toán:</b> $trans_amt
                         <br>
-                        <b>Date:</b> $date
+                        <b>Ngày đặt:</b> $date
                     </td>
                     <td>
                         <button type='button' onclick='assign_room($data[booking_id])' class='btn text-white btn-sm fw-bold custom-bg shadow-none' data-bs-toggle='modal' data-bs-target='#assign-room'>
-                            <i class='bi bi-check2-square'></i>Assign Room
+                            <i class='bi bi-check2-square'></i> Phân phòng
                         </button>
                         <br>
                         <button type='button' onclick='cancel_booking($data[booking_id])' class='mt-2 btn btn-outline-danger btn-sm fw-bold shadow-none'>
-                            <i class='bi bi-trash'></i> Cancel Booking
+                            <i class='bi bi-trash'></i> Hủy đặt phòng
                         </button>
                     </td>
                 </tr>
@@ -79,7 +79,7 @@
         SET bo.arrival = ?, bo.rate_review= ?, bd.room_no = ?
         WHERE bo.booking_id = ?";
 
-        $values = [1,0,$frm_data['room_no'], $frm_data['booking_id']];
+        $values = [1, 0, $frm_data['room_no'], $frm_data['booking_id']];
         $res = update($query, $values, 'iisi');
         echo ($res == 2) ? 1 : 0;
     }
@@ -89,7 +89,7 @@
         
         $query = "UPDATE `booking_order` SET `booking_status` = ?, `refund` = ? WHERE `booking_id` = ?";
         $values = ['cancelled', 0, $frm_data['booking_id']];
-        $res = update($query, $values, 'iisi');
+        $res = update($query, $values, 'sii');
 
         echo $res;
     }

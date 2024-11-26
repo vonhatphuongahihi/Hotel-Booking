@@ -24,18 +24,17 @@
         {
             redirect('index.php');
         }?>
-    
-    
+
     <div class="container">
         <div class="row">
 
             <div class="col-12 my-5 px-4">
-                <h2 class="fw-bold">BOOKINGS</h2>
+                <h2 class="fw-bold">ĐẶT PHÒNG</h2>
                 <div style="font-size: 14px;">
-                    <a href="index.php" class="text-secondary text-decoration-none">HOME</a>
+                    <a href="index.php" class="text-secondary text-decoration-none">TRANG CHỦ</a>
                     <span class="text-secondary"> > </span>
                 
-                    <a href="#" class="text-secondary text-decoration-none">BOOKINGS</a>
+                    <a href="#" class="text-secondary text-decoration-none">ĐẶT PHÒNG</a>
                 </div>
             </div>
             <?php
@@ -60,17 +59,17 @@
             $status_bg="bg-success";
             if($data['arrival']==1)
             {
-                $btn="<a href='generate_pdf.php?gen_pdf&id=$data[booking_id]'  class='btn btn-dark btn-sm shadow-none'> Download PDF  </a>";
+                $btn="<a href='generate_pdf.php?gen_pdf&id=$data[booking_id]'  class='btn btn-dark btn-sm shadow-none'> Tải PDF </a>";
                     if($data['rate_review']==0)
                     {
-                        $btn.="<button type='button' onclick='review_room($data[booking_id],$data[room_id])'  data-bs-toggle='modal' data-bs-target='#reviewModal' class='btn btn-dark btn-sm shadow-none ms-2'>Rate & Review</button>";
+                        $btn.="<button type='button' onclick='review_room($data[booking_id],$data[room_id])'  data-bs-toggle='modal' data-bs-target='#reviewModal' class='btn btn-dark btn-sm shadow-none ms-2'>Đánh giá</button>";
                     }     
             }
             else
             {
                 $btn="
-                <button button onclick='cancle_booking($data[booking_id])' type='button' class='mt-2 btn btn-danger btn-sm shadow-none'>
-                        Cancle
+                <button onclick='cancle_booking($data[booking_id])' type='button' class='mt-2 btn btn-danger btn-sm shadow-none'>
+                        Hủy
                     </button> 
                 ";
             }
@@ -80,31 +79,31 @@
             $status_bg="bg-danger";
             if($data['refund']==0)
             {
-                $btn="<span class='badge bg-primary'>Refund in process!</span>";
+                $btn="<span class='badge bg-primary'>Đang xử lý hoàn tiền!</span>";
             }
             else
             {
-                $btn="<a href='generate_pdf.php?gen_pdf&id=$data[booking_id]'  class='mt-2 btn btn-dark btn-sm shadow-none'> Download PDF  </a>";
+                $btn="<a href='generate_pdf.php?gen_pdf&id=$data[booking_id]'  class='mt-2 btn btn-dark btn-sm shadow-none'> Tải PDF </a>";
             }
         }
         else
         {
             $status_bg="bg-warning";
-            $btn="<a href='generate_pdf.php?gen_pdf&id=$data[booking_id]'  class='mt-2 btn btn-dark btn-sm shadow-none'> Download PDF  </a>";
+            $btn="<a href='generate_pdf.php?gen_pdf&id=$data[booking_id]'  class='mt-2 btn btn-dark btn-sm shadow-none'> Tải PDF </a>";
         }
         echo<<<bookings
         <div class='col-md-4 px-4 mb-4'>
         <div class='bg-white p-3 rounded shadow-sm'>
         <h5 class='fw-bold'>$data[room_name]</h5>
-        <p>₹$data[price] per night</p>
+        <p>₹$data[price] mỗi đêm</p>
         <p>
-        <b>Check in: </b>$checkin <br>
-        <b>Check out: </b> $checkout 
+        <b>Nhận phòng: </b>$checkin <br>
+        <b>Trả phòng: </b> $checkout 
         </p>
         <p>
-        <b>Amount: </b>₹$data[price] <br>
-        <b>Order ID: </b> $data[order_id] <br>
-        <b>Date: </b> $date
+        <b>Số tiền: </b>₹$data[price] <br>
+        <b>Mã đơn hàng: </b> $data[order_id] <br>
+        <b>Ngày: </b> $date
         </p>
         <p>
         <span class='badge $status_bg'>$data[booking_status]</span>
@@ -125,29 +124,29 @@
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center">
                         <i class="bi bi-chat-square-heart fs-3 me-2"></i>
-                        Rate & Review
+                        Đánh giá và nhận xét
                     </h5>
                     <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label class="form-label">Rating</label>
+                        <label class="form-label">Đánh giá</label>
                         <select class="form-select shadow-none" name="rating">
-                            <option value="5">Excellent</option>
-                            <option value="4">Good</option>
-                            <option value="3">Ok</option>
-                            <option value="2">Poor</option>
-                            <option value="1">Bad</option>
+                            <option value="5">Xuất sắc</option>
+                            <option value="4">Tốt</option>
+                            <option value="3">Bình thường</option>
+                            <option value="2">Kém</option>
+                            <option value="1">Tệ</option>
                         </select>
                     </div>
                     <div class="mb-4">
-                        <label class="form-label">Review</label>
-                        <textarea type="password" name="review" rows="3" required class="form-control shadow-none"> </textarea>
+                        <label class="form-label">Nhận xét</label>
+                        <textarea name="review" rows="3" required class="form-control shadow-none"></textarea>
                     </div>
                     <input type="hidden" name="booking_id">
                     <input type="hidden" name="room_id">
                     <div class="text-end">
-                        <button type="submit" class="btn custom-bg text-white  shadow-none">SUBMIT</button>
+                        <button type="submit" class="btn custom-bg text-white shadow-none">GỬI</button>
                     </div>    
                 </div>
             </form>
@@ -161,7 +160,7 @@
     }
     else if(isset($_GET['review_status']))
     {
-        alert('success',' Thank you for rating & review !');
+        alert('success','Cảm ơn bạn đã đánh giá!');
     }
     ?>
     <?php require('inc/footer.php'); ?>
@@ -169,26 +168,25 @@
    <script>
      function cancle_booking(id)
      {
-        if(confirm('Bạn có muốn hủy phòng ?'))
-     {
-        let xhr = new XMLHttpRequest();
+        if(confirm('Bạn có muốn hủy phòng?'))
+        {
+            let xhr = new XMLHttpRequest();
             xhr.open("POST", "ajax/cancle_booking.php", true);
             xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
             xhr.onload = function(){
                 if(this.responseText==1)
-            {
-                window.location.href="bookings.php?cancle_status=true";
-            }
-            else
-            {
-                alert('error','Cancellation Failed');
-            }
-                
+                {
+                    window.location.href="bookings.php?cancle_status=true";
+                }
+                else
+                {
+                    alert('error','Hủy không thành công!');
+                }
             }
 
             xhr.send('cancle_booking&id='+id);
-     }
+        }
      }
      let review_form = document.getElementById('review-form');
      function review_room(bid,rid)
@@ -197,7 +195,7 @@
         review_form.elements['room_id'].value = rid;
      }
      review_form.addEventListener('submit',function(e)
-    {
+     {
         e.preventDefault();
         let data= new FormData();
         data.append('review_form','');
@@ -207,37 +205,22 @@
         data.append('room_id',review_form.elements['room_id'].value);
        
         let xhr = new XMLHttpRequest();
-            xhr.open("POST", "ajax/review_room.php", true);
-            xhr.onload = function()
-            {
-                if(this.responseText==1)
+        xhr.open("POST", "ajax/review_room.php", true);
+        xhr.onload = function()
+        {
+            if(this.responseText==1)
             {
                 window.location.href = 'bookings.php?review_status=true';
             }  
             else
             {
                 let modal = bootstrap.Modal.getInstance(document.getElementById('reviewModal'));
-                  modal.hide();
-                alert('error', "Rating & Review Failed!");
+                modal.hide();
+                alert('error', "Đánh giá không thành công!");
             }
-            // else if(this.responseText== 0)
-            // {
-            //     alert('error',"No Changes Made !");
-            // }
-            // else 
-            // {
-            //     alert('success','Changes saved !');
-            // }
-                
-            }
-
-         xhr.send(data);
-
-
-    })
-     
+        }
+        xhr.send(data);
+     });
    </script>
-
-    
 </body>
 </html>

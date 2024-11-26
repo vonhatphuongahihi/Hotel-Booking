@@ -1,13 +1,13 @@
 <?php
 require('inc/db_config.php');    
 require('inc/essentials.php');
-    session_start();
-    if ((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
-        redirect('dashboard.php');
-    }
+session_start();
+if ((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
+    redirect('dashboard.php');
+}
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,13 +22,13 @@ require('inc/essentials.php');
             <div class="p-4">
                 <div class="mb-3">
                     <input name="admin_name" required type="text" class="form-control
-                            shadow-none text-center" placeholder="Admin Name">
+                            shadow-none text-center" placeholder="Tên Quản Trị Viên">
                 </div>
                 <div class="mb-4">
                     <input name="admin_pass" required type="password" class="form-control
-                            shadow-none text-center" placeholder="Password">
+                            shadow-none text-center" placeholder="Mật Khẩu">
                 </div>
-                <button name="login" type="submit" class="btn text-white custom-bg shadow-none">LOGIN</button>
+                <button name="login" type="submit" class="btn text-white custom-bg shadow-none">ĐĂNG NHẬP</button>
             </div>
         </form>
     </div>
@@ -38,7 +38,7 @@ require('inc/essentials.php');
             $query = "SELECT * FROM `admin` WHERE `admin_name` =? AND `admin_pass` =?";
             $values= [$frm_data['admin_name'], $frm_data['admin_pass']];
             $result=select($query, $values, "ss");
-            if ($result->num_rows ==1)
+            if ($result->num_rows == 1)
             {
                 $row = mysqli_fetch_assoc($result);
                 $_SESSION['adminLogin'] = true;
