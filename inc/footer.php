@@ -1,3 +1,21 @@
+<?php
+  // Mảng dữ liệu Links
+  $links = [
+    [
+      'title' => 'Giới thiệu',
+      'links' => [
+        ['name' => 'Trang chủ', 'link' => '/'],
+        ['name' => 'Giới thiệu về StayHub', 'link' => '/about-us'],
+      ],
+    ],
+    [
+      'title' => 'Thông tin',
+      'links' => [
+        ['name' => 'Liên hệ', 'link' => '/contact-us'],
+      ],
+    ],
+  ];
+?>
 <div class="container-fluid bg-white mt-5">
         <div class="row">
             <div class="col-lg-4 p-4">
@@ -8,14 +26,14 @@
             </div>
             <div class="col-lg-4 p-4">
                 <h5 class="mb-3">Links</h5>
-                <a href="index.php" class="d-inline-block mb-2 text-dark text-decoration-none">Home</a> <br>
-                <a href="rooms.php" class="d-inline-block mb-2 text-dark text-decoration-none">Rooms</a> <br>
-                <a href="facilities.php" class="d-inline-block mb-2 text-dark text-decoration-none">Facilities</a> <br>
-                <a href="contact.php" class="d-inline-block mb-2 text-dark text-decoration-none">Contact us</a> <br>
-                <a href="about.php" class="d-inline-block mb-2 text-dark text-decoration-none">About</a>
+                <a href="index.php" class="d-inline-block mb-2 text-dark text-decoration-none">Trang chủ</a> <br>
+                <a href="rooms.php" class="d-inline-block mb-2 text-dark text-decoration-none">Phòng</a> <br>
+                <a href="facilities.php" class="d-inline-block mb-2 text-dark text-decoration-none">Dịch vụ</a> <br>
+                <a href="contact.php" class="d-inline-block mb-2 text-dark text-decoration-none">Liên hệ</a> <br>
+                <a href="about.php" class="d-inline-block mb-2 text-dark text-decoration-none">Giới thiệu</a>
             </div>
             <div class="col-lg-4 p-4">
-                <h5 class="mb-3">Follow us</h5>
+                <h5 class="mb-3">Theo dõi</h5>
                 <?php
                 if($contact_r['tw']!='')
                 {
@@ -27,16 +45,20 @@
                 }
                 ?>
                 <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block text-dark text-decoration-none mb-2">
-                    <i class="bi bi-facebook me-1"></i> Facebook
-                </a><br>
+                    <img src="./images/facebook.png" alt="logo" /> 
+                </a>
                 <a href="<?php echo $contact_r['insta'] ?>" class="d-inline-block text-dark text-decoration-none">
-                    <i class="bi bi-instagram me-1"></i> Instagram
+                <img src="./images/instagram.png" alt="logo" /> 
                 </a><br>
+                
             </div>
         </div>
     </div>
 
-<h6 class="text-center bg-dark text-white p-3 m-0">Designed and Developed by TJ WEBDEV</h6>
+    <h6 class="text-center bg-dark text-white p-3 m-0">
+    🏨 Khách sạn 5 sao tại Việt Nam ⭐
+    </h6>
+
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script>
@@ -87,18 +109,25 @@
             }
         }
         
-        document.getElementById('register-form').addEventListener('submit', (e) => {
+    let register_form = document.getElementById('register-form');
+    register_form.addEventListener('submit', (e) => {
         e.preventDefault();
-        let data = new FormData(e.target);
+        let data = new FormData();
+        data.append('name', register_form.elements['name'].value);
+        data.append('email', register_form.elements['email'].value);
+        data.append('phonenum', register_form.elements['phonenum'].value);
+        data.append('address', register_form.elements['address'].value);
+        data.append('pincode', register_form.elements['pincode'].value);
+        data.append('dob', register_form.elements['dob'].value);
+        data.append('pass', register_form.elements['pass'].value);
+        data.append('cpass', register_form.elements['cpass'].value);
+        data.append('profile', register_form.elements['profile'].files[0]);
         data.append('register', '');
 
-        let modal = bootstrap.Modal.getInstance(document.getElementById('registerModal'));
+        var myModal = document.getElementById('registerModal');
+        var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
-
-        ['name', 'email', 'phonenum', 'address', 'pincode', 'dob', 'pass', 'cpass'].forEach(field => {
-            data.append(field, e.target.elements[field].value);
-        });
-        data.append('profile', e.target.elements['profile'].files[0]);
+        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
 
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "ajax/login_register.php", true);
@@ -141,6 +170,8 @@
         let modal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
         modal.hide();
 
+        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "ajax/login_register.php", true);
         xhr.onload = function() {
@@ -180,6 +211,9 @@
 
         let modal = bootstrap.Modal.getInstance(document.getElementById('forgotModal'));
         modal.hide();
+
+        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
+
 
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "ajax/login_register.php", true);

@@ -78,5 +78,3 @@ function rem_image(val){
 window.onload = function(){
     get_carousel();
 }
-
-

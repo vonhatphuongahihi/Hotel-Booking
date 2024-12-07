@@ -39,7 +39,7 @@
 <body class="bg-light">
    <?php require('inc/header.php');?>
     <div class="my-5 px-4">
-    <h2 class="fw-bold h-font text-center">GIỚI THIỆU VỀ CHÚNG TÔI</h2> 
+    <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">GIỚI THIỆU</h3>
     <div class="h-line bg-dark "></div>
     <p class="text-center mt-3 ">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorem <br> eligendi nulla qui fugiat fuga neque provident. Voluptas, quod quia!

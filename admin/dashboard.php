@@ -45,7 +45,7 @@
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
                 
                 <div class="d-flex align-items-center justify-content-between mb-4">
-                    <h3>DASHBOARD</h3>
+                    <h4 class="fw-bold">BẢNG ĐIỀU KHIỂN</h4>
                     <?php
                         if($is_shutdown['shutdown']){
                             echo<<<data
@@ -59,7 +59,7 @@
                     <div class="col-md-3 mb-4">
                         <a href="new_bookings.php" class="text-decoration-none">
                             <div class="card text-center text-success p-3">
-                                <h6>Đặt phòng mới</h6>
+                                <h6>Đặt Phòng Mới</h6>
                                 <h1 class="mt-2 mb-0"><?php echo $current_bookings['new_bookings']?></h1>
                             </div>
                         </a>
@@ -67,7 +67,7 @@
                     <div class="col-md-3 mb-4">
                         <a href="refund_bookings.php" class="text-decoration-none">
                             <div class="card text-center text-warning p-3">
-                                <h6>Đặt phòng hoàn tiền</h6>
+                                <h6>Đặt Phòng Hoàn Tiền</h6>
                                 <h1 class="mt-2 mb-0"><?php echo $current_bookings['refund_bookings']?></h1>
                             </div>
                         </a>
@@ -75,7 +75,7 @@
                     <div class="col-md-3 mb-4">
                         <a href="user_queries.php" class="text-decoration-none">
                             <div class="card text-center text-info p-3">
-                                <h6>Câu hỏi của người dùng</h6>
+                                <h6>Câu Hỏi Của Người Dùng</h6>
                                 <h1 class="mt-2 mb-0"><?php echo $unread_queries['count'] ?></h1>
                             </div>
                         </a>
@@ -83,7 +83,7 @@
                     <div class="col-md-3 mb-4">
                         <a href="rate_review.php" class="text-decoration-none">
                             <div class="card text-center text-info p-3">
-                                <h6>Đánh giá & Nhận xét</h6>
+                                <h6>Đánh Giá & Nhận Xét</h6>
                                 <h1 class="mt-2 mb-0"><?php echo $unread_reviews['count'] ?></h1>
                             </div>
                         </a>
@@ -91,12 +91,12 @@
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h5>Thống kê Đặt phòng</h5>
+                    <h5 class="fw-bold">Thống kê Đặt Phòng</h5>
                     <select class="form-select shadow-none bg-light w-auto" onchange="booking_analytics(this.value)">
-                        <option value="1">30 Ngày Qua</option>
-                        <option value="2">90 Ngày Qua</option>
-                        <option value="3">1 Năm Qua</option>
-                        <option value="4">Tất Cả Thời Gian</option>
+                        <option value="1">30 ngày qua</option>
+                        <option value="2">90 ngày qua</option>
+                        <option value="3">1 năm qua</option>
+                        <option value="4">Tất cả thời gian</option>
                     </select>
                 </div>
 
@@ -123,12 +123,12 @@
                 </div>
 
                 <div class="d-flex align-items-center justify-content-between mb-3">
-                    <h5>Thống kê Người Dùng, Câu Hỏi, Đánh Giá</h5>
+                    <h5 class="fw-bold">Thống kê Người Dùng, Câu Hỏi, Đánh Giá</h5>
                     <select class="form-select shadow-none bg-light w-auto" onchange="user_analytics(this.value)">
-                        <option value="1">30 Ngày Qua</option>
-                        <option value="2">90 Ngày Qua</option>
-                        <option value="3">1 Năm Qua</option>
-                        <option value="4">Tất Cả Thời Gian</option>
+                        <option value="1">30 ngày qua</option>
+                        <option value="2">90 ngày qua</option>
+                        <option value="3">1 năm qua</option>
+                        <option value="4">Tất cả thời gian</option>
                     </select>
                 </div>
                 
@@ -153,11 +153,11 @@
                     </div>
                 </div>
 
-                <h5>Người Dùng</h5>
+                <h5 class="fw-bold">Người Dùng</h5>
                 <div class="row mb-3">
                     <div class="col-md-3 mb-4">
                         <div class="card text-center text-info p-3">
-                            <h6>Tổng Cộng</h6>
+                            <h6>Tổng</h6>
                             <h1 class="mt-2 mb-0"><?php echo $current_users['total']?></h1>
                         </div>
                     </div>

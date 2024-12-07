@@ -20,7 +20,7 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">BOOKING RECORDS</h3>  <!-- Giữ lại tiêu đề Booking Records -->
+                <h3 class="mb-4">BẢN GHI ĐẶT PHÒNG</h3>  
   
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
@@ -34,9 +34,9 @@
                                 <thead>
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
-                                        <th scope="col">Chi tiết Người dùng</th>
-                                        <th scope="col">Chi tiết Phòng</th>
-                                        <th scope="col">Chi tiết Đặt phòng</th>
+                                        <th scope="col">Người dùng</th>
+                                        <th scope="col">Phòng</th>
+                                        <th scope="col">Đặt phòng</th>
                                         <th scope="col">Hành động</th>
                                     </tr>   
                                 </thead>   
@@ -59,21 +59,21 @@
             <form id="assign_room_form">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Giao Phòng</h5>
+                        <h5 class="modal-title">Giao phòng</h5>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Số Phòng</label>
+                            <label class="form-label fw-bold">Số phòng</label>
                             <input type="text" name="room_no" class="form-control shadow-none" required>
                         </div>
                         <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
-                            Lưu ý: Chỉ giao Số phòng khi khách đã đến!
+                            Lưu ý: Chỉ giao số phòng khi khách đã đến!
                         </span>
                         <input type="hidden" name="booking_id">
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">HỦY</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">GIAO</button>
+                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn custom-bg text-white shadow-none">Giao</button>
                     </div>
                 </div>
             </form>

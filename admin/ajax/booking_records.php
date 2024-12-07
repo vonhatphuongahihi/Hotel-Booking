@@ -14,8 +14,8 @@ if (isset($_POST['get_bookings'])) {
     $query = "SELECT bo.*, bd.* FROM booking_order bo
         INNER JOIN booking_details bd ON bo.booking_id = bd.booking_id
         WHERE ((bo.booking_status = 'booked' AND bo.arrival = 1)
-        OR (bo.booking_status = 'cancelled' AND bo.refund = 1))
-        OR (bo.booking_status = 'payment failed' AND bo.refund = 1))
+        OR (bo.booking_status = 'pending' AND bo.refund = 1))
+        OR (bo.booking_status = 'pending' AND bo.refund = 1))
         AND (bo.order_id LIKE ? OR bd.phonenum LIKE ? OR bd.user_name LIKE ?)
         ORDER BY bo.booking_id DESC";
 
@@ -30,56 +30,57 @@ if (isset($_POST['get_bookings'])) {
     $total_rows = mysqli_num_rows($limit_res);
 
     if ($total_rows == 0) {
-        $output = json_encode(["table_data"=>"<b>Không tìm thấy dữ liệu!</b>", "pagination"=>'']);
+        $output = json_encode(["table_data"=>"<b>No Data Found!</b>", "pagination"=>'']);
         echo $output;
         exit;
     }
 
     while ($data = mysqli_fetch_assoc($res)) {
-        $date = isset($data['datentime']) ? date("d-m-Y", strtotime($data['datentime'])) : 'Không xác định';
-        $checkin = isset($data['check_in']) ? date("d-m-Y", strtotime($data['check_in'])) : 'Không xác định';
-        $checkout = isset($data['check_out']) ? date("d-m-Y", strtotime($data['check_out'])) : 'Không xác định';
+        $date = isset($data['datentime']) ? date("d-m-Y", strtotime($data['datentime'])) : 'N/A';
+        $checkin = isset($data['check_in']) ? date("d-m-Y", strtotime($data['check_in'])) : 'N/A';
+        $checkout = isset($data['check_out']) ? date("d-m-Y", strtotime($data['check_out'])) : 'N/A';
 
         if($data['booking_status']=='booked')
         {
             $status_bg= 'bg-success';
-            $status_text = 'Đã đặt';
         }
+
         else if($data['booking_status']=='cancelled')
         {
             $status_bg= 'bg-danger';
-            $status_text = 'Đã hủy';
         }
+
         else
         {
             $status_bg= 'bg-warning text-dark';
-            $status_text = 'Thanh toán thất bại';
         }
+
+
 
         $table_data .= "
             <tr>
                 <td>$i</td>
                 <td>
                     <span class='badge bg-primary'>
-                        Mã đặt hàng: $data[order_id]
+                        ID: $data[order_id]
                     </span>
                     <br>
-                    <b>Tên:</b> $data[user_name]
+                    <b>Người dùng:</b> $data[user_name]
                     <br>
-                    <b>Số điện thoại:</b> $data[phonenum]
+                    <b>SDT:</b> $data[phonenum]
                 </td>
                 <td>
                     <b>Phòng:</b> $data[room_name]
                     <br>
-                    <b>Giá:</b> $data[price] VNĐ
+                    <b>Giá:</b> $data[price]
                 </td>
                 <td>
-                    <b>Số tiền:</b> $trans_amt VNĐ
+                    <b>Số lượng:</b> $trans_amt
                     <br>
-                    <b>Ngày:</b> $date
+                    <b>Ngày đặt phòng:</b> $date
                 </td>
                 <td>
-                    <span class='badge $status_bg'>$status_text</span>
+                    <span class='badge $status_b'>$data[booking_status]</span>
                 </td>
                 <td>
                     <button type='button' onclick='cancel_booking($data[booking_id])' class='mt-2 btn btn-outline-danger btn-sm fw-bold shadow-none'>
@@ -94,17 +95,18 @@ if (isset($_POST['get_bookings'])) {
 
     $pagination = "";
 
-    if($total_rows > $limit) {
-        $total_pages = ceil($total_rows / $limit);
+    if($total_rows>$limit)
+    {
+            $total_pages=$total_rows/$limit;
 
-        $disabled = ($page == 1) ? "disabled" : "";
-        $pagination .= "<li class='page-item $disabled'><button class='page-link shadow-none'>Trước</button></li>";
+            $disabled = ($page==1) ? "disabled" : "";
+            $pagination .="<li class='page-item $disabled'><button class='page-link shadow-none'>Prev</button></li>";
 
-        $disabled = ($page == $total_pages) ? "disabled" : "";
-        $pagination .= "<li class='page-item $disabled'><button class='page-link shadow-none'>Sau</button></li>";
+            $disabled = ($page==$total_pages) ? "disabled" : "";
+            $pagination .="<li class='page-item'><button class='page-link shadow-none'>Next</button></li>";
     }
 
-    $output = json_encode(["table_data" => $table_data, "pagination" => $pagination]);
+    $output = json_encode(["table_data"=>$table_data]);
     echo $output;
 }
 
@@ -130,4 +132,5 @@ if (isset($_POST['cancel_booking'])) {
 
     echo $res;
 }
+
 ?>

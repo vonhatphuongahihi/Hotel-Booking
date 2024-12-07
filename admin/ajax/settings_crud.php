@@ -59,13 +59,13 @@
         $frm_data = filteration($_POST);
         $img_r = uploadImage($_FILES['picture'], ABOUT_FOLDER);
         if ($img_r == 'inv_img') {
-            echo $img_r;
+            echo "Hình ảnh không hợp lệ.";
         }
         else if ($img_r == 'inv_size') {
-            echo $img_r;
+            echo "Kích thước hình ảnh vượt quá giới hạn.";
         }
         else if ($img_r == 'upd_failed') {
-            echo $img_r;
+            echo "Tải lên hình ảnh thất bại.";
         }
         else {
             $q = "INSERT INTO `team_details`(`name`, `picture`) VALUES (?,?)";
@@ -109,7 +109,7 @@
             echo $res;
         }
         else {
-            echo 0;
+            echo "Không thể xóa hình ảnh của thành viên.";
         }
     }
 

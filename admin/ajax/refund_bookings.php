@@ -12,7 +12,7 @@
             WHERE (bo.order_id LIKE ? OR bd.phonenum LIKE ? OR bd.user_name LIKE ?)
             AND (bo.booking_status = ? AND bo.refund = ?) ORDER BY bo.booking_id ASC";
 
-        $res = select($query, ["%$frm_data[search]%", "%$frm_data[search]%", "%$frm_data[search]%", "cancelled", 0], 'sssss');
+        $res = select($query, ["%$frm_data[search]%", "%$frm_data[search]%", "%$frm_data[search]%", "pending", 0], 'sssss');
         $i = 1;
         $table_data = "";
 
@@ -32,12 +32,12 @@
                     <td>$i</td>
                     <td>
                         <span class='badge bg-primary'>
-                            Mã đơn: {$data['order_id']}
+                            ID: {$data['order_id']}
                         </span>
                         <br>
-                        <b>Tên khách hàng:</b> {$data['user_name']}
+                        <b>Người dùng:</b> {$data['user_name']}
                         <br>
-                        <b>Số điện thoại:</b> {$data['phonenum']}
+                        <b>SDT:</b> {$data['phonenum']}
                     </td>
                     <td>
                         <b>Giá:</b> {$data['price']}
@@ -47,7 +47,7 @@
                         <br>
                         <b>Ngày trả phòng:</b> $checkout
                         <br>
-                        <b>Ngày đặt:</b> $date
+                        <b>Ngày đặt phòng:</b> $date
                     </td>
                     <td>
                         <b>$trans_amt</b>

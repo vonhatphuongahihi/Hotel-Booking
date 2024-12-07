@@ -6,7 +6,7 @@
     $con = mysqli_connect($hname, $uname, $pass, $db);
 
     if (!$con) {
-        die("Connection failed: " . mysqli_connect_error());
+        die("Kết nối thất bại: " . mysqli_connect_error());
     }
 
     function filteration($data) {
@@ -37,13 +37,13 @@
                 return $result;
             }
             else {
-                die("Query cannot be executed - Select");
+                die("Truy vấn không thể thực thi - Select");
             }
             mysqli_stmt_close($stmt);
             
         }
         else{
-            die("Query cannot be prepared - Select");
+            die("Không thể chuẩn bị truy vấn - Select");
         }
     }
 
@@ -58,13 +58,13 @@
                 return $result;
             }
             else {
-                die("Query cannot be executed - Update");
+                die("Truy vấn không thể thực thi - Update");
             }
             mysqli_stmt_close($stmt);
             
         }
         else{
-            die("Query cannot be prepared - Update");
+            die("Không thể chuẩn bị truy vấn - Update");
         }
     }
 
@@ -79,13 +79,13 @@
                 return $result;
             }
             else {
-                die("Query cannot be executed - Insert");
+                die("Truy vấn không thể thực thi - Insert");
             }
             mysqli_stmt_close($stmt);
             
         }
         else{
-            die("Query cannot be prepared - Insert");
+            die("Không thể chuẩn bị truy vấn - Insert");
         }
     }
 
@@ -100,13 +100,13 @@
                 return $result;
             }
             else {
-                die("Query cannot be executed - Delete");
+                die("Truy vấn không thể thực thi - Delete");
             }
             mysqli_stmt_close($stmt);
             
         }
         else{
-            die("Query cannot be prepared - Delete");
+            die("Không thể chuẩn bị truy vấn - Delete");
         }
     }
 ?>

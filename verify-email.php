@@ -12,7 +12,7 @@
             if ($fetch['is_verified'] == 1) {
                 echo "<script>alert('Email đã được xác minh trước đó!');</script>";
             } else {
-                $update = update("UPDATE `user_cred` SET `is_verified` = 1 WHERE `id`=?", [$fetch['id']], 'i'); // sử dụng $fetch['id']
+                $update = update("UPDATE `user_cred` SET `is_verified` = 1 WHERE `id`=?", [$fetch['id']], 'i'); 
                 if ($update) {
                     echo "<script>alert('Xác minh email thành công!');</script>";
                 } else {
@@ -21,7 +21,7 @@
             }
             redirect('index.php');
         } else {
-            echo "<script>alert('Email hoặc mã xác nhận không hợp lệ!');</script>"; // thông báo chính xác hơn
+            echo "<script>alert('Email hoặc mã xác nhận không hợp lệ!');</script>"; 
         }
     }
 ?>

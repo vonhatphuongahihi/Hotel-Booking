@@ -3,12 +3,13 @@
     --teal_hover: #279E8C;
 }
 
-*{
-    font-family: 'Poppins', sans-serif;
+
+* {
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
-.h-font{
-    font-family: 'Merienda', cursive;
+.h-font {
+    font-family: 'Roboto Condensed', sans-serif; 
 }
 
 input::-webkit-outer-spin-button,
