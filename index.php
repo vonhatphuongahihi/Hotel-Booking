@@ -268,7 +268,7 @@
                                             $room_data[children] Children
                                         </span>    
                                     </div>
-                                        $rating_data;
+                                        $rating_data
                                     <div class="d-flex justify-content-evenly mb-2">
                                         $book_btn
                                         <a href="room_details.php?id=$room_data[id]" class="btn btn-sm btn-outline-dark shadow-none">Chi tiết thêm</a>                           
@@ -348,7 +348,7 @@
                                         <h6 class="m-0 ms-2">$row[uname]</h6>
                                    </div>
                                  <p>
-                                    $row[review];
+                                    $row[review]
                                 </p>
                                     <div class="rating">
                                     $stars
