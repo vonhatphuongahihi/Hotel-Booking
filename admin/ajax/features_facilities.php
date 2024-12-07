@@ -25,7 +25,7 @@
                     <td>$row[name]</td>
                     <td>
                         <button type="button" onclick="rem_feature($row[id])" class="btn btn-danger btn-sm shadow-none">
-                            <i class="bi bi-trash"></i>Delete
+                            <i class="bi bi-trash"></i>Xóa
                         </button>
                     </td>
                 </tr>
@@ -46,7 +46,7 @@
             echo $res;
         }
         else {
-            echo 'room_added';
+            echo 'Đã được thêm vào phòng';
         }
     }
 
@@ -57,13 +57,13 @@
         $img_r = uploadSVGImage($_FILES['icon'], FACILITIES_FOLDER);
         
         if ($img_r == 'inv_img') {
-            echo $img_r;
+            echo 'Hình ảnh không hợp lệ';
         }
         else if ($img_r == 'inv_size') {
-            echo $img_r;
+            echo 'Kích thước hình ảnh không hợp lệ';
         }
         else if ($img_r == 'upd_failed') {
-            echo $img_r;
+            echo 'Cập nhật thất bại';
         }
         else {
             $q = "INSERT INTO `facilities`(`icon`, `name`, `description`) VALUES (?,?,?)";
@@ -88,7 +88,7 @@
                     <td>$row[description]</td>
                     <td>
                         <button type="button" onclick="rem_facility($row[id])" class="btn btn-danger btn-sm shadow-none">
-                            <i class="bi bi-trash"></i>Delete
+                            <i class="bi bi-trash"></i>Xóa
                         </button>
                     </td>
                 </tr>
@@ -116,11 +116,11 @@
                 echo $res;
             }
             else {
-                echo 0;
+                echo 'Xóa ảnh thất bại';
             }
         }
         else {
-            echo 'room_added';
+              echo 'Đã được thêm vào phòng';
         }
     }
 

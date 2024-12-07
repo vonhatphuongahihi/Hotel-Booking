@@ -31,10 +31,10 @@
 <body class="bg-light">
    <?php require('inc/header.php');?>
     <div class="my-5 px-4">
-    <h2 class="fw-bold h-font text-center">LIÊN HỆ VỚI CHÚNG TÔI</h2> 
+    <h2 class="fw-bold h-font text-center">CONTACT US</h2> 
     <div class="h-line bg-dark "></div>
     <p class="text-center mt-3 ">
-        Chúng tôi luôn sẵn sàng hỗ trợ bạn với mọi thắc mắc. Hãy liên hệ với chúng tôi để nhận được sự giúp đỡ tốt nhất.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorem <br> eligendi nulla qui fugiat fuga neque provident. Voluptas, quod quia!
     </p>
     </div>
     
@@ -43,11 +43,11 @@
             <div class="col-lg-4 col-md-6 mb-5 px-4">
                 <div class="bg-white rounded shadow p-4">
                     <iframe class="w-100 rounded mb-4" height="320px" src="<?php echo $contact_r['iframe'] ?> " loading="lazy"></iframe>
-                        <h5>Địa chỉ</h5>
+                        <h5>Address</h5>
                         <a href=" <?php echo $contact_r['gmap'] ?>" target="_blank" class="d-inline-block text-decoration-none text-dark mb-2">
                         <i class="bi bi-geo-alt"></i> <?php echo $contact_r['address'] ?>
                         </a>
-                        <h5 class="mt-4">Gọi cho chúng tôi</h5>
+                        <h5 class="mt-4">Call us</h5>
                     <a href="tel: +<?php echo $contact_r['pn1'] ?>" class="d-inline-block mb-2 text-decoration-none text-dark">
                         <i class="bi bi-telephone-fill"></i> +<?php echo $contact_r['pn1'] ?>
                     </a>
@@ -70,14 +70,17 @@
                     <i class="bi bi-envelope-fill"></i>
                     <?php echo $contact_r['email'] ?>
                     </a>
-                    <h5 class="mt-4">Theo dõi chúng tôi</h5>
+                    <h5 class="mt-4">Follow us</h5>
                     <?php
                     if($contact_r['tw']!='')
                     {
                         echo<<<data
                             <a href="$contact_r[tw]" class="d-inline-block text-dark fs-5 me-2">
-                        <i class="bi bi-twitter-x me-1"></i>
+                       
+                             <i class="bi bi-twitter-x me-1"></i>
+                        
                             </a>
+
                         data;
                     }
                     ?>
@@ -86,6 +89,7 @@
                         <i class="bi bi-facebook me-1"></i>
                     </a>
                     <a href="<?php echo $contact_r['insta'] ?>" class="d-inline-block text-dark fs-5">
+
                         <i class="bi bi-instagram me-1"></i>
                     </a>
                 </div>
@@ -95,10 +99,10 @@
                 <div class="bg-white rounded shadow p-4 ">
                     <form method="POST">
                         <h5>
-                            Gửi một tin nhắn
+                            Send a message       
                         </h5>
                         <div class="mb-3">
-                        <label class="form-label" style=" font-weight :500">Tên</label>
+                        <label class="form-label" style=" font-weight :500">Name</label>
                         <input name="name" required type="text" class="form-control shadow-none">
                     </div>
                     <div class="mb-3">
@@ -106,21 +110,20 @@
                         <input name="email" required type="email" class="form-control shadow-none">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" style=" font-weight :500">Chủ đề</label>
+                        <label class="form-label" style=" font-weight :500">Subject</label>
                         <input name="subject" required type="text" class="form-control shadow-none">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label" style=" font-weight :500">Tin nhắn</label>
+                        <label class="form-label" style=" font-weight :500">Message</label>
                         <textarea name="message" required class="form-control shadow-none" rows="5" style="resize : none;"></textarea>
                     </div>
-                    <button type="submit" name="send" class="btn text-white custom-bg mt-3">GỬI</button>
+                    <button type="submit" name="send" class="btn text-white custom-bg mt-3">SEND</button>
                     </form>
                     
                 </div>
 
             </div>
             
-
 
             </div>
           
@@ -138,10 +141,10 @@
 
             $res = insert($q, $values, 'ssss');
             if($res==1){
-                alert('success','Tin nhắn đã được gửi!');
+                alert('success','Mail sent!');
             }
             else{
-                alert('error','Lỗi hệ thống! Vui lòng thử lại sau');
+                alert('error','Server Down! Try again later');
             }
         }
     ?>

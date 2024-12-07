@@ -13,10 +13,10 @@
             $values = [1];
             if(update($q,$values,'i'))
             {
-                alert('success','Đã đánh dấu tất cả là đã đọc');
+                alert('success','Marked all as read');
             }
             else{
-                alert('error','Thao tác thất bại');
+                alert('error','Operation Failed');
             }
         }
         else
@@ -25,10 +25,10 @@
             $values = [1,$frm_data['seen']];
             if(update($q,$values,'ii'))
             {
-                alert('success','Đã đánh dấu là đã đọc');
+                alert('success','Marked as read');
             }
             else{
-                alert('error','Thao tác thất bại');
+                alert('error','Operation Failed');
             }
         }
     }
@@ -42,10 +42,10 @@
             $q = "DELETE FROM `user_queries`";
             if(mysqli_query($con,$q))
             {
-                alert('success','Đã xóa tất cả dữ liệu!');
+                alert('success','All Data deleted!');
             }
             else{
-                alert('error','Thao tác thất bại');
+                alert('error','Operation failed');
             }
         }
         else
@@ -54,10 +54,10 @@
             $values = [$frm_data['del']];
             if(delete($q,$values,'i'))
             {
-                alert('success','Đã xóa dữ liệu');
+                alert('success','Data deleted');
             }
             else{
-                alert('error','Thao tác thất bại');
+                alert('error','Operation Failed');
             }
         }
     }
@@ -86,10 +86,10 @@
 
                         <div class="text-end mb-4">
                             <a href="?seen=all" class="btn btn-dark rounded-pill shadow-none btn-sm">
-                            <i class="bi bi-check2-all"></i>Đánh dấu tất cả là đã đọc
+                            <i class="bi bi-check2-all"></i>Mark all read
                             </a>
                             <a href="?del=all" class="btn btn-danger rounded-pill shadow-none btn-sm">
-                                <i class="bi bi-trash"></i>Xóa tất cả
+                                <i class="bi bi-trash"></i>Delete all
                             </a>    
                         </div>
                         <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
@@ -97,14 +97,14 @@
                                 <thead class="stickcy-top">
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
-                                        <th scope="col">Họ tên</th>
+                                        <th scope="col">Name</th>
                                         <th scope="col">Email</th>
-                                        <th scope="col" width="20%">Chủ đề</th>
-                                        <th scope="col" width="30%">Tin nhắn</th>
-                                        <th scope="col">Ngày gửi</th>
-                                        <th scope="col">Hành động</th>
+                                        <th scope="col" width="20%">Subject</th>
+                                        <th scope="col" width="30%">Message</th>
+                                        <th scope="col">Date</th>
+                                        <th scope="col">Action</th>
                                     </tr>
-                                </thead>   
+                                </thread>   
                                 <tbody>
                                     <?php
                                         $q = "SELECT * FROM `user_queries` ORDER BY `sr_no` DESC";
@@ -113,13 +113,12 @@
 
                                         while($row = mysqli_fetch_assoc($data))
                                         {
-                                            $date = date('d-m-Y',strtotime($row['datentime']));
                                             $seen='';
                                             if($row['seen']!=1)
                                             {
-                                                $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Đánh dấu là đã đọc</a> <br>";
+                                                $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Mark as read</a> <br>";
                                             }
-                                            $seen.="<a href='?del=$row[sr_no]' class='btn btn-sm rounded-pill btn-danger mt-2'>Xóa</a>";
+                                            $seen.="<a href='?del=$row[sr_no]' class='btn btn-sm rounded-pill btn-danger mt-2'>Delete</a>";
                                             echo<<<query
                                                 <tr>
                                                     <td>$i</td>
@@ -127,7 +126,7 @@
                                                     <td>$row[email]</td>
                                                     <td>$row[subject]</td>
                                                     <td>$row[message]</td>
-                                                    <td>$date</td>
+                                                    <td>$row[date]</td>
                                                     <td>$seen</td>
                                                 </tr>
                                             query;

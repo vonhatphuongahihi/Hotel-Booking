@@ -12,7 +12,7 @@
             WHERE (bo.order_id LIKE ? OR bd.phonenum LIKE ? OR bd.user_name LIKE ?)
             AND (bo.booking_status = ? AND bo.arrival = 0) ORDER BY bo.booking_id ASC";
 
-        $res = select($query, ["%$frm_data[search]%", "%$frm_data[search]%", "%$frm_data[search]%", "booked", 0], 'sssss');
+        $res = select($query, ["%$frm_data[search]%", "%$frm_data[search]%", "%$frm_data[search]%", "booked", 0], 'ssssi');
 
         $i = 1;
         $table_data = "";
@@ -33,12 +33,12 @@
                     <td>$i</td>
                     <td>
                         <span class='badge bg-primary'>
-                            Mã đơn: $data[order_id]
+                            ID: $data[order_id]
                         </span>
                         <br>
-                        <b>Tên khách hàng:</b> $data[user_name]
+                        <b>Người dùng:</b> $data[user_name]
                         <br>
-                        <b>Số điện thoại:</b> $data[phonenum]
+                        <b>SDT:</b> $data[phonenum]
                     </td>
                     <td>
                         <b>Phòng:</b> $data[room_name]
@@ -50,13 +50,13 @@
                         <br>
                         <b>Ngày trả phòng:</b> $checkout
                         <br>
-                        <b>Đã thanh toán:</b> $trans_amt
+                        <b>Thanh toán:</b> $trans_amt
                         <br>
-                        <b>Ngày đặt:</b> $date
+                        <b>Ngày:</b> $date
                     </td>
                     <td>
                         <button type='button' onclick='assign_room($data[booking_id])' class='btn text-white btn-sm fw-bold custom-bg shadow-none' data-bs-toggle='modal' data-bs-target='#assign-room'>
-                            <i class='bi bi-check2-square'></i> Phân phòng
+                            <i class='bi bi-check2-square'></i>Phân phòng
                         </button>
                         <br>
                         <button type='button' onclick='cancel_booking($data[booking_id])' class='mt-2 btn btn-outline-danger btn-sm fw-bold shadow-none'>
@@ -76,11 +76,11 @@
 
         $query = "UPDATE `booking_order` bo INNER JOIN `booking_details` bd 
         ON bo.booking_id = bd.booking_id
-        SET bo.arrival = ?, bo.rate_review= ?, bd.room_no = ?
+        SET bo.arrival = ?, bd.room_no = ?
         WHERE bo.booking_id = ?";
 
-        $values = [1, 0, $frm_data['room_no'], $frm_data['booking_id']];
-        $res = update($query, $values, 'iisi');
+        $values = [1, $frm_data['room_no'], $frm_data['booking_id']];
+        $res = update($query, $values, 'isi');
         echo ($res == 2) ? 1 : 0;
     }
 

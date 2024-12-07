@@ -1,3 +1,4 @@
+
 let general_data, contacts_data;    
 let general_s_form = document.getElementById('general_s_form');
 let site_title_inp = document.getElementById('site_title_inp');
@@ -6,17 +7,20 @@ let contacts_s_form = document.getElementById('contacts_s_form');
 let team_s_form = document.getElementById('team_s_form');
 let member_name_inp = document.getElementById('member_name_inp');
 let member_picture_inp = document.getElementById('member_picture_inp');
-
-function get_general() {
+function get_general()
+{
     let site_title = document.getElementById('site_title');
     let site_about = document.getElementById('site_about');
+    
+   
+
     let shutdown_toggle = document.getElementById('shutdown-toggle');
 
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/settings_crud.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function() {
+    xhr.onload = function(){
         general_data = JSON.parse(this.responseText);
 
         site_title.innerText = general_data.site_title;
@@ -25,10 +29,14 @@ function get_general() {
         site_title_inp.value = general_data.site_title;
         site_about_inp.value = general_data.site_about;
 
-        if (general_data.shutdown == 0) {
+        if(general_data.shutdown == 0)
+        {
             shutdown_toggle.checked = false;
             shutdown_toggle.value = 0;
-        } else {
+        
+        }
+        else
+        {
             shutdown_toggle.checked = true;
             shutdown_toggle.value = 1;
         }
@@ -37,113 +45,131 @@ function get_general() {
     xhr.send('get_general');
 }
 
-general_s_form.addEventListener('submit', function(e) {
+general_s_form.addEventListener('submit', function(e){
     e.preventDefault();
     upd_general(site_title_inp.value, site_about_inp.value)
 });
 
-function upd_general(site_title_val, site_about_val) {
+function upd_general(site_title_val, site_about_val)
+{
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/settings_crud.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function() {
+    xhr.onload = function(){
+
         var myModal = document.getElementById('general-s');
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
 
-        if (this.responseText == 1) {
-            alert('success', 'Cập nhật thành công!');
+        if(this.responseText == 1)
+        {
+            alert('success', 'Changes saved!');
             get_general();
-        } else {
-            alert('error', 'Không có thay đổi nào được thực hiện!');
         }
-    }
+        else
+        {
+            alert('error', 'No changes made!');
+        }
+       }
 
-    xhr.send('site_title=' + site_title_val + '&site_about=' + site_about_val + '&upd_general');
+    xhr.send('site_title='+site_title_val+'&site_about='+site_about_val+'&upd_general');
 }
 
-function upd_shutdown(val) {
+function upd_shutdown(val)
+{
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/settings_crud.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function() {
-        if (this.responseText == 1 && general_data.shutdown == 0) {
-            alert('success', 'Trang web đã được tắt!');
-        } else {
-            alert('success', 'Chế độ tắt trang web đã được tắt!');
+    xhr.onload = function(){
+        if(this.responseText == 1 && general_data.shutdown == 0)
+        {
+            alert('success', 'Site has been shutdown!');
+        }
+        else
+        {
+            alert('success', 'Shutdown mode off!');
         }
         get_general();
-    }
+       }
 
-    xhr.send('upd_shutdown=' + val);
+    xhr.send('upd_shutdown='+val);
 }
-
-function get_contacts() {
+function get_contacts()
+{
     let contacts_p_id = ['address', 'gmap', 'pn1', 'pn2', 'email', 'fb', 'insta', 'tw'];
     let iframe = document.getElementById('iframe');
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/settings_crud.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function() {
-        contacts_data = JSON.parse(this.responseText);
-        contacts_data = Object.values(contacts_data);
-        for (i = 0; i < contacts_p_id.length; i++) {
-            document.getElementById(contacts_p_id[i]).innerText = contacts_data[i + 1];
-        }
-        iframe.src = contacts_data[9];
-        contacts_inp(contacts_data);
+    xhr.onload = function(){
+       contacts_data = JSON.parse(this.responseText);
+       contacts_data = Object.values(contacts_data);
+       for (i=0; i<contacts_p_id.length; i++)
+       {
+           document.getElementById(contacts_p_id[i]).innerText = contacts_data[i+1];
+       }
+       iframe.src = contacts_data[9];
+       contacts_inp(contacts_data);
     }
 
     xhr.send('get_contacts');
 }
 
-function contacts_inp(data) {
+function contacts_inp(data)
+{
     let contacts_inp_id = ['address_inp', 'gmap_inp', 'pn1_inp', 'pn2_inp', 'email_inp', 'fb_inp', 'insta_inp', 'tw_inp', 'iframe_inp'];
-    for (i = 0; i < contacts_inp_id.length; i++) {
-        document.getElementById(contacts_inp_id[i]).value = data[i + 1];
+    for (i=0; i<contacts_inp_id.length; i++)
+    {
+        document.getElementById(contacts_inp_id[i]).value = data[i+1];
     }
 }
 
-contacts_s_form.addEventListener('submit', function(e) {
+contacts_s_form.addEventListener('submit', function(e){
     e.preventDefault();
     upd_contacts();
 });
 
-function upd_contacts() {
+function upd_contacts(){
     let index = ['address', 'gmap', 'pn1', 'pn2', 'email', 'fb', 'insta', 'tw', 'iframe'];
     let contacts_inp_id = ['address_inp', 'gmap_inp', 'pn1_inp', 'pn2_inp', 'email_inp', 'fb_inp', 'insta_inp', 'tw_inp', 'iframe_inp'];
-    let data_str = "";
-    for (i = 0; i < index.length; i++) {
-        data_str += index[i] + '=' + document.getElementById(contacts_inp_id[i]).value + '&';
+    let data_str="";
+    for (i=0; i<index.length; i++)
+    {
+        data_str += index[i]+'='+document.getElementById(contacts_inp_id[i]).value+'&';
     }
     data_str += "upd_contacts";
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/settings_crud.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.onload = function() {
+    xhr.onload = function()
+    {
         var myModal = document.getElementById('contacts-s');
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
-        if (this.responseText == 1) {
-            alert('success', 'Cập nhật thành công!');
+        if(this.responseText == 1)
+        {
+            alert('success', 'Changes saved!');
             get_contacts();
-        } else {
-            alert('error', 'Không có thay đổi nào được thực hiện!');
+        }
+        else
+        {
+            alert('error', 'No changes made!');
         }
         get_general();
-    }
+       }
     xhr.send(data_str);
 }
 
-team_s_form.addEventListener('submit', function(e) {
+team_s_form.addEventListener('submit', function(e){
     e.preventDefault();
     add_member();
 });
 
-function add_member() {
+function add_member()
+{
     let data = new FormData();
     data.append('name', member_name_inp.value);
     data.append('picture', member_picture_inp.files[0]);
@@ -151,18 +177,25 @@ function add_member() {
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/settings_crud.php", true);
 
-    xhr.onload = function() {
+    xhr.onload = function(){
         console.log(this.responseText);
         var myModal = document.getElementById('team-s');
         var modal = bootstrap.Modal.getInstance(myModal);
         modal.hide();
-        if (this.responseText == 'inv_img') {
+        if (this.responseText == 'inv_img')
+        {
             alert('error', 'Chỉ tệp hình ảnh có đuôi .jpg, .jpeg và .png được chấp nhận!');
-        } else if (this.responseText == 'inv_size') {
+        }
+        else if (this.responseText == 'inv_size')
+        {
             alert('error', 'Ảnh phải có kích thước nhỏ hơn 2MB');
-        } else if (this.responseText == 'upd_failed') {
-            alert('error', 'Ảnh upload không thành công. Máy chủ lỗi!');
-        } else if (this.responseText == 1) {
+        }
+        else if (this.responseText == 'upd_failed')
+        {
+            alert('error', 'Ảnh upload không thành công!. Máy chủ lỗi!');
+        }
+        else if (this.responseText == 1)
+        {
             alert('success', 'Thành viên mới được thêm thành công!');
             member_name_inp.value = '';
             member_picture_inp.value = '';
@@ -173,37 +206,42 @@ function add_member() {
     xhr.send(data);
 }
 
-function get_members() {
+function get_members(){
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/settings_crud.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function() {
+    xhr.onload = function(){
         document.getElementById('team-data').innerHTML = this.responseText;
     }
 
     xhr.send('get_members');
 }
 
-function rem_member(val) {
+function rem_member(val){
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "ajax/settings_crud.php", true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function() {
-        if (this.responseText == 1) {
+    xhr.onload = function(){
+        if(this.responseText == 1)
+        {
             alert('success', 'Thành viên đã được xóa!');
             get_members();
-        } else {
+        }
+        else
+        {
             alert('error', 'Không thể xóa thành viên!');
         }
     }
 
-    xhr.send('rem_member=' + val);
+    xhr.send('rem_member='+val);
 }
 
-window.onload = function() {
+window.onload = function(){
     get_general();
     get_contacts();
     get_members();
 }
+
+

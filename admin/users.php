@@ -11,6 +11,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel - Users</title>
     <?php require('inc/links.php'); ?>
+    <style>
+        th {
+            text-align: center; 
+            vertical-align: middle; 
+        }
+    </style>
 </head>
 
 <body class="bg-light">
@@ -20,7 +26,7 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">USERS</h3>
+                <h4 class="mb-4">NGƯỜI DÙNG</h4>
   
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
@@ -33,8 +39,8 @@
                             <table class="table table-hover border text-center" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th scope="col">#</th>
-                                        <th scope="col">Họ và tên</th>
+                                        <th scope="col">STT</th>
+                                        <th scope="col" width="20%">Họ và tên</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Số điện thoại</th>
                                         <th scope="col">Địa chỉ</th>
@@ -42,7 +48,6 @@
                                         <th scope="col">Xác minh</th>
                                         <th scope="col">Trạng thái</th>
                                         <th scope="col">Ngày đăng ký</th>
-                                        <th scope="col">Hành động</th>
                                     </tr>
                                 </thead>   
                                 <tbody id="users-data">

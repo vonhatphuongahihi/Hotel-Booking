@@ -1,6 +1,6 @@
 <?php
 //front end purpose data
-define('SITE_URL', 'http://127.0.0.1:80/Hotel-Booking/');
+define('SITE_URL', 'http://127.0.0.1:8012/Hotel-Booking/');
 define('ABOUT_IMG_PATH', SITE_URL.'images/about/');
 define('CAROUSEL_IMG_PATH', SITE_URL.'images/carousel/');
 define('FACILITIES_IMG_PATH', SITE_URL.'images/facilities/');
@@ -45,10 +45,10 @@ function uploadImage($image, $folder)
     $valid_mime = ['image/webp', 'image/jpg', 'image/jpeg', 'image/png'];
     $img_mime = $image['type'];
     if (!in_array($img_mime, $valid_mime)) {
-        return 'inv_img';
+        return 'Hình ảnh không hợp lệ';
     }
     else if (($image['size']/(1024*1024))>2) {
-        return 'inv_size';
+        return 'Kích thước hình ảnh quá lớn';
     }
     else {
         $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
@@ -58,7 +58,7 @@ function uploadImage($image, $folder)
             return $rname;
         }
         else {
-            return 'upd_failed';
+            return 'Tải lên hình ảnh thất bại';
         }
         
     }
@@ -80,10 +80,10 @@ function uploadSVGImage($image, $folder)
     $img_mime = $image['type'];
 
     if (!in_array($img_mime, $valid_mime)) {
-        return 'inv_img';
+        return 'Hình ảnh không hợp lệ';
     }
     else if (($image['size']/(1024*1024))>1) {
-        return 'inv_size';
+        return 'Kích thước hình ảnh quá lớn';
     }
     else {
         $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
@@ -93,7 +93,7 @@ function uploadSVGImage($image, $folder)
             return $rname;
         }
         else {
-            return 'upd_failed';
+            return 'Tải lên hình ảnh thất bại';
         }
         
     }
@@ -105,7 +105,7 @@ function uploadUserImage($image)
     $img_mime = $image['type'];
 
     if (!in_array($img_mime, $valid_mime)) {
-        return 'inv_img';
+        return 'Hình ảnh không hợp lệ';
     }
    else {
         $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
@@ -129,7 +129,7 @@ function uploadUserImage($image)
             return $rname;
         }
         else {
-            return 'upd_failed';
+            return 'Tải lên hình ảnh thất bại';
         }
     }
 }

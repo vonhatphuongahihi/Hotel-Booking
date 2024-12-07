@@ -41,14 +41,15 @@ function send_mail($email, $token, $type) {
         $mail->Body = "
             <h2>Hi $name,</h2>
             <p>Click the link below to $content: </p>
-            <a href='http://localhost:80/Hotel-Booking/$page?$type&email=$email&token=$token'>Verify Account</a>
+            <a href='http://localhost:8012/Hotel-Booking/$page?$type&email=$email&token=$token'>Verify Account</a>
+
         ";
 
         $mail->send();
-        return true;
+        return ["success" => true, "message" => "Email sent successfully."];
     } catch (Exception $e) {
         error_log("Mailer Error: {$mail->ErrorInfo}");
-        return false;
+        return ["success" => false, "message" => "Failed to send email. Please try again later."];
     }
 }
 
@@ -93,14 +94,17 @@ if (isset($_POST['register'])) {
     $enc_pass = password_hash($data['pass'], PASSWORD_DEFAULT);
 
     // Thực hiện thêm người dùng vào cơ sở dữ liệu
-    $query = "INSERT INTO `user_cred` (`name`, `email`, `phonenum`, `profile`, `address`, `pincode`, `dob`, `password`, `token`, `datetime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+    $query = "INSERT INTO `user_cred` (`name`, `email`, `phonenum`, `profile`, `address`, `pincode`, `dob`, `password`, `token`, `datentime`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
     $values = [$data['name'], $data['email'], $data['phonenum'], $img, $data['address'], $data['pincode'], $data['dob'], $enc_pass, $token];
 
     if (insert($query, $values, 'sssssssss')) {
         echo 'success';
     } else {
-        echo 'ins_failed';
+        // Gửi thông báo lỗi vào trình duyệt dưới dạng script
+        echo '<script>console.log("ins_failed: ' . mysqli_error($conn) . '");</script>';
     }
+    
+    
 }
 if (isset($_POST['login'])) {
     $data = filteration($_POST);
