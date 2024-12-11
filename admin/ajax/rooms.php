@@ -94,7 +94,7 @@
                             Trẻ em: $row[children]
                         </span>
                     </td>
-                    <td>₹$row[price]</td>
+                    <td>$row[price] VND</td>
                     <td>$row[quantity]</td>
                     <td>$status</td>
                     <td>

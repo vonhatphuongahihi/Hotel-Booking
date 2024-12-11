@@ -21,7 +21,7 @@
         href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
         />
         <?php require('inc/links.php'); ?>
-        <title><?php echo $settings_r['site_title'] ?> - ABOUT</title>
+        <title><?php echo $settings_r['site_title'] ?> - GIỚI THIỆU</title>
         <style>
             .h-line
             {
@@ -41,24 +41,22 @@
     <div class="my-5 px-4">
     <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">GIỚI THIỆU</h3>
     <div class="h-line bg-dark "></div>
-    <p class="text-center mt-3 ">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorem <br> eligendi nulla qui fugiat fuga neque provident. Voluptas, quod quia!
+    <p class="text-center mt-3">
+    StayHub là website đặt phòng khách sạn hiện đại, mang đến trải nghiệm tiện lợi và đáng tin cậy cho mọi khách du lịch. Chúng tôi cung cấp danh sách đa dạng các khách sạn với tiện nghi cao cấp, giá cả minh bạch và nhiều ưu đãi hấp dẫn. Với giao diện thân thiện, bạn có thể dễ dàng tìm kiếm, so sánh và đặt phòng chỉ trong vài bước. StayHub cam kết đồng hành cùng bạn trong mọi hành trình, mang đến không gian nghỉ dưỡng thoải mái và dịch vụ chất lượng, giúp chuyến đi của bạn trở nên trọn vẹn. 
     </p>
+    <p class="text-center"><strong>Chào mừng bạn đến với StayHub!</strong></p>
     </div>
   
     <div class="container">
         <div class="row justify-content-between align-items-center">
-            <div class="col-lg-6 col-md-5 mb-4 order-md-1 order-2">
-                <h3 class="mb-3">Lorem ipsum dolor sit.</h3>
+            <div class="col-lg-6 col-md-5 mb-4 order-md-1 order-2" style="text-align: justify;">
+                <h3 class="mb-3" style="fw-bold font-size: 16px; ">StayHub - Điểm đến của mọi nhà</h3>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Sit ipsum dolorum at amet veniam laudantium adipisci.
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
-                    Sit ipsum dolorum at amet veniam laudantium adipisci.
+                <strong>StayHub</strong> - Khách sạn sang trọng với không gian hiện đại, tiện nghi cao cấp và dịch vụ hoàn hảo, mang đến trải nghiệm tuyệt vời cho mỗi khách hàng. Tọa lạc tại vị trí đắc địa, đây là lựa chọn lý tưởng cho những ai muốn tận hưởng không gian nghỉ dưỡng đẳng cấp tại Thành phố Hồ Chí Minh. Với các phòng nghỉ rộng rãi, nhà hàng chất lượng và các tiện ích vượt trội, StayHub sẽ là điểm dừng chân lý tưởng cho mọi chuyến đi.
                 </p>
             </div>
             <div class="col-lg-5 col-md-5 mb-4 order-md-2 order-1">
-            <img src="images/about/about.jpg" class="w-100"> 
+            <img src="images/hotel.jpg" class="w-100"> 
             </div>
         </div>
     </div>

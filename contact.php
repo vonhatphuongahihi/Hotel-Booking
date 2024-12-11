@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
     <?php require('inc/links.php'); ?>
-    <title><?php echo $settings_r['site_title'] ?> - CONTACT</title>
+    <title><?php echo $settings_r['site_title'] ?> - LIÊN HỆ</title>
         <style>
             .h-line
             {
@@ -31,23 +31,22 @@
 <body class="bg-light">
    <?php require('inc/header.php');?>
     <div class="my-5 px-4">
-    <h2 class="fw-bold h-font text-center">CONTACT US</h2> 
+    <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">LIÊN HỆ</h3>
     <div class="h-line bg-dark "></div>
-    <p class="text-center mt-3 ">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione dolorem <br> eligendi nulla qui fugiat fuga neque provident. Voluptas, quod quia!
-    </p>
+    <p class="text-center mt-3 " style ="text-align: justify; padding-left: 20px; padding-right: 20px;">
+    Chúng tôi luôn sẵn sàng hỗ trợ bạn trong mọi vấn đề liên quan đến đặt phòng và dịch vụ khách sạn. Nếu bạn có bất kỳ câu hỏi nào hoặc cần trợ giúp về việc đặt phòng khách sạn, đừng ngần ngại liên hệ với chúng tôi. Đội ngũ chăm sóc khách hàng của StayHub luôn luôn ở đây để mang đến sự hài lòng và giúp bạn có được những trải nghiệm tuyệt vời nhất.    </p>
     </div>
     
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-5 px-4">
+            <div class="col-lg-4 col-md-6 mb-5 px-4" style="margin-left: 70px">
                 <div class="bg-white rounded shadow p-4">
                     <iframe class="w-100 rounded mb-4" height="320px" src="<?php echo $contact_r['iframe'] ?> " loading="lazy"></iframe>
-                        <h5>Address</h5>
+                        <h5 class="fw-bold" style="font-size: 17px;">Địa chỉ</h5>
                         <a href=" <?php echo $contact_r['gmap'] ?>" target="_blank" class="d-inline-block text-decoration-none text-dark mb-2">
                         <i class="bi bi-geo-alt"></i> <?php echo $contact_r['address'] ?>
                         </a>
-                        <h5 class="mt-4">Call us</h5>
+                        <h5 class="mt-4 fw-bold" style="font-size: 17px;">Điện thoại</h5>
                     <a href="tel: +<?php echo $contact_r['pn1'] ?>" class="d-inline-block mb-2 text-decoration-none text-dark">
                         <i class="bi bi-telephone-fill"></i> +<?php echo $contact_r['pn1'] ?>
                     </a>
@@ -63,14 +62,14 @@
                     } 
                     ?>
                 
-                    <h5 class= "mt-4">
+                    <h5 class= "mt-4 fw-bold" style="font-size: 17px;">
                         Email
                     </h5>
                     <a href="mailto : <?php echo $contact_r['email'] ?>" class=" d-inline-block text-decoration-none text-dark">
                     <i class="bi bi-envelope-fill"></i>
                     <?php echo $contact_r['email'] ?>
                     </a>
-                    <h5 class="mt-4">Follow us</h5>
+                    <h5 class="mt-4 fw-bold" style="font-size: 17px;">Theo dõi</h5>
                     <?php
                     if($contact_r['tw']!='')
                     {
@@ -95,35 +94,33 @@
                 </div>
 
             </div>
-            <div class="col-lg-6 col-md-6 px-4">
+            <div class="col-lg-6 col-md-6 px-4" style="margin-left: 100px">
                 <div class="bg-white rounded shadow p-4 ">
                     <form method="POST">
-                        <h5>
-                            Send a message       
-                        </h5>
+                        <h5 class="fw-bold mb-4">Gửi câu hỏi</h5>
                         <div class="mb-3">
-                        <label class="form-label" style=" font-weight :500">Name</label>
-                        <input name="name" required type="text" class="form-control shadow-none">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" style=" font-weight :500">Email</label>
-                        <input name="email" required type="email" class="form-control shadow-none">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" style=" font-weight :500">Subject</label>
-                        <input name="subject" required type="text" class="form-control shadow-none">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" style=" font-weight :500">Message</label>
-                        <textarea name="message" required class="form-control shadow-none" rows="5" style="resize : none;"></textarea>
-                    </div>
-                    <button type="submit" name="send" class="btn text-white custom-bg mt-3">SEND</button>
+                            <label class="form-label" style=" font-weight :500">Họ và tên</label>
+                            <input name="name" required type="text" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" style=" font-weight :500">Email</label>
+                            <input name="email" required type="email" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" style=" font-weight :500">Tiêu đề</label>
+                            <input name="subject" required type="text" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label" style=" font-weight :500">Nội dung</label>
+                            <textarea name="message" required class="form-control shadow-none" rows="5" style="resize : none;"></textarea>
+                        </div>
+                        <div style="display: flex; justify-content: flex-end;">
+                            <button type="submit" name="send" class="btn text-white custom-bg">GỬI</button>
+                        </div>
                     </form>
-                    
                 </div>
-
             </div>
-            
+
 
             </div>
           

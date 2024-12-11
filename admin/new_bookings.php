@@ -24,19 +24,14 @@
 
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
-                    
-                        <div class="text-end mb-4">
-                            <input type="text" oninput="get_bookings(this.value)" class="form-control w-25 ms-auto" id="search" placeholder="Tìm kiếm">
-                        </div>
-
                         <div class="table-responsive">
                             <table class="table table-hover border" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
-                                        <th scope="col">Chi tiết người dùng</th>
-                                        <th scope="col">Chi tiết phòng</th>
-                                        <th scope="col">Chi tiết đặt phòng</th>
+                                        <th scope="col">Người dùng</th>
+                                        <th scope="col">Phòng</th>
+                                        <th scope="col">CĐặt phòng</th>
                                         <th scope="col">Hành động</th>
                                     </tr>
                                 </thead>   
@@ -57,7 +52,7 @@
             <form id="assign_room_form">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Gán Phòng</h5>
+                        <h5 class="fw-bold modal-title">Phân Phòng</h5>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
@@ -65,13 +60,13 @@
                             <input type="text" name="room_no" class="form-control shadow-none" required>
                         </div>
                         <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
-                            Lưu ý: Gán số phòng chỉ khi người dùng đã đến!
+                            Lưu ý: Phân số phòng chỉ khi người dùng đã đến!
                         </span>
                         <input type="hidden" name="booking_id">
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">HỦY</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">GÁN</button>
+                        <button type="reset" class="btn shadow-none btn-danger p-1.5 me-2"data-bs-dismiss="modal">HỦY</button>
+                        <button type="submit" class="btn custom-bg text-white shadow-none">PHÂN PHÒNG</button>
                     </div>
                 </div>
             </form>

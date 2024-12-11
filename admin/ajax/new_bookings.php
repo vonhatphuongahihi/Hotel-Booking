@@ -9,10 +9,9 @@
 
         $query = "SELECT bo.*, bd.* FROM `booking_order` bo
             INNER JOIN `booking_details` bd ON bo.booking_id = bd.booking_id
-            WHERE (bo.order_id LIKE ? OR bd.phonenum LIKE ? OR bd.user_name LIKE ?)
-            AND (bo.booking_status = ? AND bo.arrival = 0) ORDER BY bo.booking_id ASC";
+            WHERE bo.booking_status = 'booked' AND bo.arrival = 0 ORDER BY bo.booking_id ASC";
 
-        $res = select($query, ["%$frm_data[search]%", "%$frm_data[search]%", "%$frm_data[search]%", "booked", 0], 'ssssi');
+        $res = mysqli_query($con, $query);
 
         $i = 1;
         $table_data = "";

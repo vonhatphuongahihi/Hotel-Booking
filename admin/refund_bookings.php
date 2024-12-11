@@ -20,24 +20,19 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">ĐẶT PHÒNG HOÀN TIỀN</h3>
-  
+                <h3 class="mb-4">HOÀN TIỀN ĐẶT PHÒNG</h3>
+
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
-                    
-                        <div class="text-end mb-4">
-                            <input type="text" oninput="get_bookings(this.value)" class="form-control w-25 ms-auto" id="search" placeholder="Tìm kiếm">
-                        </div>
-
                         <div class="table-responsive">
                             <table class="table table-hover border" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
                                         <th scope="col">#</th>
-                                        <th scope="col">Thông Tin Người Dùng</th>
-                                        <th scope="col">Thông Tin Phòng</th>
-                                        <th scope="col">Chi Tiết Hoàn Tiền</th>
-                                        <th scope="col">Hành Động</th>
+                                        <th scope="col">Người dùng</th>
+                                        <th scope="col">Phòng</th>
+                                        <th scope="col">Số tiền hoàn trả</th>
+                                        <th scope="col">Hành động</th>
                                     </tr>
                                 </thead>   
                                 <tbody id="table-data">

@@ -16,7 +16,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require('inc/links.php'); ?>
-    <title><?php echo $settings_r['site_title'] ?> - ROOM</title>
+    <title><?php echo $settings_r['site_title'] ?> - PHÒNG</title>
     <style>
         .h-line
         {
@@ -30,7 +30,7 @@
 <body class="bg-light">
     <?php require('inc/header.php');?>
     <div class="my-5 px-4">
-    <h2 class="fw-bold h-font text-center">OUR ROOMS</h2> 
+    <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">DANH SÁCH CÁC PHÒNG</h3>
     <div class="h-line bg-dark "></div>
     </div>
     
@@ -40,20 +40,20 @@
             <div class="col-lg-3 col-md-12 mb-lg-0 mb-4 ps-4">
                 <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
                     <div class="container-fluid flex-lg-column align-items-stretch">
-                        <h4 class="mt-2">FILTERS</h4>
+                        <h4 class="mt-2 fw-bold" style="font-size: 18px">BỘ LỌC</h4>
                         <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#filterDropdown" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse flex-column align-items-stretch mt-2" id="filterDropdown">
                             <div class="border bg-light p-3 rounded mb-3">
-                                <h5 class="mb-3" style="font-size: 18px">CHECK AVAILABILITY</h5>
-                                <label class="form-label">Check-in</label>
+                            <h5 class="mb-3" style="font-size: 16px; font-weight: bold;">THỜI GIAN</h5>
+                            <label class="form-label">Ngày nhận phòng</label>
                                 <input type="date" class="form-control shadow-none mb-3">
-                                <label class="form-label">Check-out</label>
+                                <label class="form-label">Ngày trả phòng</label>
                                 <input type="date" class="form-control shadow-none">
                             </div>
                             <div class="border bg-light p-3 rounded mb-3">
-                                <h5 class="mb-3" style="font-size: 18px;">FACILITIES</h5>
+                                <h5 class="mb-3" style="font-size: 16px; font-weight: bold;">DỊCH VỤ</h5>
                                 <div class="mb-2">
                                     <input type="checkbox" id="f1" class="form-check-input shadow-none me-1">
                                     <label class="form-check-label" for="f1">Facility one</label>
@@ -68,14 +68,14 @@
                                 </div>
                             </div>
                             <div class="border bg-light p-3 rounded mb-3">
-                                <h5 class="mb-3" style="font-size: 18px;">GUESTS</h5>
+                                <h5 class="mb-3" style="font-size: 16px; font-weight: bold;">KHÁCH HÀNG</h5>
                                 <div class="d-flex">
                                     <div class="me-3">
-                                        <label class="form-label">Adults</label>
+                                        <label class="form-label">Người lớn</label>
                                         <input type="number" class="form-control shadow-none">
                                     </div>
                                     <div>
-                                        <label class="form-label">Children</label>
+                                        <label class="form-label">Trẻ em</label>
                                         <input type="number" class="form-control shadow-none">
                                     </div>
                                 </div>
@@ -93,7 +93,6 @@
                     while($room_data = mysqli_fetch_assoc($room_res))
                     {
                         // get features of room
-
                         $fea_q = mysqli_query($con, "SELECT f.name FROM features f 
                             INNER JOIN room_features rfea ON f.id = rfea.features_id 
                             WHERE rfea.room_id = '$room_data[id]'");
@@ -142,7 +141,7 @@
                                 $login = 1;
                             }
 
-                            $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm w-100 text-white custom-bg shadow-none mb-2'>Book Now</button>";
+                            $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm w-100 text-white custom-bg shadow-none mb-2'>Đặt phòng</button>";
                         }
 
                         // print room card
@@ -154,29 +153,29 @@
                                         <img src="$room_thumb" class="img-fluid rounded">
                                     </div>
                                     <div class="col-md-5 px-lg-3 px-md-3 px-0">
-                                        <h5 class="mb-3">$room_data[name]</h5>
+                                        <h5 class="mb-3 fw-bold">$room_data[name]</h5>
                                         <div class="features mb-3">
-                                            <h6 class="mb-1">Features</h6>
+                                            <h6 class="mb-1">Đặc điểm phòng</h6>
                                             $features_data
                                         </div>
                                         <div class="facilities mb-3">
-                                            <h6 class="mb-1">Facilities</h6>
+                                            <h6 class="mb-1">Dịch vụ</h6>
                                             $facilities_data
                                         </div>
                                         <div class="guests">
-                                            <h6 class="mb-1">Guests</h6>
+                                            <h6 class="mb-1">Khách hàng</h6>
                                             <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                                $room_data[adult] Adults
+                                                $room_data[adult] Người lớn
                                             </span>
                                             <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                                $room_data[children] Children
+                                                $room_data[children] Trẻ em
                                             </span>    
                                         </div>
                                     </div>
                                     <div class="col-md-2 mt-lg-0 mt-md-0 mt-4 text-center">
-                                        <h6 class="mb-4">₹$room_data[price] per night</h6>
+                                        <h6 class="mb-4">$room_data[price] VND mỗi đêm</h6>
                                         $book_btn
-                                        <a href="room_details.php?id=$room_data[id]" class="btn btn-sm w-100 btn-outline-dark shadow-none">More details</a>
+                                        <a href="room_details.php?id=$room_data[id]" class="btn btn-sm w-100 btn-outline-dark shadow-none">Xem chi tiết</a>
                                     </div>
                                 </div>
                             </div>
