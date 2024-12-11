@@ -8,11 +8,10 @@
         $frm_data = filteration($_POST);
 
         $query = "SELECT bo.*, bd.* FROM `booking_order` bo
-            INNER JOIN `booking_details` bd ON bo.booking_id = bd.booking_id
-            WHERE (bo.order_id LIKE ? OR bd.phonenum LIKE ? OR bd.user_name LIKE ?)
-            AND (bo.booking_status = ? AND bo.refund = ?) ORDER BY bo.booking_id ASC";
+        INNER JOIN `booking_details` bd ON bo.booking_id = bd.booking_id
+        WHERE bo.booking_status = 'cancelled' AND bo.refund = 0 ORDER BY bo.booking_id ASC";
 
-        $res = select($query, ["%$frm_data[search]%", "%$frm_data[search]%", "%$frm_data[search]%", "pending", 0], 'sssss');
+        $res = mysqli_query($con, $query);
         $i = 1;
         $table_data = "";
 
@@ -40,9 +39,6 @@
                         <b>SDT:</b> {$data['phonenum']}
                     </td>
                     <td>
-                        <b>Giá:</b> {$data['price']}
-                    </td>
-                    <td>
                         <b>Ngày nhận phòng:</b> $checkin
                         <br>
                         <b>Ngày trả phòng:</b> $checkout
@@ -53,8 +49,8 @@
                         <b>$trans_amt</b>
                     </td>
                     <td>
-                        <button type='button' onclick='refund_booking({$data['booking_id']})' class='btn btn-outline-danger btn-sm fw-bold shadow-none'>
-                            <i class='bi bi-cash-stack'></i> Hoàn tiền
+                        <button type='button' onclick='refund_booking({$data['booking_id']})' class='btn btn-success btn-sm fw-bold shadow-none'>
+                            <i class='bi bi-cash-stack me-2'></i> Hoàn tiền
                         </button>
                     </td>
                 </tr>

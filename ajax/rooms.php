@@ -131,7 +131,7 @@ if (isset($_GET['fetch_rooms'])) { // Check if the 'fetch_rooms' parameter is se
                         </div>
                     </div>
                     <div class='col-md-2 mt-lg-0 mt-md-0 mt-4 text-center'>
-                        <h6 class='mb-4'>₹$room_data[price]</h6>
+                        <h6 class='mb-4'>$room_data[price] VND</h6>
                         $book_btn
                     </div>
                 </div>

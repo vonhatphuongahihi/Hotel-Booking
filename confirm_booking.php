@@ -68,15 +68,14 @@
     
     <div class="container">
         <div class="row">
-
             <div class="col-12 my-5 mb-4 px-4">
-                <h2 class="fw-bold">CONFIRM BOOKING</h2>
+                <h3 class="fw-bold" style="font-size: 24px;">XÁC NHẬN ĐẶT PHÒNG</h3>
                 <div style="font-size: 14px;">
-                    <a href="index.php" class="text-secondary text-decoration-none">HOME</a>
+                    <a href="index.php" class="text-secondary text-decoration-none">Trang chủ</a>
                     <span class="text-secondary"> > </span>
-                    <a href="rooms.php" class="text-secondary text-decoration-none">ROOMS</a>
+                    <a href="rooms.php" class="text-secondary text-decoration-none">Phòng</a>
                     <span class="text-secondary"> > </span>
-                    <a href="#" class="text-secondary text-decoration-none">CONFIRM</a>
+                    <a href="#" class="text-secondary text-decoration-none">Xác nhận đặt phòng</a>
                 </div>
             </div>
 
@@ -96,8 +95,8 @@
                     echo<<<data
                         <div class="card p-3 shadow-sm rounded">
                             <img src="$room_thumb" class="img-fluid rounded mb-3">
-                            <h5>$room_data[name]</h5>
-                            <h6>₹$room_data[price] per night</h6>
+                            <h5 class="fw-bold" style="font-size: 17px;">$room_data[name]</h5>
+                            <h6>$room_data[price] VND mỗi đêm</h6>
                         </div>
                     data;
 
@@ -106,28 +105,28 @@
 
             <div class="col-lg-5 col-md-12 px-4">
                 <div class="card mb-4 border-0 shadow-sm rounded-3">
-                    <div class="card-body">
-                        <form action="momo.php" method="POST" id="booking_form">
-                            <h6 class="mb-3">BOOKING DETAILS</h6>
+                    <div class="card-body mt-4">
+                        <form action="momo.php" method="POST" id="booking_form">                            
+                            <h6 class="mb-4 fw-bold" style="font-size: 16px">CHI TIẾT ĐẶT PHÒNG</h6>
                             <div class="row">
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Name</label>
+                                    <label class="form-label">Tên khách hàng</label>
                                     <input name="name" type="text" value="<?php echo $user_data['name'] ?>" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Phone Number</label>
+                                    <label class="form-label">SDT</label>
                                     <input name="phonenum" type="number" value="<?php echo $user_data['phonenum'] ?>" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-12 mb-3">
-                                    <label class="form-label">Address</label>
+                                    <label class="form-label">Địa chỉ</label>
                                     <textarea name="address" class="form-control shadow-none" rows="1" required><?php echo $user_data['address'] ?></textarea>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Check-in</label>
+                                    <label class="form-label">Ngày nhận phòng</label>
                                     <input name="checkin" onchange="check_availability()" type="date" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-md-6 mb-3">
-                                    <label class="form-label">Check-out</label>
+                                    <label class="form-label">Ngày trả phòng</label>
                                     <input name="checkout" onchange="check_availability()" type="date" class="form-control shadow-none" required>
                                 </div>
                                 <div class="col-12">
@@ -135,9 +134,9 @@
                                         <span class="visually-hidden">Loading...</span>
                                     </div>
 
-                                    <h6 class="mb-3 text-danger" id="pay_info">Provide check-in & check-out date!</h6>
+                                    <h6 class="mb-3 text-danger" style="font-size: 14px;" id="pay_info">Vui lòng nhập ngày nhận phòng và trả phòng</h6>
                                     
-                                    <button name="payUrl" class="btn w-100 text-white custom-bg shadow-none mb-1" disabled>Pay Now</button>
+                                    <button name="payUrl" class="btn mt-4 w-100 text-white custom-bg shadow-none mb-1" disabled>Thanh toán</button>
                                 </div>
                             </div>
                         </form>
@@ -181,24 +180,28 @@
                     let data = JSON.parse(this.responseText);
                     if(data.status == 'check_in_out_equal')
                     {
-                        pay_info.innerText = "You cannot check-out on the same day!";
+                        pay_info.innerText = "Bạn không thể nhận và trả phòng vào cùng một ngày!";
                     }
                     else if(data.status == 'check_out_ealier')
                     {
-                        pay_info.innerText = "Check-out date is earlier than check-in date!";
+                        pay_info.innerText = "Ngày trả phòng phải sau ngày nhận phòng!";
                     }
                     else if(data.status == 'check_in_ealier')
                     {
-                        pay_info.innerText = "Check-in date is earlier than today's date!";
+                        pay_info.innerText = "Ngày nhận phòng phải sau ngày hiện tại!";
                     }
                     else if(data.status == 'unavailable')
                     {
-                        pay_info.innerText = "Room not availabe for this check-in date!";
+                        pay_info.innerText = "Phòng không khả dụng trong khoảng thời gian này!";
                     }
                     else
                     {
-                        pay_info.innerHTML = "No. of Days: "+data.days+"<br>Total Amount to Pay: ₹"+data.payment;
+                        pay_info.innerHTML = "Số ngày: "+data.days+"<br><br>Tổng số tiền: "+data.payment+" VND";
                         pay_info.classList.replace('text-danger','text-dark');
+                        pay_info.style.fontSize = "16px"; 
+                        pay_info.style.fontWeight = "700"; 
+                        pay_info.style.marginBottom = "4px"; 
+                        pay_info.style.marginTop = "6px"; 
                         booking_form.elements['payUrl'].removeAttribute('disabled');
                     }
 

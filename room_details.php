@@ -55,11 +55,11 @@
         <div class="row">
 
             <div class="col-12 my-5 mb-4 px-4">
-                <h2 class="fw-bold"><?php echo $room_data['name'] ?></h2>
+            <h3 class="fw-bold h-font"><?php echo $room_data['name'] ?></h3>
                 <div style="font-size: 14px;">
-                    <a href="index.php" class="text-secondary text-decoration-none">HOME</a>
+                    <a href="index.php" class="text-secondary text-decoration-none">TRANG CHỦ</a>
                     <span class="text-secondary"> > </span>
-                    <a href="rooms.php" class="text-secondary text-decoration-none">ROOMS</a>
+                    <a href="rooms.php" class="text-secondary text-decoration-none">PHÒNG</a>
                 </div>
             </div>
 
@@ -97,11 +97,11 @@
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
+                        <span class="visually-hidden">Trước</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
+                        <span class="visually-hidden">Sau</span>
                     </button>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                         <?php
 
                             echo <<< price
-                                <h4>₹$room_data[price] per night</h4>
+                                <h4>$room_data[price] VND mỗi đêm</h4>
                             price;
 
                             echo <<< rating
@@ -138,7 +138,7 @@
 
                             echo <<< features
                                 <div class="mb-3">
-                                    <h6 class="mb-1">Features</h6>
+                                    <h6 class="mb-1">Đặc điểm phòng</h6>
                                     $features_data
                                 </div>
                             features;
@@ -157,28 +157,28 @@
 
                             echo <<< facilities
                                 <div class="mb-3">
-                                    <h6 class="mb-1">Facilities</h6>
+                                    <h6 class="mb-1">Dịch vụ</h6>
                                     $facilities_data
                                 </div>
                             facilities;
 
                             echo<<<guests
                                 <div class="mb-3">
-                                    <h6 class="mb-1">Guests</h6>
+                                    <h6 class="mb-1">Khách hàng</h6>
                                     <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                        $room_data[adult] Adults
+                                        $room_data[adult] Người lớn
                                     </span>
                                     <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                        $room_data[children] Children
+                                        $room_data[children] Trẻ em
                                     </span>    
                                 </div>
                             guests;
 
                             echo<<<area
                                 <div class="mb-3">
-                                    <h6 class="mb-1">Area</h6>
+                                    <h6 class="mb-1">Diện tích</h6>
                                     <span class='badge rounded-pill bg-light text-dark text-wrap me-1 mb-1'>
-                                        $room_data[area] sq. ft.
+                                        $room_data[area] m<sup>2</sup>
                                     </span>
                                 </div>
                             area;
@@ -192,7 +192,7 @@
                                 }
 
                                 echo<<<book
-                                <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 text-white custom-bg shadow-none mb-1">Book Now</button>
+                                <button onclick='checkLoginToBook($login,$room_data[id])' class="btn w-100 text-white custom-bg shadow-none mb-1">Đặt phòng</button>
                                 book;
                             }
                             
@@ -203,15 +203,15 @@
             </div>
 
             <div class="col-12 mt-4 px-4">
-                <div class="mb-5">
-                    <h5>Description</h5>
+                <div class="mb-10">
+                    <h5 class="mb-2 fw-bold" style="font-size: 17px;">Mô tả</h5>
                     <p>
                         <?php echo $room_data['description'] ?>
                     </p>
                 </div>
 
                 <div>
-                    <h5 class="mb-3">Reviews & Ratings</h5>
+                    <h5 class="mb-2 fw-bold" style="font-size: 17px;">Đánh giá</h5>
                     <div>
                         <div class="d-flex align-items-center mb-2">
                             <img src="images/features/star.svg" width="30px">

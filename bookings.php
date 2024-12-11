@@ -49,7 +49,7 @@
     $result=select($query,[$_SESSION['uId']],'i');
     while($data= mysqli_fetch_assoc($result))
     {
-        $date = isset($data['datentime']) ? date("d-m-Y", strtotime($data['datentime'])) : 'N/A';
+        $date = isset($data['datetime']) ? date("d-m-Y", strtotime($data['datetime'])) : 'N/A';
         $checkin = isset($data['check_in']) ? date("d-m-Y", strtotime($data['check_in'])) : 'N/A';
         $checkout = isset($data['check_out']) ? date("d-m-Y", strtotime($data['check_out'])) : 'N/A';
         $status_bg="";
@@ -95,13 +95,13 @@
         <div class='col-md-4 px-4 mb-4'>
         <div class='bg-white p-3 rounded shadow-sm'>
         <h5 class='fw-bold'>$data[room_name]</h5>
-        <p>₹$data[price] mỗi đêm</p>
+        <p>$data[price] VND mỗi đêm</p>
         <p>
         <b>Nhận phòng: </b>$checkin <br>
         <b>Trả phòng: </b> $checkout 
         </p>
         <p>
-        <b>Số tiền: </b>₹$data[price] <br>
+        <b>Số tiền: </b>$data[price] VND <br>
         <b>Mã đơn hàng: </b> $data[order_id] <br>
         <b>Ngày: </b> $date
         </p>

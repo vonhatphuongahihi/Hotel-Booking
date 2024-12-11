@@ -177,19 +177,19 @@
         xhr.onload = function() {
             switch (this.responseText) {
                 case 'inv_email_mob':
-                    alert('error', 'Invalid Email or Mobile Number!');
+                    alert('error', 'Email hoặc số điện thoại không hợp lệ!');
                     break;
                 case 'not_verified':
-                    alert('error', 'Email is not verified!');
+                    alert('error', 'Email chưa được xác minh! Vui lòng kiểm tra email.');
                     break;
                 case 'inactive':
-                    alert('error', 'Account Suspended! Please contact Admin.');
+                    alert('error', 'Tài khoản bị đình chỉ! Vui lòng liên hệ Admin.');
                     break;
                 case 'pass_wrong':
-                    alert('error', 'Incorrect Password!');
+                    alert('error', 'Sai mật khẩu!');
                     break;
                 default:
-                    alert('success', 'Login successful!');
+                    alert('success', 'Đăng nhập thành công!');
                     let fileurl = window.location.href.split('/').pop().split('?').shift();
                     if (fileurl == 'room_details.php') {
                         window.location = window.location.href;
@@ -223,22 +223,21 @@
         xhr.onload = function() {
             switch (this.responseText) {
                 case 'inv_email':
-                    alert('error', 'Invalid Email!');
-                    break;
+                    alert('error', 'Email không hợp lệ!');
                 case 'not_verified':
-                    alert('error', 'Email is not verified! Please contact Admin');
+                    alert('error', 'Email chưa được xác minh! Vui lòng kiểm tra email.');
                     break;
                 case 'inactive':
-                    alert('error', 'Account Suspended! Please contact Admin.');
+                    alert('error', 'Tài khoản bị đình chỉ! Vui lòng liên hệ Admin.');
                     break;
                 case 'mail_failed':
-                    alert('error', 'Cannot send email. Server down!');
+                    alert('error', 'Không thể gửi email! Server down!');
                     break;
                 case 'upd_failed':
-                    alert('error', 'Account recovery failed. Server down!');
+                    alert('error', 'Khôi phục mật khẩu thất bại! Server down!');
                     break;
                 default:
-                    alert('success', 'Reset link sent to email!');
+                    alert('success', 'Email khôi phục mật khẩu đã được gửi! Vui lòng kiểm tra email.');
                     e.target.reset();
             }
         };

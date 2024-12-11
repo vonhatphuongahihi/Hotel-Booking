@@ -34,7 +34,7 @@ assign_room_form.addEventListener('submit', function(e) {
         modal.hide();
 
         if (this.responseText == 1) {
-            alert('success', 'Room Number Alloted! Booking Finalized!');
+            alert('success', 'Phòng đã được phân! Đặt phòng hoàn tất!');
             assign_room_form.reset();
             get_bookings();
         } else {
@@ -46,7 +46,7 @@ assign_room_form.addEventListener('submit', function(e) {
 });
 
 function cancel_booking(id) {
-    if (confirm('Bạn có chắc chắn muốn hủy đơn này?')) {
+    if (confirm('Bạn có chắc chắn muốn hủy đơn đặt phòng này?')) {
         let data = new FormData();
         data.append('booking_id', id);
         data.append('cancel_booking', '');
@@ -56,10 +56,10 @@ function cancel_booking(id) {
 
         xhr.onload = function() {
             if (this.responseText == 1) {
-                alert('success', 'Hủy đơn thành công');
+                alert('success', 'Hủy đơn đặt phòng thành công');
                 get_bookings();
             } else {
-                alert('error', 'Hủy đơn thất bại!');
+                alert('error', 'Hủy đơn đặt phòng thất bại!');
             }
         };
         xhr.send(data);

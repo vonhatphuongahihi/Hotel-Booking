@@ -68,8 +68,9 @@ if (isset($_POST['payUrl'])) {
         // Lưu thông tin thanh toán vào cơ sở dữ liệu trước khi gọi MoMo API
         $frm_data = filteration($_POST);
         $CUST_ID = $_SESSION['uId'];
-        $query1 = "INSERT INTO `booking_order`(`user_id`, `room_id`, `check_in`, `check_out`, `order_id`) VALUES (?,?,?,?,?)";
-        insert($query1, [$CUST_ID, $_SESSION['room']['id'], $frm_data['checkin'], $frm_data['checkout'], $orderId], 'issss');
+        $query1 = "INSERT INTO `booking_order`(`user_id`, `room_id`, `check_in`, `check_out`, `order_id`, `trans_amt`) VALUES (?,?,?,?,?,?)";
+        insert($query1, [$CUST_ID, $_SESSION['room']['id'], $frm_data['checkin'], $frm_data['checkout'], $orderId, $amount], 'issssd');
+
         $booking_id = mysqli_insert_id($con);
 
         $query2 = "INSERT INTO `booking_details`(`booking_id`, `room_name`, `price`, `total_pay`, `user_name`, `phonenum`, `address`) VALUES (?,?,?,?,?,?,?)";
@@ -78,6 +79,9 @@ if (isset($_POST['payUrl'])) {
         // Thực hiện yêu cầu đến MoMo API và lấy URL thanh toán
         $result = execPostRequest($endpoint, json_encode($data));
         $jsonResult = json_decode($result, true);
+
+        $log_file = "momo_debug.log";
+        file_put_contents($log_file, print_r($jsonResult, true), FILE_APPEND);
 
         // Kiểm tra nếu có URL thanh toán từ MoMo
         if (isset($jsonResult['payUrl'])) {

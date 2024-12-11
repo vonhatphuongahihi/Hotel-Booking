@@ -231,7 +231,7 @@
                     if ($rating_fetch['avg_rating']!=NULL)
                     {
                          $rating_data= "<div class='rating mb-4'>
-                                        <h6 class='mb-1'>Rating</h6>
+                                        <h6 class='mb-1'>Đánh giá</h6>
                                         <span class='badge rounded-pill bg-light'>";
                         
                         for ($i=0; $i<$rating_fetch['avg_rating'];$i++)
@@ -249,23 +249,23 @@
                             <div class="card border-0 shadow" style="max-width: 350px; margin: auto;">
                                 <img src="$room_thumb" class="card-img-top">
                                 <div class="card-body">
-                                    <h5>$room_data[name]</h5>
-                                    <h6 class="mb-4">₹$room_data[price] / đêm</h6>
+                                    <h5 class="fw-bold">$room_data[name]</h5>
+                                    <h6 class="mb-4">$room_data[price] VND / đêm</h6>
                                     <div class="features mb-4">
-                                        <h6 class="mb-1">Features</h6>
+                                        <h6 class="mb-1">Đặc điểm phòng</h6>
                                         $features_data
                                     </div>
                                     <div class="facilities mb-4">
-                                        <h6 class="mb-1">Facilities</h6>
+                                        <h6 class="mb-1">Dịch vụ</h6>
                                         $facilities_data
                                     </div>
                                     <div class="guests mb-4">
-                                        <h6 class="mb-1">Guests</h6>
+                                        <h6 class="mb-1">Số khách</h6>
                                         <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                            $room_data[adult] Adults
+                                            $room_data[adult] Người lớn
                                         </span>
                                         <span class="badge rounded-pill bg-light text-dark text-wrap">
-                                            $room_data[children] Children
+                                            $room_data[children] Trẻ em
                                         </span>    
                                     </div>
                                         $rating_data
@@ -375,7 +375,7 @@
                     <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center">
                         <i class="bi bi-person-circle fs-3 me-2"></i>
-                        User Login</h5>
+                        ĐĂNG NHẬP</h5>
                     <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -478,7 +478,7 @@
             </div>
             <div class="col-lg-4 col-md-4">
                 <div class="bg-white p-4 rounded mb-4">
-                    <h5>Điện thoại</h5>
+                    <h5 class="fw-bold" style="font-size: 18px;">Điện thoại</h5>
                     <a href="tel: +<?php echo $contact_r['pn1']?>" class="d-inline-block mb-2 text-decoration-none text-dark">
                         <i class="bi bi-telephone-fill"></i> +<?php echo $contact_r['pn1']?>
                     </a>
@@ -496,7 +496,7 @@
                    
                 </div>
                 <div class="bg-white p-4 rounded mb-4">
-                    <h5>Theo dõi</h5>
+                    <h5 class="fw-bold" style="font-size: 18px;">Theo dõi</h5>
                     <?php
                     if($contact_r['tw']!= '')
                     {

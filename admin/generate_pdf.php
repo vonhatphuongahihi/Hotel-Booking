@@ -2,18 +2,22 @@
     require('inc/essentials.php');
     require('inc/db_config.php');
     require('inc/mpdf/vendor/autoload.php');
+    ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
     adminLogin();
 
     if(isset($_GET['gen_pdf'])&&isset($_GET['id']))
     {
         $frm_data = filteration($_GET);
+        echo "Booking ID: " . $frm_data['id'];
+        ob_flush();
 
-        $query = "SELECT bo.*, bd.* FROM booking_order bo
-            INNER JOIN booking_details bd ON bo.booking_id = bd.booking_id
-            WHERE ((bo.booking_status = 'booked' AND bo.arrival = 1)
-            OR (bo.booking_status = 'cancelled' AND bo.refund = 1))
-            OR (bo.booking_status = 'payment failed' AND bo.refund = 1))
-            AND bo.booking_id = '$frm_data[id]'";
+        $query = "SELECT * FROM `booking_order` WHERE booking_id = '$frm_data[id]'";
+
+
+
 
         $res = mysqli_query($con,$query);
 
@@ -68,14 +72,6 @@
                 <td>Hoàn Tiền: $refund</td>
                 </tr>
             ";
-        }
-        else if($data['booking_status']=='payment failed')
-        {
-            $table_data.=" 
-                <tr>
-                <td>Số Tiền Giao Dịch: $data[trans_amt]</td>
-                <td>Thông Báo Thất Bại: $data[trans_resp_msg]</td>
-                </tr>";
         }
 
         else

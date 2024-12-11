@@ -51,7 +51,7 @@
                 </tr>
                 <tr>
                 <td>Tên Phòng: $data[room_name]</td>
-                <td>Giá: ₹$data[price] mỗi đêm</td>
+                <td>Giá: $data[price] VND mỗi đêm</td>
                 </tr>
                 <tr>
                 <td>Ngày Nhận Phòng: $checkin</td>
@@ -64,7 +64,7 @@
             $refund = ($data['refund']) ? "Số Tiền Được Hoàn" : "Chưa Hoàn Tiền";
             $table_data .= "
                 <tr>
-                <td>Số Tiền Đã Thanh Toán: ₹$data[trans_amt]</td>
+                <td>Số Tiền Đã Thanh Toán: $data[trans_amt] VND</td>
                 <td>Hoàn Tiền: $refund</td>
                 </tr>
             ";
@@ -73,7 +73,7 @@
         {
             $table_data .= "
                 <tr>
-                <td>Số Tiền Giao Dịch: ₹$data[trans_amt]</td>
+                <td>Số Tiền Giao Dịch: $data[trans_amt] VND</td>
                 <td>Lý Do Thanh Toán Thất Bại: $data[trans_resp_msg]</td>
                 </tr>";
         }
