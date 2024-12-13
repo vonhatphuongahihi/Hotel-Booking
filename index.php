@@ -92,7 +92,7 @@
                         <div class="col-lg-3 mb-3">
                             <label class="form-label"
                             style="font-weight: 500;">Ngày nhận phòng</label>
-                            <input type="date" class="form-control shadow-none" required>
+                            <input type="date" class="form-control shadow-none" name="checkin" required>
                         </div>
                         <div class="col-lg-3 mb-3">
                             <label class="form-label"
@@ -100,8 +100,7 @@
                             <input type="date" class="form-control shadow-none" name="checkout" required>
                         </div>
                         <div class="col-lg-3 mb-3">
-                            <label class="form-label"
-                            style="font-weight: 500;" >Người lớn</label>
+                            <label class="form-label" style="font-weight: 500;" >Người lớn</label>
                             <select class="form-select shadow-none" name="adult">
                                 <?php
                                     $guests_q = mysqli_query($con, "SELECT MAX(adult) AS `max_adult`, MAX(children) AS `max_children` 
@@ -119,39 +118,35 @@
                                     } else {
                                         echo "Error: " . mysqli_error($con);
                                     }
-    
                                 ?>
-
                             </select>
                         </div>
                         <div class="col-lg-2 mb-3">
-                            <label class="form-label"
-                            style="font-weight: 500;">Trẻ em</label>
+                            <label class="form-label" style="font-weight: 500;">Trẻ em</label>
                             <select class="form-select shadow-none" name="children">
                                 <?php
-                                        $guests_q = mysqli_query($con, "SELECT MAX(children) AS `max_children`, MAX(children) AS `max_children` 
-                                        FROM `rooms` 
-                                        WHERE `status`='1' AND `removed`='0'");
-                                        if ($guests_q) {
-                                            $guests_res = mysqli_fetch_assoc($guests_q);
-                                            if ($guests_res && isset($guests_res['max_children'])) {
-                                                for ($i = 1; $i <= $guests_res['max_children']; $i++) {
-                                                    echo "<option value='$i'>$i</option>";
-                                                }
-                                            } else {
-                                                echo "<option value=''>No options available</option>";
+                                    $guests_q = mysqli_query($con, "SELECT MAX(children) AS `max_children`, MAX(children) AS `max_children` 
+                                    FROM `rooms` 
+                                    WHERE `status`='1' AND `removed`='0'");
+                                    if ($guests_q) {
+                                        $guests_res = mysqli_fetch_assoc($guests_q);
+                                        if ($guests_res && isset($guests_res['max_children'])) {
+                                            for ($i = 1; $i <= $guests_res['max_children']; $i++) {
+                                                echo "<option value='$i'>$i</option>";
                                             }
                                         } else {
-                                            echo "Error: " . mysqli_error($con);
+                                            echo "<option value=''>No options available</option>";
                                         }
-        
-                                    ?>
+                                    } else {
+                                        echo "Error: " . mysqli_error($con);
+                                    }
+                                ?>
                             </select>
                         </div>
                         <input type="hidden" name="check_availability">
-                            <div class="col-lg-1 mb-lg-3 mt-2">
-                                <button type="submit" class="btn text-white shadow-none custom-bg w-100">Tìm</button>
-                            </div>
+                        <div class="col-lg-1 mb-lg-3 mt-2">
+                            <button type="submit" class="btn text-white shadow-none custom-bg w-100">Tìm</button>
+                        </div>
                 </form>
             </div>
         </div>

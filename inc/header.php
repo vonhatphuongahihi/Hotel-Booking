@@ -209,39 +209,39 @@
                             </span>
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-6 ps-0 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label">Họ và tên</label>
                                         <input name="name" type="text" class="form-control shadow-none" required>
                                     </div>
-                                    <div class="col-md-6 p-0 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label">Email</label>
                                         <input name="email" type="email" class="form-control shadow-none" required>
                                     </div>
-                                    <div class="col-md-6 ps-0 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label">Số điện thoại</label>
                                         <input name="phonenum" type="number" class="form-control shadow-none" required>
                                     </div>
-                                    <div class="col-md-6 p-0 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label">Hình ảnh</label>
                                         <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="form-control shadow-none" required>
                                     </div>
-                                    <div class="col-md-12 p-0 mb-3">
+                                    <div class="col-md-12 mb-3">
                                         <label class="form-label">Địa chỉ</label>
                                         <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
                                     </div>
-                                    <div class="col-md-6 ps-0 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label">Mã vùng</label>
                                         <input name="pincode" type="number" class="form-control shadow-none" required>
                                     </div>
-                                    <div class="col-md-6 p-0 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label">Ngày sinh</label>
                                         <input name="dob" type="date" class="form-control shadow-none" required>
                                     </div>
-                                    <div class="col-md-6 ps-0 mb-3">
+                                    <div class="col-md-6  mb-3">
                                         <label class="form-label">Mật khẩu</label>
                                         <input name="pass" type="password" class="form-control shadow-none" required>
                                     </div>
-                                    <div class="col-md-6 p-0 mb-3">
+                                    <div class="col-md-6 mb-3">
                                         <label class="form-label">Xác nhận mật khẩu</label>
                                         <input name="cpass" type="password" class="form-control shadow-none" required>
                                     </div>
