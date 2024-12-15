@@ -21,10 +21,12 @@
         }
 
         while ($data = mysqli_fetch_assoc($res)) {
-            $date = isset($data['datentime']) ? date("d-m-Y", strtotime($data['datentime'])) : 'N/A';
+            $date = isset($data['datetime']) ? date("d-m-Y", strtotime($data['datetime'])) : 'N/A';
             $checkin = isset($data['check_in']) ? date("d-m-Y", strtotime($data['check_in'])) : 'N/A';
             $checkout = isset($data['check_out']) ? date("d-m-Y", strtotime($data['check_out'])) : 'N/A';
             $trans_amt = isset($data['trans_amt']) ? $data['trans_amt'] : 'N/A';
+
+            $trans_amt = number_format($trans_amt, 0, ',', '.');
 
             $table_data .= "
                 <tr>

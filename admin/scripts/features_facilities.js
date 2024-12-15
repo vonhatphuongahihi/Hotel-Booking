@@ -22,12 +22,12 @@ function add_feature()
 
         if (this.responseText == 1)
         {
-            alert('success', 'New feature added');
+            alert('success', 'Thêm thành công không gian phòng mới!');
             feature_s_form.elements['feature_name'].value = '';
             get_features();
         }
         else{
-            alert('error','Server Down');
+            alert('error','Máy chủ gặp sự cố!');
 
         }
     }
@@ -55,16 +55,16 @@ function rem_feature(val){
     xhr.onload = function(){
         if(this.responseText == 1)
         {
-            alert('success', 'Feature removed!');
+            alert('success', 'Không gian phòng đã được xóa!');
             get_features();
         }
         else if(this.responseText == 'room_added')
         {
-            alert('error', 'Feature is added in room!');
+            alert('error', 'Không gian đã được thêm vào phòng!');
         }
         else
         {
-            alert('error', 'Server down!');
+            alert('error', 'Máy chủ gặp sự cố!');
         }
     }
 
@@ -136,16 +136,16 @@ function rem_facility(val){
     xhr.onload = function(){
         if(this.responseText == 1)
         {
-            alert('success', 'Facility removed!');
+            alert('success', 'Dịch vụ đã được xóa!');
             get_facilities();
         }
         else if(this.responseText == 'room_added')
         {
-            alert('error', 'Facility is added in room!');
+            alert('error', 'Dịch vụ đã được thêm vào phòng!');
         }
         else
         {
-            alert('error', 'Server down!');
+            alert('error', 'Máy chủ gặp sự cố!');
         }
     }
 

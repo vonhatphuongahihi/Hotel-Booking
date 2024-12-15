@@ -141,13 +141,13 @@
                     </div>
                     <div class="col-md-3 mb-4">
                         <div class="card text-center text-primary p-3">
-                            <h6>Câu Hỏi</h6>
+                            <h6>Tổng Số Câu Hỏi</h6>
                             <h1 class="mt-2 mb-0" id="total_queries">0</h1>
                         </div>
                     </div>
                     <div class="col-md-3 mb-4">
                         <div class="card text-center text-primary p-3">
-                            <h6>Đánh Giá</h6>
+                            <h6>Tổng Số Đánh Giá</h6>
                             <h1 class="mt-2 mb-0" id="total_reviews">0</h1>
                         </div>
                     </div>

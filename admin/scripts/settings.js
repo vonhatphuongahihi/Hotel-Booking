@@ -64,12 +64,12 @@ function upd_general(site_title_val, site_about_val)
 
         if(this.responseText == 1)
         {
-            alert('success', 'Changes saved!');
+            alert('success', 'Thay đổi đã được lưu!');
             get_general();
         }
         else
         {
-            alert('error', 'No changes made!');
+            alert('error', 'Không có thay đổi nào được thực hiện!');
         }
        }
 
@@ -85,11 +85,11 @@ function upd_shutdown(val)
     xhr.onload = function(){
         if(this.responseText == 1 && general_data.shutdown == 0)
         {
-            alert('success', 'Site has been shutdown!');
+            alert('success','Trang web đã bị tắt!');
         }
         else
         {
-            alert('success', 'Shutdown mode off!');
+            alert('success','Trang web đã được mở lại!');
         }
         get_general();
        }
@@ -151,12 +151,12 @@ function upd_contacts(){
         modal.hide();
         if(this.responseText == 1)
         {
-            alert('success', 'Changes saved!');
+            alert('success', 'Thay đổi đã được lưu!');
             get_contacts();
         }
         else
         {
-            alert('error', 'No changes made!');
+            alert('error', 'Không có thay đổi nào được thực hiện!');
         }
         get_general();
        }

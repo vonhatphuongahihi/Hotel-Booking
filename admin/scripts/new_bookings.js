@@ -38,7 +38,7 @@ assign_room_form.addEventListener('submit', function(e) {
             assign_room_form.reset();
             get_bookings();
         } else {
-            alert('error', 'Server Down!');
+            alert('error', 'Máy chủ gặp sự cố!');
         }
     };
 

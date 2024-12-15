@@ -59,13 +59,13 @@
         $frm_data = filteration($_POST);
         $img_r = uploadImage($_FILES['picture'], ABOUT_FOLDER);
         if ($img_r == 'inv_img') {
-            echo "Hình ảnh không hợp lệ.";
+            echo $img_r;
         }
         else if ($img_r == 'inv_size') {
-            echo "Kích thước hình ảnh vượt quá giới hạn.";
+            echo $img_r;
         }
         else if ($img_r == 'upd_failed') {
-            echo "Tải lên hình ảnh thất bại.";
+            echo $img_r;
         }
         else {
             $q = "INSERT INTO `team_details`(`name`, `picture`) VALUES (?,?)";
@@ -81,17 +81,17 @@
         while ($row = mysqli_fetch_assoc($res)) {
             $path = ABOUT_IMG_PATH;
             echo <<<data
-            <div class="col-md-2 mb-3">
-                                <div class="card bg-dark text-white">
-                                    <img src="$path$row[picture]" class="card-img" >
-                                    <div class="card-img-overlay text-end">
-                                        <button type="button" onclick="rem_member($row[sr_no])" class="btn btn-danger btn-sm shadow-none">
-                                            <i class="bi bi-trash"></i>Delete
-                                        </button>
-                                    </div>
-                                    <p class="card-text text-center px-3 py-2">$row[name]</p>
-                                </div>
-                            </div>
+            <div class="col-md-2 mb-3" style="width: 300px;">
+                <div class="card bg-dark text-white">
+                    <img src="$path$row[picture]" class="card-img" >
+                    <div class="card-img-overlay text-end">
+                        <button type="button" onclick="rem_member($row[sr_no])" class="btn btn-danger btn-sm shadow-none">
+                            <i class="bi bi-trash"></i> Xóa
+                        </button>
+                    </div>
+                    <p class="card-text text-center px-3 py-2">$row[name]</p>
+                </div>
+            </div>
             data;
          }
     }
@@ -109,7 +109,7 @@
             echo $res;
         }
         else {
-            echo "Không thể xóa hình ảnh của thành viên.";
+            echo 0;
         }
     }
 

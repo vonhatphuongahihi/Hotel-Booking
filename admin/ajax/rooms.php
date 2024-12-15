@@ -74,18 +74,18 @@
         {
             if($row['status'] == 1)
             {
-                $status = "<button onClick='toggle_status($row[id],0)' class='btn btn-dark btn-sm shadow-none'>active</button>";
+                $status = "<button onClick='toggle_status($row[id],0)' class='btn btn-dark btn-sm shadow-none'>Đang hoạt động</button>";
             }
             else{
-                $status = "<button onClick='toggle_status($row[id],1)' class='btn btn-warning btn-sm shadow-none'>inactive</button>";
+                $status = "<button onClick='toggle_status($row[id],1)' class='btn btn-warning btn-sm shadow-none'>Không hoạt động</button>";
             }
 
-
+            $formattedAmount = number_format($row['price'], 0, ',', '.');
             $data.= "
                 <tr class='align-middle'>
                     <td>$i</td>
                     <td>$row[name]</td>
-                    <td>$row[area] sq. ft.</td>
+                    <td>$row[area] m<sup>2<sup></td>
                     <td>
                         <span class='badge rounded-pill bg-light text-dark'>
                             Người lớn: $row[adult]
@@ -94,7 +94,7 @@
                             Trẻ em: $row[children]
                         </span>
                     </td>
-                    <td>$row[price] VND</td>
+                    <td>$formattedAmount VND</td>
                     <td>$row[quantity]</td>
                     <td>$status</td>
                     <td>
@@ -241,23 +241,19 @@
         $img_r = uploadImage($_FILES['image'], ROOMS_FOLDER);
 
         if ($img_r == 'inv_img') {
-            echo "Ảnh không hợp lệ. Vui lòng chọn một định dạng ảnh được hỗ trợ.";
+            echo $img_r;
         }
         else if ($img_r == 'inv_size') {
-            echo "Kích thước ảnh vượt quá giới hạn cho phép.";
+            echo $img_r;
         }
         else if ($img_r == 'upd_failed') {
-            echo "Tải ảnh lên thất bại. Vui lòng thử lại.";
+            echo $img_r;
         }
         else {
             $q = "INSERT INTO `room_images`(`room_id`, `image`) VALUES (?, ?)";
             $values = [$frm_data['room_id'], $img_r];
             $res = insert($q, $values,'is');
-            if ($res) {
-                echo "Tải ảnh lên thành công!";
-            } else {
-                echo "Có lỗi xảy ra khi thêm ảnh vào cơ sở dữ liệu.";
-            }
+            echo $res;
         }
         
     }

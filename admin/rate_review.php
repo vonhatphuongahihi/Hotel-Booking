@@ -79,30 +79,30 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">RATINGS & REVIEWS</h3>
+                <h3 class="mb-4">ĐÁNH GIÁ & NHẬN XÉT</h3>
           
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
 
                         <div class="text-end mb-4">
-                            <a href="?seen=all" class="btn btn-dark rounded-pill shadow-none btn-sm">
-                            <i class="bi bi-check2-all"></i>Đánh dấu tất cả đã đọc
+                            <a href="?seen=all" class="btn btn-success me-2 rounded-pill shadow-none btn-sm">
+                            <i class="bi bi-check2-all"></i> Đánh dấu tất cả là đã đọc
                             </a>
                             <a href="?del=all" class="btn btn-danger rounded-pill shadow-none btn-sm">
-                                <i class="bi bi-trash"></i>Xóa tất cả
+                                <i class="bi bi-trash"></i> Xóa tất cả
                             </a>    
                         </div>
                         <div class="table-responsive-md" style="height: 450px; overflow-y: scroll;">
                             <table class="table table-hover border">
                                 <thead class="stickcy-top">
                                     <tr class="bg-dark text-light">
-                                        <th scope="col">#</th>
-                                        <th scope="col">Tên Phòng</th>
-                                        <th scope="col">Tên Người Dùng</th>
-                                        <th scope="col">Đánh Giá</th>
-                                        <th scope="col" width="30%">Nhận Xét</th>
-                                        <th scope="col">Ngày</th>
-                                        <th scope="col">Hành Động</th>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Tên phòng</th>
+                                        <th scope="col">Tên người dùng</th>
+                                        <th scope="col">Đánh giá</th>
+                                        <th scope="col" width="30%">Nhận xét</th>
+                                        <th scope="col">Ngày đánh giá</th>
+                                        <th scope="col">Hành động</th>
                                     </tr>
                                 </thead>   
                                 <tbody>
@@ -121,7 +121,7 @@
                                             $seen='';
                                             if($row['seen']!=1)
                                             {
-                                                $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Đánh dấu đã đọc</a> <br>";
+                                                $seen = "<a href='?seen=$row[sr_no]' class='btn btn-sm rounded-pill btn-primary'>Đánh dấu là đã đọc</a> <br>";
                                             }
                                             $seen.="<a href='?del=$row[sr_no]' class='btn btn-sm rounded-pill btn-danger mt-2'>Xóa</a>";
                                             echo<<<query

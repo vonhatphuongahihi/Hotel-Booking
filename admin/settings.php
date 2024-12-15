@@ -28,7 +28,7 @@
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <h5 class="card-title m-0">Cài đặt chung</h5>
                             <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#general-s">
-                                <i class="bi bi-pencil-square"></i>Chỉnh sửa
+                                <i class="bi bi-pencil-square"></i> Chỉnh sửa
                             </button>
                         </div>
                         <h6 class="card-subtitle mb-1 fw-bold">Tiêu đề trang web</h6>
@@ -58,8 +58,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" onclick="site_title.value = general_data.site_title, site_about.value =  general_data.site_about" class="btn text-secondary shadow-none" data-bs-dismiss="modal">HỦY</button>
-                                    <button type="submit" class="btn custom-bg text-white shadow-none">LƯU</button>
+                                    <button type="button" onclick="site_title.value = general_data.site_title, site_about.value =  general_data.site_about" class="btn btn-danger me-2 shadow-none" data-bs-dismiss="modal">HỦY</button>
+                                    <button type="submit" class="btn btn-success text-white shadow-none">LƯU</button>
                                 </div>
                             </div>
                         </form>
@@ -88,7 +88,7 @@
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <h5 class="card-title m-0">Cài đặt Liên hệ</h5>
                             <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#contacts-s">
-                                <i class="bi bi-pencil-square"></i>Chỉnh sửa
+                                <i class="bi bi-pencil-square"></i> Chỉnh sửa
                             </button>
                         </div>
                         <div class="row">
@@ -188,9 +188,9 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" onclick="contacts_inp(contacts_data)" class="btn text-secondary shadow-none" data-bs-dismiss="modal">HỦY</button>
+                                    <button type="button" onclick="contacts_inp(contacts_data)" class="btn btn-danger shadow-none" data-bs-dismiss="modal">HỦY</button>
 
-                                    <button type="submit" class="btn custom-bg text-white shadow-none">LƯU</button>
+                                    <button type="submit" class="btn btn-success text-white shadow-none">LƯU</button>
                                 </div>
                             </div>
                         </form>
@@ -201,8 +201,8 @@
                     <div class="card-body">
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <h5 class="card-title m-0">Đội ngũ quản lý</h5>
-                            <button type="button" class="btn btn-dark shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#team-s">
-                                <i class="bi bi-plus-square"></i>Thêm
+                            <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#team-s">
+                                <i class="bi bi-plus-square me-2"></i> Thêm
                             </button>
                         </div>
                         <div class="row" id="team-data">
@@ -230,8 +230,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" onclick="member_name.value='', member_picture.value=''" class="btn text-secondary shadow-none" data-bs-dismiss="modal">HỦY</button>
-                                    <button type="submit" class="btn custom-bg text-white shadow-none">LƯU</button>
+                                    <button type="button" onclick="member_name.value='', member_picture.value=''" class="btn btn-danger me-2 shadow-none" data-bs-dismiss="modal">HỦY</button>
+                                    <button type="submit" class="btn btn-success text-white shadow-none">LƯU</button>
                                 </div>
                             </div>
                         </form>

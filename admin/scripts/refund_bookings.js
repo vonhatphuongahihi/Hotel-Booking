@@ -11,21 +11,21 @@ function get_bookings(search='') {
 }
 
 
-function cancel_booking(id) {
-    if (confirm('Bạn có chắc chắn muốn hủy đơn đặt phòng này?')) {
+function refund_booking(id) {
+    if (confirm('Hoàn tiền cho đơn này')) {
         let data = new FormData();
         data.append('booking_id', id);
-        data.append('cancel_booking', '');
+        data.append('refund_booking', '');
 
         let xhr = new XMLHttpRequest();
-        xhr.open("POST", "ajax/new_bookings.php", true);
-
+        xhr.open("POST", "ajax/refund_bookings.php", true);
+        
         xhr.onload = function() {
             if (this.responseText == 1) {
-                alert('success', 'Hủy đơn đặt phòng thành công');
+                alert('success', 'Hoàn tiền thành công');
                 get_bookings();
             } else {
-                alert('error', 'Hủy đơn đặt phòng thất bại!');
+                alert('error', 'Hoàn tiền thất bại!');
             }
         };
         xhr.send(data);

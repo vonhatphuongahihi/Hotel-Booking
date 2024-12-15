@@ -28,10 +28,10 @@
                             <table class="table table-hover border" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th scope="col">#</th>
+                                        <th scope="col">STT</th>
                                         <th scope="col">Người dùng</th>
                                         <th scope="col">Phòng</th>
-                                        <th scope="col">CĐặt phòng</th>
+                                        <th scope="col">Chi tiết đặt phòng</th>
                                         <th scope="col">Hành động</th>
                                     </tr>
                                 </thead>   
@@ -60,13 +60,13 @@
                             <input type="text" name="room_no" class="form-control shadow-none" required>
                         </div>
                         <span class="badge bg-light text-dark mb-3 text-wrap lh-base">
-                            Lưu ý: Phân số phòng chỉ khi người dùng đã đến!
+                            Lưu ý: Chỉ phân phòng khi người dùng đã đến!
                         </span>
                         <input type="hidden" name="booking_id">
                     </div>
                     <div class="modal-footer">
                         <button type="reset" class="btn shadow-none btn-danger p-1.5 me-2"data-bs-dismiss="modal">HỦY</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">PHÂN PHÒNG</button>
+                        <button type="submit" class="btn btn-success text-white shadow-none">PHÂN PHÒNG</button>
                     </div>
                 </div>
             </form>

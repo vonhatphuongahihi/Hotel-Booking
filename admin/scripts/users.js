@@ -21,11 +21,11 @@ function toggle_status(id,val)
 
     xhr.onload = function(){
         if(this.responseText == 1){
-            alert('success', 'Status toggled!');
+            alert('success', 'Trạng thái được thay đổi!');
             get_users();
         }
         else{
-            alert('error', 'Server Down!');
+            alert('error', 'Máy chủ gặp sự cố!');
         }
     }
 

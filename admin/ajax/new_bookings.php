@@ -22,10 +22,13 @@
         }
 
         while ($data = mysqli_fetch_assoc($res)) {
-            $date = isset($data['datentime']) ? date("d-m-Y", strtotime($data['datentime'])) : 'N/A';
+            $date = isset($data['datetime']) ? date("d-m-Y", strtotime($data['datetime'])) : 'N/A';
             $checkin = isset($data['check_in']) ? date("d-m-Y", strtotime($data['check_in'])) : 'N/A';
             $checkout = isset($data['check_out']) ? date("d-m-Y", strtotime($data['check_out'])) : 'N/A';
             $trans_amt = isset($data['trans_amt']) ? $data['trans_amt'] : 'N/A';
+
+            $price = number_format($data['price'], 0, ',', '.');
+            $trans_amt = number_format($trans_amt, 0, ',', '.');
 
             $table_data .= "
                 <tr>
@@ -42,7 +45,7 @@
                     <td>
                         <b>Phòng:</b> $data[room_name]
                         <br>
-                        <b>Giá:</b> $data[price]
+                        <b>Giá:</b> $price
                     </td>
                     <td>
                         <b>Ngày nhận phòng:</b> $checkin
@@ -51,11 +54,11 @@
                         <br>
                         <b>Thanh toán:</b> $trans_amt
                         <br>
-                        <b>Ngày:</b> $date
+                        <b>Ngày đặt phòng:</b> $date
                     </td>
                     <td>
-                        <button type='button' onclick='assign_room($data[booking_id])' class='btn text-white btn-sm fw-bold custom-bg shadow-none' data-bs-toggle='modal' data-bs-target='#assign-room'>
-                            <i class='bi bi-check2-square'></i>Phân phòng
+                        <button type='button' onclick='assign_room($data[booking_id])' class='btn btn-success text-white btn-sm fw-bold shadow-none' data-bs-toggle='modal' data-bs-target='#assign-room'>
+                            <i class='bi bi-check2-square'></i> Phân phòng
                         </button>
                         <br>
                         <button type='button' onclick='cancel_booking($data[booking_id])' class='mt-2 btn btn-outline-danger btn-sm fw-bold shadow-none'>
