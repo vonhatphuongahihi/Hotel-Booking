@@ -20,12 +20,12 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h4 class="mb-4 fw-bold">TIỆN ÍCH VÀ DỊCH VỤ</h4>
+                <h4 class="mb-4 fw-bold">KHÔNG GIAN PHÒNG VÀ DỊCH VỤ</h4>
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
                     
                         <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h5 class="card-title m-0">Tiện ích</h5>
+                            <h5 class="card-title m-0">Không gian phòng</h5>
                             <button type="button" class="btn btn-success shadow-none btn-sm" data-bs-toggle="modal" data-bs-target="#feature-s">
                                 <i class="bi bi-plus-square me-2"></i> Thêm
                             </button>
@@ -34,9 +34,9 @@
                             <table class="table table-hover border">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th scope="col">#</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">STT</th>
+                                        <th scope="col">Tên không gian</th>
+                                        <th scope="col">Hành động</th>
                                     </tr>
                                 </thread>   
                                 <tbody id="features-data">
@@ -60,11 +60,11 @@
                             <table class="table table-hover border">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                    <th scope="col">#</th>
+                                    <th scope="col">STT</th>
                                     <th scope="col">Icon</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col" width="40%">Description</th>
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Tên dịch vụ</th>
+                                    <th scope="col" width="40%">Mô tả</th>
+                                    <th scope="col">Hành động</th>
                                     </tr>
                                 </thread>   
                                 <tbody id="facilities-data">
@@ -85,17 +85,17 @@
             <form id="feature_s_form">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Feature</h5>
+                        <h5 class="modal-title">Thêm Không gian phòng</h5>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Name</label>
+                            <label class="form-label fw-bold">Tên không gian</label>
                             <input type="text" name="feature_name" class="form-control shadow-none" required>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                        <button type="reset" class="btn btn-danger me-2 shadow-none" data-bs-dismiss="modal">HỦY</button>
+                        <button type="submit" class="btn btn-success text-white shadow-none">THÊM</button>
                     </div>
                 </div>
             </form>
@@ -108,11 +108,11 @@
             <form id="facility_s_form">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Add Facility</h5>
+                        <h5 class="modal-title">Thêm Dịch vụ</h5>
                     </div>
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label class="form-label fw-bold">Name</label>
+                            <label class="form-label fw-bold">Tên dịch vụ</label>
                             <input type="text" name="facility_name" class="form-control shadow-none" required>
                         </div>
                         <div class="mb-3">
@@ -120,13 +120,13 @@
                             <input type="file" name="facility_icon" accept=".svg" class="form-control shadow-none" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Description</label>
+                            <label class="form-label">Mô tả</label>
                             <textarea name="facility_desc" class="form-control shadow-none" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="reset" class="btn text-secondary shadow-none" data-bs-dismiss="modal">CANCEL</button>
-                        <button type="submit" class="btn custom-bg text-white shadow-none">SUBMIT</button>
+                        <button type="reset" class="btn btn-danger me-2 shadow-none" data-bs-dismiss="modal">HỦY</button>
+                        <button type="submit" class="btn btn-success text-white shadow-none">THÊM</button>
                     </div>
                 </div>
             </form>

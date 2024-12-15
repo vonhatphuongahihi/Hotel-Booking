@@ -38,7 +38,7 @@
                         <a class="nav-link text-white" href="rooms.php">Phòng</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="features_facilities.php">Tiện ích & Dịch vụ</a>
+                        <a class="nav-link text-white" href="features_facilities.php">Không gian & Dịch vụ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white" href="user_queries.php">Câu hỏi của người dùng</a>

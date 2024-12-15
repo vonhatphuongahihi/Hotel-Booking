@@ -42,7 +42,7 @@
                         <form id="carousel_s_form">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title">Thêm</h5>
+                                    <h5 class="modal-title">Thêm Carousel</h5>
                                 </div>
                                 <div class="modal-body">
                                     <div class="mb-3">
@@ -51,8 +51,8 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" onclick="carousel_picture.value=''" class="btn shadow-none btn-danger p-1.5 me-2" data-bs-dismiss="modal">Hủy</button>
-                                    <button type="submit" class="btn custom-bg text-white shadow-none">Xác nhận</button>
+                                    <button type="button" onclick="carousel_picture.value=''" class="btn shadow-none btn-danger p-1.5 me-2" data-bs-dismiss="modal">HỦY</button>
+                                    <button type="submit" class="btn btn-success text-white shadow-none">THÊM</button>
                                 </div>
                             </div>
                         </form>

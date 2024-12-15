@@ -28,7 +28,7 @@
                             <table class="table table-hover border" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th scope="col">#</th>
+                                        <th scope="col">STT</th>
                                         <th scope="col">Người dùng</th>
                                         <th scope="col">Phòng</th>
                                         <th scope="col">Số tiền hoàn trả</th>
