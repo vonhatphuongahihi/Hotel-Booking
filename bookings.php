@@ -29,7 +29,7 @@
         <div class="row">
 
             <div class="col-12 my-5 px-4">
-                <h2 class="fw-bold">ĐẶT PHÒNG</h2>
+            <h3 class="pt-4 fw-bold h-font">ĐẶT PHÒNG</h3>
                 <div style="font-size: 14px;">
                     <a href="index.php" class="text-secondary text-decoration-none">TRANG CHỦ</a>
                     <span class="text-secondary"> > </span>

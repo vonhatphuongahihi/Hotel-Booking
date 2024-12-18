@@ -137,7 +137,7 @@
                         <div class='col-md-5 px-lg-3 px-md-3 px-0'>
                             <h5 class='mb-3 fw-bold'>$room_data[name]</h5>
                             <div class='features mb-3'>
-                                <h6 class='mb-1'>Đặc điểm phòng</h6>
+                                <h6 class='mb-1'>Không gian phòng</h6>
                                 $features_data
                             </div>
                             <div class='facilities mb-3'>

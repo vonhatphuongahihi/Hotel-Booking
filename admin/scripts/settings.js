@@ -243,5 +243,3 @@ window.onload = function(){
     get_contacts();
     get_members();
 }
-
-

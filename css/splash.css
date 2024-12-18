@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&family=Lobster&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&family=Saira+Stencil+One&family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+.splash-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #FFFFFF; 
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  font-family: "Saira Stencil One", sans-serif;
+  font-weight: 200;
+  font-style: normal;}
+
+/* Logo */
+.logo {
+  margin-top: -100px;
+  max-width: 300px; 
+  width: 20vw;
+  height: auto;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Tiêu đề chữ chạy */
+.text-header {
+  font-size: 2rem;
+  color: #21244d;
+  line-height: 1.5;
+  margin: 0;
+  white-space: nowrap;
+}
+
+/* Hiệu ứng chữ */
+.text-header span {
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInMove 1s ease-in-out forwards;
+}
+
+/* Hiệu ứng fade-in chữ */
+@keyframes fadeInMove {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.logo {
+  animation: zoomIn 1.2s ease-out;
+}
+
+
+/* Thêm ánh sáng chữ */
+.text-header span {
+  animation: fadeInMove 1s ease-in-out forwards, glow 1.5s infinite ease-in-out;
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #b8e7ea, 0 0 20px #b8e7ea;
+  }
+  50% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #b8e7ea, 0 0 30px #b8e7ea;
+  }
+}
+
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}

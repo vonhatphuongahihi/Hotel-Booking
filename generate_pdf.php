@@ -9,11 +9,12 @@
         $frm_data = filteration($_GET);
 
         $query = "SELECT bo.*, bd.* FROM booking_order bo
-            INNER JOIN booking_details bd ON bo.booking_id = bd.booking_id
-            WHERE ((bo.booking_status = 'booked' AND bo.arrival = 1)
-            OR (bo.booking_status = 'cancelled' AND bo.refund = 1))
-            OR (bo.booking_status = 'payment failed' AND bo.refund = 1))
-            AND bo.booking_id = '$frm_data[id]'";
+        INNER JOIN booking_details bd ON bo.booking_id = bd.booking_id
+        WHERE ((bo.booking_status = 'booked' AND bo.arrival = 1)
+        OR (bo.booking_status = 'cancelled' AND bo.refund = 1)
+        OR (bo.booking_status = 'payment failed' AND bo.refund = 1))
+        AND bo.booking_id = '$frm_data[id]'";
+
 
         $res = mysqli_query($con, $query);
 
@@ -32,7 +33,7 @@
         echo $date;
 
         $table_data ="
-            <h2>BOOKING RECEIPT</h2>
+            <h2>HÓA ĐƠN ĐẶT PHÒNG</h2>
             <table border='1'>
                 <tr>
                 <td>Order ID: $data[order_id]</td>

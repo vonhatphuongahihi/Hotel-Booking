@@ -19,7 +19,7 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">CÀI ĐẶT</h3>
+            <h4 class="fw-bold">CÀI ĐẶT</h4>
 
                 <!-- General settings section -->
 
