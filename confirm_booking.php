@@ -71,11 +71,11 @@
             <div class="col-12 my-5 mb-4 px-4">
                 <h3 class="fw-bold" style="font-size: 24px;">XÁC NHẬN ĐẶT PHÒNG</h3>
                 <div style="font-size: 14px;">
-                    <a href="index.php" class="text-secondary text-decoration-none">Trang chủ</a>
+                    <a href="index.php" class="text-secondary text-decoration-none">TRANG CHỦ</a>
                     <span class="text-secondary"> > </span>
-                    <a href="rooms.php" class="text-secondary text-decoration-none">Phòng</a>
+                    <a href="rooms.php" class="text-secondary text-decoration-none">PHÒNG</a>
                     <span class="text-secondary"> > </span>
-                    <a href="#" class="text-secondary text-decoration-none">Xác nhận đặt phòng</a>
+                    <a href="#" class="text-secondary text-decoration-none">XÁC NHẬN ĐẶT PHÒNG</a>
                 </div>
             </div>
 

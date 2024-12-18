@@ -55,7 +55,9 @@
 
         <nav id="nav-bar" class="navbar navbar-expand-lg navbar-light bg-white px-lg-3 py-lg-2 shadow-sm sticky-top">
             <div class="container-fluid">
-                <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php"><?php echo $settings_r['site_title']; ?></a>
+                <a class="navbar-brand me-5 fw-bold fs-3 h-font" href="index.php">
+                    <img src="/Hotel-Booking/logo_hotel.png" alt="logo" style="width: 150px; height: 60px;">
+                </a>
                 <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -230,7 +232,7 @@
                                         <textarea name="address" class="form-control shadow-none" rows="1" required></textarea>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                        <label class="form-label">Mã vùng</label>
+                                        <label class="form-label">Mã bưu điện</label>
                                         <input name="pincode" type="number" class="form-control shadow-none" required>
                                     </div>
                                     <div class="col-md-6 mb-3">

@@ -41,10 +41,10 @@
     <div class="my-5 px-4">
     <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">GIỚI THIỆU</h3>
     <div class="h-line bg-dark "></div>
-    <p class="text-center mt-3">
-    StayHub là website đặt phòng khách sạn hiện đại, mang đến trải nghiệm tiện lợi và đáng tin cậy cho mọi khách du lịch. Chúng tôi cung cấp danh sách đa dạng các khách sạn với tiện nghi cao cấp, giá cả minh bạch và nhiều ưu đãi hấp dẫn. Với giao diện thân thiện, bạn có thể dễ dàng tìm kiếm, so sánh và đặt phòng chỉ trong vài bước. StayHub cam kết đồng hành cùng bạn trong mọi hành trình, mang đến không gian nghỉ dưỡng thoải mái và dịch vụ chất lượng, giúp chuyến đi của bạn trở nên trọn vẹn. 
+    <p class="text-center mt-3" style="max-width: 1200px; margin: auto; text-align: justify;">
+    StayHub là website đặt phòng khách sạn hiện đại, mang đến trải nghiệm tiện lợi và đáng tin cậy cho mọi khách du lịch. Chúng tôi cung cấp danh sách đa dạng các phòng với tiện nghi cao cấp, giá cả minh bạch và nhiều ưu đãi hấp dẫn. Với giao diện thân thiện, bạn có thể dễ dàng tìm kiếm, đặt phòng chỉ trong vài bước. StayHub cam kết đồng hành cùng bạn trong mọi hành trình, mang đến không gian nghỉ dưỡng thoải mái và dịch vụ chất lượng, giúp chuyến đi của bạn trở nên trọn vẹn. 
     </p>
-    <p class="text-center"><strong>Chào mừng bạn đến với StayHub!</strong></p>
+    <p class="text-center mt-2"><strong>Chào mừng bạn đến với StayHub!</strong></p>
     </div>
   
     <div class="container">
@@ -65,28 +65,28 @@
              <div class="col-lg-3 col-md-6 mb-4 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                     <img src="images/about/hotel.svg" width="70px">
-                    <h4 class="mt-3">HƠN 100 PHÒNG</h4>
+                    <h4 class="mt-3 fw-bold" style="font-size: 20px;">HƠN 100 PHÒNG</h4>
                 </div>
 
              </div>
              <div class="col-lg-3 col-md-6 mb-4 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                     <img src="images/about/customers.svg" width="70px">
-                    <h4 class="mt-3">HƠN 200 KHÁCH HÀNG</h4>
+                    <h4 class="mt-3 fw-bold" style="font-size: 20px;">HƠN 200 KHÁCH HÀNG</h4>
                 </div>
 
              </div>
              <div class="col-lg-3 col-md-6 mb-4 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                     <img src="images/about/rating.svg" width="70px">
-                    <h4 class="mt-3">HƠN 150 ĐÁNH GIÁ</h4>
+                    <h4 class="mt-3 fw-bold" style="font-size: 20px;">HƠN 150 ĐÁNH GIÁ</h4>
                 </div>
 
              </div>
              <div class="col-lg-3 col-md-6 mb-4 px-4">
                 <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
                     <img src="images/about/staff.svg" width="70px">
-                    <h4 class="mt-3">HƠN 200 NHÂN VIÊN</h4>
+                    <h4 class="mt-3 fw-bold" style="font-size: 20px;">HƠN 100 NHÂN VIÊN</h4>
                 </div>
 
              </div>

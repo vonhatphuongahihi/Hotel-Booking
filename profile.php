@@ -17,7 +17,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php require('inc/links.php'); ?>
-    <title><?php echo $settings_r['site_title'] ?> - PROFILE</title> 
+    <link rel="stylesheet" href="css/common.css">
+    <title><?php echo $settings_r['site_title'] ?> - HỒ SƠ</title> 
 </head>
 <body class="bg-light">
     <?php require('inc/header.php');
@@ -38,12 +39,12 @@
         <div class="row">
 
             <div class="col-12 my-5 px-4">
-                <h2 class="fw-bold">PROFILE</h2>
+                <h3 class="pt-4 fw-bold h-font">HỒ SƠ</h3>
                 <div style="font-size: 14px;">
                     <a href="index.php" class="text-secondary text-decoration-none">TRANG CHỦ</a>
                     <span class="text-secondary"> > </span>
                 
-                    <a href="#" class="text-secondary text-decoration-none">PROFILE</a>
+                    <a href="#" class="text-secondary text-decoration-none">HỒ SƠ</a>
                 </div>
             </div>
 
@@ -75,8 +76,8 @@
                              <textarea name="address" class="form-control shadow-none" rows="1" required><?php echo $u_fetch['address'] ?></textarea>
                         </div>              
                     </div>
-                    <button type="submit" class="btn text-white custom-bg shadow-none">Lưu thay đổi</button>
-                </form>
+                    <button type="submit" class="btn text-white shadow-none" style="background-color: #2EC1AC;">Lưu thay đổi</button>
+                    </form>
               </div>
             </div>
 
@@ -86,12 +87,10 @@
                     <h5 class="mb-3 fw-bold">
                         Ảnh đại diện
                     </h5>
-                    <img src="<?php  echo USERS_IMG_PATH.$u_fetch['profile']?>" class="rounded-circle img-fluid">
+                    <img src="<?php echo USERS_IMG_PATH.$u_fetch['profile']?>" class="rounded-circle img-fluid" style="width: 300px; height: 300px; margin-left: 20px;">
+                    <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="mt-4 mb-4 form-control shadow-none" required>
 
-                    <label class="form-label">Ảnh mới</label>
-                    <input name="profile" type="file" accept=".jpg, .jpeg, .png, .webp" class="mb-4 form-control shadow-none" required>
-
-                    <button type="submit" class="btn text-white custom-bg shadow-none">Lưu thay đổi</button>
+                    <button type="submit" class="btn text-white shadow-none" style="background-color: #2EC1AC;">Lưu thay đổi</button>
                 </form>
               </div>
             </div>
@@ -112,7 +111,7 @@
                              <input name="confirm_pass" type="password" class="form-control shadow-none" required>
                         </div>
                     </div>
-                    <button type="submit" class="btn text-white custom-bg shadow-none">Lưu thay đổi</button>
+                    <button type="submit" class="btn text-white shadow-none" style="background-color: #2EC1AC;">Lưu thay đổi</button>
                 </form>
               </div>
             </div>
@@ -138,15 +137,15 @@
                 xhr.onload = function(){
                     if(this.responseText=='phone_already')
                 {
-                    alert('error', "Phone number is already registered!");
+                    alert('error', "Số điện thoại đã được đăng ký!");
                 }
                 else if(this.responseText== 0)
                 {
-                    alert('error',"No Changes Made !");
+                    alert('error',"Không thực hiện được!");
                 }
                 else 
                 {
-                    alert('success','Changes saved !');
+                    alert('success','Thay đổi đã được lưu');
                 }
                     
                 }
@@ -165,15 +164,15 @@
             
                 if (this.responseText== 'inv_img')
                 {
-                    alert('error', "Only JPG, WEBP & PNG images are allowed!");
+                    alert('error', "Chỉ chấp nhận file ảnh!");
                 }
                 else if (this.responseText== 'upd_failed')
                 {
-                    alert('error', "Image upload failed!");
+                    alert('error', "Ảnh upload thất bại!");
                 }
                 else if(this.responseText== 0)
                 {
-                    alert('error',"No Changes Made !");
+                    alert('error',"Không thực hiện được!");
                 }
                 else 
                 {
@@ -191,7 +190,7 @@
             let confirm_pass = pass_form.elements['confirm_pass'].value;
             if (new_pass!=confirm_pass)
             {
-                alert('error', 'Password do not match!');   
+                alert('error', 'Mật khẩu không khớp!');   
                 return false; 
             }      
             let data= new FormData();
@@ -204,15 +203,15 @@
             
                 if (this.responseText== 'mismatch')
                 {
-                    alert('error', "Password do not match!");
+                    alert('error', "Mật khẩu không khớp!");
                 }
                 else if(this.responseText== 0)
                 {
-                    alert('error',"Updation failed!");
+                    alert('error',"Không thực hiện được!");
                 }
                 else 
                 {
-                alert('success','Changes saved');
+                alert('success','Thay đổi đã được lưu');
                 pass_form.reset();
                 }
                     

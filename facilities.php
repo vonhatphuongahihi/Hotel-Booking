@@ -39,8 +39,11 @@
     <div class="my-5 px-4">
     <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">DỊCH VỤ</h3>
     <div class="h-line bg-dark "></div>
-    <p class="text-center mt-3 ">
-    Với <strong>StayHub</strong>, việc tìm kiếm một nơi nghỉ ngơi thoải mái, tiện lợi và phù hợp với nhu cầu của bạn chưa bao giờ dễ dàng đến thế! StayHub cam kết mang đến cho khách hàng những dịch vụ hoàn hảo với hệ thống phòng được trang bị đầy đủ các trang thiết bị hiện đại, tiện dụng.    </p>
+    <p class="text-center mt-3" style="max-width: 800px; margin: auto; text-align: justify;">
+    Với <strong>StayHub</strong>, việc tìm kiếm một nơi nghỉ ngơi thoải mái, tiện lợi và phù hợp với nhu cầu của bạn chưa bao giờ dễ dàng đến thế! StayHub cam kết mang đến cho khách hàng những dịch vụ hoàn hảo với hệ thống phòng được trang bị đầy đủ các trang thiết bị hiện đại, tiện dụng.
+</p>
+
+
     </div>
     
     <div class="container">

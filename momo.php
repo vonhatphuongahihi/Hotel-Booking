@@ -40,7 +40,9 @@ if (isset($_POST['payUrl'])) {
     $redirectUrl = "http://localhost:8012/Hotel-Booking/pay_response.php";
     $ipnUrl = "http://localhost:8012/Hotel-Booking/pay_response.php";
     $extraData = "";
-
+    $requestId = time() . ""; // Tạo requestId duy nhất
+$rawHash = "accessKey=" . $accessKey . "&amount=" . $amount . "&extraData=" . $extraData . "&ipnUrl=" . $ipnUrl . "&orderId=" . $orderId . "&orderInfo=" . $orderInfo . "&partnerCode=" . $partnerCode . "&redirectUrl=" . $redirectUrl . "&requestId=" . $requestId . "&requestType=captureWallet";
+$signature = hash_hmac("sha256", $rawHash, $secretKey);
     if (!empty($_POST)) {
         $requestId = time() . "";
         $requestType = "payWithATM";

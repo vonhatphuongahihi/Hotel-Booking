@@ -26,7 +26,7 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h4 class="mb-4">NGƯỜI DÙNG</h4>
+            <h4 class="fw-bold">NGƯỜI DÙNG</h4>
   
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
@@ -36,18 +36,19 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table table-hover border text-center" style="min-width: 1300px;">
+                            <table class="table table-hover border text-center" style="min-width: 1600px; width: auto;">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th scope="col">STT</th>
+                                        <th scope="col" class="text-nowrap">STT</th>
                                         <th scope="col" width="20%">Họ và tên</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Số điện thoại</th>
-                                        <th scope="col">Địa chỉ</th>
-                                        <th scope="col">Ngày sinh</th>
-                                        <th scope="col">Xác minh</th>
-                                        <th scope="col">Trạng thái</th>
-                                        <th scope="col">Ngày đăng ký</th>
+                                        <th scope="col" class="text-nowrap ">Email</th>
+                                        <th scope="col" class="text-nowrap">Số điện thoại</th>
+                                        <th scope="col" class="text-nowrap">Địa chỉ</th>
+                                        <th scope="col" class="text-nowrap" style="width: 100px;">Ngày sinh</th>
+                                        <th scope="col" class="text-nowrap">Xác thực</th>
+                                        <th scope="col" class="text-nowrap" style="width: 150px;">Trạng thái</th>
+                                        <th scope="col" class="text-nowrap">Ngày đăng ký</th>
+                                        <th scope="col" class="text-nowrap">Hành động</th>
                                     </tr>
                                 </thead>   
                                 <tbody id="users-data">

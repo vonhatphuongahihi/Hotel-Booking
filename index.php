@@ -42,9 +42,15 @@
                 padding:0 35px;
             }
         }
-        .modal {
-        z-index: 1150 !important; 
+        .modal-backdrop {
+            z-index: 1040 !important; 
         }
+
+        .modal {
+            z-index: 1051 !important; 
+        }
+</head>
+
     </style>
 </head>
 <body class="bg-light">
@@ -214,7 +220,7 @@
                             $login = 1;
                         }
 
-                        $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm text-white custom-bg shadow-none'>Đặt Phòng</button>";
+                        $book_btn = "<button onclick='checkLoginToBook($login,$room_data[id])' class='btn btn-sm text-white custom-bg shadow-none'>Đặt phòng</button>";
                     }
 
                     $rating_q="SELECT AVG(rating) AS `avg_rating` FROM `rating_review`
@@ -247,7 +253,7 @@
                                     <h5 class="fw-bold">$room_data[name]</h5>
                                     <h6 class="mb-4">$room_data[price] VND / đêm</h6>
                                     <div class="features mb-4">
-                                        <h6 class="mb-1">Đặc điểm phòng</h6>
+                                        <h6 class="mb-1">Không gian phòng</h6>
                                         $features_data
                                     </div>
                                     <div class="facilities mb-4">
@@ -311,7 +317,7 @@
 
     <!-- Testimonials -->
 
-    <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">CHỨNG THỰC</h3>
+    <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">ĐÁNH GIÁ</h3>
 
     <div class="container mt-5">
         <div class="swiper swiper-testimonials">
@@ -498,7 +504,7 @@
                         echo<<<data
                          <a href="$contact_r[tw]" class="d-inline-block mb-3">
                           <span class="badge bg-light text-dark fs-6 p-2">
-                          <i class="bi bi-twitter-x me-1"></i> (Twitter)
+                          <i class="bi bi-twitter-x me-1"></i> Twitter
                           </span>
                          </a>
                          <br>
@@ -523,33 +529,33 @@
     </div>
 
     <!-- Password reset modal -->
-    <div class="modal fade" id="recoveryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <form id="recovery-form">
-                <div class="modal-header">
-                    <h5 class="modal-title d-flex align-items-center fw-bold">
-                        <i class="bi bi-shield-lock fs-3 me-2"></i>
-                        ĐẶT LẠI MẬT KHẨU
-                    </h5>
-                    <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label class="form-label">Mật khẩu mới</label> 
-                        <input type="password" name="pass" class="form-control shadow-none" required>
-                        <input type="hidden" name="email">
-                        <input type="hidden" name="token">
+    <div class="modal fade" id="recoveryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form id="recovery-form">
+                    <div class="modal-header">
+                        <h5 class="modal-title d-flex align-items-center fw-bold">
+                            <i class="bi bi-shield-lock fs-3 me-2"></i>
+                            ĐẶT LẠI MẬT KHẨU
+                        </h5>
+                        <button type="reset" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="mb-2 text-end">
-                        <button type="button" class="btn shadow-none btn-danger p-1.5 me-2" data-bs-dismiss="modal">Hủy</button>
-                        <button type="submit" class="btn btn-dark shadow-none">Đồng ý</button>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label">Mật khẩu mới</label> 
+                            <input type="password" name="pass" class="form-control shadow-none" required>
+                            <input type="hidden" name="email">
+                            <input type="hidden" name="token">
+                        </div>
+                        <div class="mb-2 text-end">
+                            <button type="button" class="btn shadow-none btn-danger p-1.5 me-2" data-bs-dismiss="modal">Hủy</button>
+                            <button type="submit" class="btn btn-dark shadow-none">Đồng ý</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-</div>                
+    </div>                
     <!-- Footer -->
     <?php require('inc/footer.php'); ?>
     <?php
@@ -561,18 +567,16 @@
                 [$data['email'],$data['token'],$t_date],'sss');
             if(mysqli_num_rows($query) == 1)
             {
-                echo <<< showModal
-                <script>
-                    var myModal = document.getElementById('recoveryModal');
-                    
-
-                    myModal.querySelector('input[name="email"]').value = '$data[email]';
-                    myModal.querySelector('input[name="token"]').value = '$data[token]';
-
-                    var modal = new bootstrap.Modal(myModal);
-                    modal.show();
-                </script>
+                echo<<<showModal
+                    <script>
+                        var myModal = document.getElementById('recoveryModal');
+                        myModal.querySelector('input[name="email"]').value = '$data[email]';
+                        myModal.querySelector('input[name="token"]').value = '$data[token]';
+                        var modal = bootstrap.Modal.getOrCreateInstance(myModal);
+                        modal.show();
+                    </script>
                 showModal;
+                
             }
             else{
                 alert('error','Link không tồn tại hoặc bị lỗi!');
@@ -640,13 +644,10 @@
         data.append('token', recovery_form.elements['token'].value);
         data.append('pass', recovery_form.elements['pass'].value);
         data.append('recover_user', '');
-        let modal = bootstrap.Modal.getInstance(document.getElementById('recoveryModal'));
-            if (modal._isShown) {
-                modal.hide();
-                modal.dispose(); 
-                document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
-            }
-
+        var myModal = document.getElementById('recoveryModal');
+        var modal = bootstrap.Modal.getInstance(myModal);
+        modal.hide();
+        document.querySelectorAll('.modal-backdrop').forEach(el => el.remove());
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "ajax/login_register.php", true);
         xhr.onload = function() {

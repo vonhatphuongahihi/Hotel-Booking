@@ -8,19 +8,19 @@
     {
         $img_r = uploadImage($_FILES['picture'], CAROUSEL_FOLDER);
         if ($img_r == 'inv_img') {
-            echo "Hình ảnh không hợp lệ!";
+            echo $img_r;
         }
         else if ($img_r == 'inv_size') {
-            echo "Kích thước hình ảnh quá lớn!";
+            echo $img_r;
         }
         else if ($img_r == 'upd_failed') {
-            echo "Tải lên hình ảnh thất bại!";
+            echo $img_r;
         }
         else {
             $q = "INSERT INTO `carousel`(`image`) VALUES (?)";
             $values = [$img_r];
             $res = insert($q, $values,'s');
-            echo ($res) ? "Thêm hình ảnh thành công!" : "Thêm hình ảnh thất bại!";
+            echo $res;
         }
     }
 
@@ -53,10 +53,10 @@
         if (deleteImage($img['image'], CAROUSEL_FOLDER)) {
             $q = "DELETE FROM `carousel` WHERE `sr_no` = ?";
             $res = delete($q, $values, 'i');
-            echo ($res) ? "Xóa hình ảnh thành công!" : "Xóa hình ảnh thất bại!";
+            echo $res;
         }
         else {
-            echo "Xóa hình ảnh thất bại!";
+            echo 0;
         }
     }
 

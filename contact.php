@@ -33,13 +33,13 @@
     <div class="my-5 px-4">
     <h3 class="mt-5 pt-4 mb-4 text-center fw-bold h-font">LIÊN HỆ</h3>
     <div class="h-line bg-dark "></div>
-    <p class="text-center mt-3 " style ="text-align: justify; padding-left: 20px; padding-right: 20px;">
+    <p class="text-center mt-3 " style="max-width: 1300px; margin: auto; text-align: justify;">
     Chúng tôi luôn sẵn sàng hỗ trợ bạn trong mọi vấn đề liên quan đến đặt phòng và dịch vụ khách sạn. Nếu bạn có bất kỳ câu hỏi nào hoặc cần trợ giúp về việc đặt phòng khách sạn, đừng ngần ngại liên hệ với chúng tôi. Đội ngũ chăm sóc khách hàng của StayHub luôn luôn ở đây để mang đến sự hài lòng và giúp bạn có được những trải nghiệm tuyệt vời nhất.    </p>
     </div>
     
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-6 mb-5 px-4" style="margin-left: 70px">
+            <div class="col-lg-4 col-md-6 mb-5 px-4">
                 <div class="bg-white rounded shadow p-4">
                     <iframe class="w-100 rounded mb-4" height="320px" src="<?php echo $contact_r['iframe'] ?> " loading="lazy"></iframe>
                         <h5 class="fw-bold" style="font-size: 17px;">Địa chỉ</h5>
@@ -94,7 +94,7 @@
                 </div>
 
             </div>
-            <div class="col-lg-6 col-md-6 px-4" style="margin-left: 100px">
+            <div class="col-lg-6 col-md-6 px-4">
                 <div class="bg-white rounded shadow p-4 ">
                     <form method="POST">
                         <h5 class="fw-bold mb-4">Gửi câu hỏi</h5>
@@ -138,10 +138,10 @@
 
             $res = insert($q, $values, 'ssss');
             if($res==1){
-                alert('success','Mail sent!');
+                alert('success','Đã gửi câu hỏi! Chúng tôi sẽ liên hệ với bạn sớm nhất có thể');
             }
             else{
-                alert('error','Server Down! Try again later');
+                alert('error','Đã xảy ra lỗi! Vui lòng thử lại sau');
             }
         }
     ?>

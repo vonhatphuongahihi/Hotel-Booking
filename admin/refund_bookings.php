@@ -20,7 +20,7 @@
     <div class="container-fluid" id="main-content">
         <div class="row">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h3 class="mb-4">HOÀN TIỀN ĐẶT PHÒNG</h3>
+            <h4 class="fw-bold">HOÀN TIỀN ĐẶT PHÒNG</h4>
 
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-body">
@@ -28,7 +28,7 @@
                             <table class="table table-hover border" style="min-width: 1300px;">
                                 <thead>
                                     <tr class="bg-dark text-light">
-                                        <th scope="col">#</th>
+                                        <th scope="col">STT</th>
                                         <th scope="col">Người dùng</th>
                                         <th scope="col">Phòng</th>
                                         <th scope="col">Số tiền hoàn trả</th>

@@ -2,58 +2,78 @@
   // Mảng dữ liệu Links
   $links = [
     [
-      'title' => 'Giới thiệu',
-      'links' => [
-        ['name' => 'Trang chủ', 'link' => '/'],
-        ['name' => 'Giới thiệu về StayHub', 'link' => '/about-us'],
-      ],
+        'title' => 'GIỚI THIỆU',
+        'links' => [
+            ['name' => 'Về StayHub', 'link' => '/Hotel-Booking/about.php'],
+        ],
     ],
     [
-      'title' => 'Thông tin',
-      'links' => [
-        ['name' => 'Liên hệ', 'link' => '/contact-us'],
-      ],
+        'title' => 'HỖ TRỢ',
+        'links' => [
+            ['name' => 'Điều khoản sử dụng', 'link' => '/Hotel-Booking/terms.php'],
+            ['name' => 'Câu hỏi thường gặp', 'link' => '/Hotel-Booking/faq.php'],
+        ],
     ],
-  ];
+    [
+        'title' => 'LIÊN HỆ',
+        'links' => [
+            ['name' => 'Facebook', 'link' => $contact_r['fb'], 'image' => './images/facebook.png'],
+            ['name' => 'Instagram', 'link' => $contact_r['insta'], 'image' => './images/instagram.png'],
+            ['name' => 'Twitter', 'link' => $contact_r['tw'], 'image' => './images/twitter.png'],
+        ],
+    ],
+];
 ?>
+<style>
+   .hi {
+    width: 19% !important;
+}
+
+.social-icon {
+    width: 30px; 
+    height: auto;
+    margin-right: 10px; 
+}
+
+@media (max-width: 576px) {
+    .footer-column {
+        width: 100% !important; 
+        text-align: center;
+    }
+
+    .hi {
+        width: 100% !important; 
+    }
+}
+
+</style>
 <div class="container-fluid bg-white mt-5">
-        <div class="row">
-            <div class="col-lg-4 p-4">
-                <h3 class="h-font fw-bold fs-3 mb-2"><?php echo $settings_r['site_title']?></h3>
-                <p>
-                    <?php echo $settings_r['site_about']?>
-                </p>
-            </div>
-            <div class="col-lg-4 p-4">
-                <h5 class="mb-3">Links</h5>
-                <a href="index.php" class="d-inline-block mb-2 text-dark text-decoration-none">Trang chủ</a> <br>
-                <a href="rooms.php" class="d-inline-block mb-2 text-dark text-decoration-none">Phòng</a> <br>
-                <a href="facilities.php" class="d-inline-block mb-2 text-dark text-decoration-none">Dịch vụ</a> <br>
-                <a href="contact.php" class="d-inline-block mb-2 text-dark text-decoration-none">Liên hệ</a> <br>
-                <a href="about.php" class="d-inline-block mb-2 text-dark text-decoration-none">Giới thiệu</a>
-            </div>
-            <div class="col-lg-4 p-4">
-                <h5 class="mb-3">Theo dõi</h5>
-                <?php
-                if($contact_r['tw']!='')
-                {
-                    echo<<<data
-                          <a href="$contact_r[tw]" class="d-inline-block text-dark text-decoration-none mb-2">
-                           <i class="bi bi-twitter-x me-1"></i> X (Twitter)
-                          </a><br>
-                    data;
-                }
-                ?>
-                <a href="<?php echo $contact_r['fb'] ?>" class="d-inline-block text-dark text-decoration-none mb-2">
-                    <img src="./images/facebook.png" alt="logo" /> 
-                </a>
-                <a href="<?php echo $contact_r['insta'] ?>" class="d-inline-block text-dark text-decoration-none">
-                <img src="./images/instagram.png" alt="logo" /> 
-                </a><br>
-                
-            </div>
+    <div class="row g-2"> 
+        <div class="col-lg-5 p-4" style="text-align: justify;">
+            <h3 class="h-font fw-bold fs-3 mb-2"><?php echo $settings_r['site_title'] ?></h3>
+            <p>
+                <?php echo $settings_r['site_about'] ?>
+            </p>
         </div>
+
+        <?php foreach ($links as $column) { ?>
+            <div class="hi p-4 footer-column">
+                <h5 class="mb-3 fw-bold"><?php echo $column['title']; ?></h5>
+                <div class="chao">
+                    <?php foreach ($column['links'] as $link) { ?>
+                        <a href="<?php echo $link['link']; ?>" class="d-inline-block mb-2 text-dark text-decoration-none">
+                            <?php if (isset($link['image'])) { ?>
+                                <img src="<?php echo $link['image']; ?>" alt="<?php echo $link['name']; ?>" class="social-icon"> 
+                            <?php } else { ?>
+                                <span><?php echo $link['name']; ?></span> 
+                            <?php } ?>
+                        </a>
+                    <?php } ?>
+                </div>
+            </div>
+        <?php } ?>
     </div>
+</div>
 
     <h6 class="text-center bg-dark text-white p-3 m-0">
     🏨 Khách sạn 5 sao tại Việt Nam ⭐
@@ -134,28 +154,28 @@
         xhr.onload = function() {
             switch (this.responseText) {
                 case 'pass_missmatch':
-                    alert('error', 'Password and Confirm Password do not match!');
+                    alert('error', 'Mật khẩu không khớp!');
                     break;
                 case 'email_already':
-                    alert('error', 'Email is already registered!');
+                    alert('error', 'Email đã được đăng ký!');
                     break;
                 case 'phone_already':
-                    alert('error', 'Phone number is already registered!');
+                    alert('error', 'Số điện thoại đã được đăng ký!');
                     break;
                 case 'inv_img':
-                    alert('error', 'Only JPG, WEBP & PNG images are allowed!');
+                    alert('error', 'Hình ảnh không hợp lệ!');
                     break;
                 case 'upd_failed':
-                    alert('error', 'Image upload failed!');
+                    alert('error', 'Đăng ký thất bại! Server down!');
                     break;
                 case 'mail_failed':
-                    alert('error', 'Cannot send confirmation email! Server down!');
+                    alert('error', 'Không thể gửi email! Server down!');
                     break;
                 case 'ins_failed':
-                    alert('error', 'Registration failed! Server down!');
+                    alert('error', 'Đăng ký thất bại! Server down!');
                     break;
                 default:
-                    alert('success', 'Registration successful! Please check your email for confirmation link.');
+                    alert('success', 'Đăng ký thành công! Vui lòng kiểm tra email để xác minh tài khoản.');
                     e.target.reset();
             }
         };
